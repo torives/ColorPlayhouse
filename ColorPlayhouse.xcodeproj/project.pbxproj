@@ -33,6 +33,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F04F71B1DD273D000A5DFB1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */,
+				6E6DACDF1DD23CE600C8ADD6 /* Assets.xcassets */,
+				6E6DACE11DD23CE600C8ADD6 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		6E6DACCC1DD23CE600C8ADD6 = {
 			isa = PBXGroup;
 			children = (
@@ -52,11 +62,9 @@
 		6E6DACD71DD23CE600C8ADD6 /* ColorPlayhouse */ = {
 			isa = PBXGroup;
 			children = (
+				4F04F71B1DD273D000A5DFB1 /* Resources */,
 				6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */,
 				6E6DACDA1DD23CE600C8ADD6 /* ViewController.swift */,
-				6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */,
-				6E6DACDF1DD23CE600C8ADD6 /* Assets.xcassets */,
-				6E6DACE11DD23CE600C8ADD6 /* Info.plist */,
 			);
 			path = ColorPlayhouse;
 			sourceTree = "<group>";
@@ -93,7 +101,7 @@
 				TargetAttributes = {
 					6E6DACD41DD23CE600C8ADD6 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 7S5BW22U4Y;
+						DevelopmentTeam = D4QEWF5RB3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -248,10 +256,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 7S5BW22U4Y;
+				DEVELOPMENT_TEAM = D4QEWF5RB3;
 				INFOPLIST_FILE = ColorPlayhouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.priscila.ColorPlayhouse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bpy.ColorPlayhouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -262,10 +270,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 7S5BW22U4Y;
+				DEVELOPMENT_TEAM = D4QEWF5RB3;
 				INFOPLIST_FILE = ColorPlayhouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.priscila.ColorPlayhouse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bpy.ColorPlayhouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -290,6 +298,7 @@
 				6E6DACE61DD23CE600C8ADD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

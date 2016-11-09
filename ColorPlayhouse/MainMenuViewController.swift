@@ -11,10 +11,20 @@ import UIKit
 class MainMenuViewController: UIViewController {
 
     var delegate: MainMenuDelegate?
+
+    @IBAction func myPortfolio(_ sender: AnyObject) {
+    }
+    
+    @IBAction func newDrawing(_ sender: AnyObject) {
+    }
     
     override func viewDidLoad() {
-       
+
+        
         super.viewDidLoad()
     }
+    
+    
 }
+
 

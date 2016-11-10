@@ -17,6 +17,7 @@
 		4FEF41E31DD4E26000D185EC /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41E21DD4E26000D185EC /* ImageItem.swift */; };
 		4FEF41E51DD4E27000D185EC /* TimelapseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41E41DD4E27000D185EC /* TimelapseItem.swift */; };
 		4FEF41E71DD4E60700D185EC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41E61DD4E60700D185EC /* Router.swift */; };
+		4FEF41EA1DD4F49600D185EC /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41E91DD4F49600D185EC /* DrawingViewController.swift */; };
 		6E6DACD91DD23CE600C8ADD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */; };
 		6E6DACDB1DD23CE600C8ADD6 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DACDA1DD23CE600C8ADD6 /* MainMenuViewController.swift */; };
 		6E6DACDE1DD23CE600C8ADD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		4FEF41E21DD4E26000D185EC /* ImageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
 		4FEF41E41DD4E27000D185EC /* TimelapseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelapseItem.swift; sourceTree = "<group>"; };
 		4FEF41E61DD4E60700D185EC /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		4FEF41E91DD4F49600D185EC /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		6E6DACD51DD23CE600C8ADD6 /* ColorPlayhouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPlayhouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E6DACDA1DD23CE600C8ADD6 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		4FEF41E81DD4F45500D185EC /* DrawingScene */ = {
+			isa = PBXGroup;
+			children = (
+				4FEF41E91DD4F49600D185EC /* DrawingViewController.swift */,
+			);
+			name = DrawingScene;
+			sourceTree = "<group>";
+		};
 		6E6DACCC1DD23CE600C8ADD6 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +135,7 @@
 				4F04F7231DD2776600A5DFB1 /* Common */,
 				4F04F71C1DD276EC00A5DFB1 /* MainMenuScene */,
 				4FEF41D61DD4DD6900D185EC /* PorfolioScene */,
+				4FEF41E81DD4F45500D185EC /* DrawingScene */,
 				4F04F71B1DD273D000A5DFB1 /* Resources */,
 				6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */,
 			);
@@ -212,6 +223,7 @@
 				4FEF41D81DD4DD9D00D185EC /* PortfolioViewController.swift in Sources */,
 				4FEF41E01DD4E12500D185EC /* PortfolioItem.swift in Sources */,
 				4FEF41E71DD4E60700D185EC /* Router.swift in Sources */,
+				4FEF41EA1DD4F49600D185EC /* DrawingViewController.swift in Sources */,
 				4FEF41E51DD4E27000D185EC /* TimelapseItem.swift in Sources */,
 				4FEF41DA1DD4DDC400D185EC /* PortfolioScreen.swift in Sources */,
 				4F04F7251DD2777200A5DFB1 /* MainRouter.swift in Sources */,

@@ -12,6 +12,6 @@ protocol MainMenuRouter: Router {
  
     var menuScreen: MainMenuViewController? {get set}
     
-    func displayNewDrawingScreen()
+    func displayDrawingScreen()
     func displayPortfolioScreen()
 }

@@ -24,8 +24,8 @@ extension MainRouter: MainMenuRouter {
     //There's no data to be passed from the main menu, so this stays empty
     func passDataToNextScene(_ segue: UIStoryboardSegue) {}
 
-    func displayNewDrawingScreen() {
-        menuScreen?.performSegue(withIdentifier: "displayNewDrawingScreen", sender: nil)
+    func displayDrawingScreen() {
+        menuScreen?.performSegue(withIdentifier: "displayDrawingScreen", sender: nil)
     }
     
     func displayPortfolioScreen(){

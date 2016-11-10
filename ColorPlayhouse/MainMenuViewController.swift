@@ -11,10 +11,7 @@ import UIKit
 class MainMenuViewController: UIViewController
 {
     var router: MainMenuRouter?
-}
 
-extension MainMenuViewController
-{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         router?.passDataToNextScene(segue)
     }

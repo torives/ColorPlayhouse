@@ -40,7 +40,7 @@
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" backgroundImage="new_drawing_complete"/>
                                 <connections>
-                                    <action selector="newDrawing:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="8yE-Ex-8HF"/>
+                                    <segue destination="gDo-Ad-lRw" kind="show" id="bjV-R6-RXI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,6 +67,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbC-Ul-NIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1644" y="-543"/>
+        </scene>
+        <!--Drawing View Controller-->
+        <scene sceneID="Ot6-92-8Li">
+            <objects>
+                <viewController id="gDo-Ad-lRw" customClass="DrawingViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k8f-N9-9p5"/>
+                        <viewControllerLayoutGuide type="bottom" id="NfB-g0-fV3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Glg-Xt-bza">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R6W-0Y-V87" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1644" y="759"/>
         </scene>
     </scenes>
     <resources>

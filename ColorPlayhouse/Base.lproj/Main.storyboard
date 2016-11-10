@@ -38,7 +38,10 @@
                                 <rect key="frame" x="299" y="237" width="508" height="585"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" backgroundImage="new_drawing_complete"/>
+                                <state key="normal" backgroundImage="new_drawing_complete">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <segue destination="gDo-Ad-lRw" kind="show" id="bjV-R6-RXI"/>
                                 </connections>
@@ -46,6 +49,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="myPortfolioOutlet" destination="iqP-rh-JRm" id="Nuw-0s-W1s"/>
+                        <outlet property="newDrawingOutlet" destination="KlV-fV-Csz" id="t5Z-XR-Fs9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

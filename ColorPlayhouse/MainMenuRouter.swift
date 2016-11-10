@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MainMenuRouter {
+protocol MainMenuRouter: Router {
  
     var menuScreen: UIViewController? {get set}
     

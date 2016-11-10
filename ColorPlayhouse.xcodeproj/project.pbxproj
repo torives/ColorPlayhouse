@@ -18,6 +18,7 @@
 		4FEF41E01DD4E12500D185EC /* PortfolioItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41DF1DD4E12500D185EC /* PortfolioItem.swift */; };
 		4FEF41E31DD4E26000D185EC /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41E21DD4E26000D185EC /* ImageItem.swift */; };
 		4FEF41E51DD4E27000D185EC /* TimelapseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41E41DD4E27000D185EC /* TimelapseItem.swift */; };
+		4FEF41E71DD4E60700D185EC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41E61DD4E60700D185EC /* Router.swift */; };
 		6E6DACD91DD23CE600C8ADD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */; };
 		6E6DACDB1DD23CE600C8ADD6 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DACDA1DD23CE600C8ADD6 /* MainMenuViewController.swift */; };
 		6E6DACDE1DD23CE600C8ADD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		4FEF41DF1DD4E12500D185EC /* PortfolioItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioItem.swift; sourceTree = "<group>"; };
 		4FEF41E21DD4E26000D185EC /* ImageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
 		4FEF41E41DD4E27000D185EC /* TimelapseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelapseItem.swift; sourceTree = "<group>"; };
+		4FEF41E61DD4E60700D185EC /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		6E6DACD51DD23CE600C8ADD6 /* ColorPlayhouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPlayhouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E6DACDA1DD23CE600C8ADD6 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				4F04F7241DD2777200A5DFB1 /* MainRouter.swift */,
+				4FEF41E61DD4E60700D185EC /* Router.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				4F04F7221DD2775100A5DFB1 /* MainMenuRouter.swift in Sources */,
 				4FEF41D81DD4DD9D00D185EC /* PortfolioViewController.swift in Sources */,
 				4FEF41E01DD4E12500D185EC /* PortfolioItem.swift in Sources */,
+				4FEF41E71DD4E60700D185EC /* Router.swift in Sources */,
 				4FEF41E51DD4E27000D185EC /* TimelapseItem.swift in Sources */,
 				4FEF41DA1DD4DDC400D185EC /* PortfolioScreen.swift in Sources */,
 				4F04F7251DD2777200A5DFB1 /* MainRouter.swift in Sources */,

@@ -10,27 +10,25 @@ import UIKit
 
 class MainRouter {
     
-    var menuScreen: UIViewController?
+    var menuScreen: MainMenuViewController?
     
     func configureFirstSceneOn(_ window: UIWindow){
         
-        let presenter = MainMenuPresenter()
-        presenter.router = self
-        
         let menuVC = window.rootViewController as! MainMenuViewController
-        menuVC.delegate = presenter
         menuScreen = menuVC
     }
 }
 
 extension MainRouter: MainMenuRouter {
+    
+    //There's no data to be passed from the main menu, so this stays empty
+    func passDataToNextScene(_ segue: UIStoryboardSegue) {}
 
     func displayNewDrawingScreen() {
-     
-        
+        menuScreen?.performSegue(withIdentifier: "displayNewDrawingScreen", sender: nil)
     }
     
     func displayPortfolioScreen(){
-        
+        menuScreen?.performSegue(withIdentifier: "displayPortfolioScreen", sender: nil)
     }
 }

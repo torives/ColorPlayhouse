@@ -9,5 +9,5 @@
 import UIKit
 
 protocol Router {
-    func passDataToNextScene(segue: UIStoryboardSegue)
+    func passDataToNextScene(_ segue: UIStoryboardSegue)
 }

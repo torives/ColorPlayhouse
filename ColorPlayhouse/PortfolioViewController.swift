@@ -10,7 +10,7 @@ import UIKit
 
 class PortfolioViewController: UIViewController
 {
-   var delegate: PortfolioDelegate?
+    var delegate: PortfolioDelegate?
     
 }
 

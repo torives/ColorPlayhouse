@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F04F71E1DD2770800A5DFB1 /* MainMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F04F71D1DD2770800A5DFB1 /* MainMenuDelegate.swift */; };
-		4F04F7201DD2772700A5DFB1 /* MainMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F04F71F1DD2772700A5DFB1 /* MainMenuPresenter.swift */; };
 		4F04F7221DD2775100A5DFB1 /* MainMenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F04F7211DD2775100A5DFB1 /* MainMenuRouter.swift */; };
 		4F04F7251DD2777200A5DFB1 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F04F7241DD2777200A5DFB1 /* MainRouter.swift */; };
 		4FEF41D81DD4DD9D00D185EC /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41D71DD4DD9D00D185EC /* PortfolioViewController.swift */; };
@@ -26,8 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4F04F71D1DD2770800A5DFB1 /* MainMenuDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuDelegate.swift; sourceTree = "<group>"; };
-		4F04F71F1DD2772700A5DFB1 /* MainMenuPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuPresenter.swift; sourceTree = "<group>"; };
 		4F04F7211DD2775100A5DFB1 /* MainMenuRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuRouter.swift; sourceTree = "<group>"; };
 		4F04F7241DD2777200A5DFB1 /* MainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		4FEF41D71DD4DD9D00D185EC /* PortfolioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
@@ -71,8 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				6E6DACDA1DD23CE600C8ADD6 /* MainMenuViewController.swift */,
-				4F04F71D1DD2770800A5DFB1 /* MainMenuDelegate.swift */,
-				4F04F71F1DD2772700A5DFB1 /* MainMenuPresenter.swift */,
 				4F04F7211DD2775100A5DFB1 /* MainMenuRouter.swift */,
 			);
 			name = MainMenuScene;
@@ -210,8 +204,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FEF41E31DD4E26000D185EC /* ImageItem.swift in Sources */,
-				4F04F7201DD2772700A5DFB1 /* MainMenuPresenter.swift in Sources */,
-				4F04F71E1DD2770800A5DFB1 /* MainMenuDelegate.swift in Sources */,
 				6E6DACDB1DD23CE600C8ADD6 /* MainMenuViewController.swift in Sources */,
 				6E6DACD91DD23CE600C8ADD6 /* AppDelegate.swift in Sources */,
 				4FEF41DC1DD4DE0000D185EC /* PortfolioPresenter.swift in Sources */,

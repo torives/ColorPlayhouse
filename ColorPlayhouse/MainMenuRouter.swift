@@ -10,7 +10,7 @@ import UIKit
 
 protocol MainMenuRouter: Router {
  
-    var menuScreen: UIViewController? {get set}
+    var menuScreen: MainMenuViewController? {get set}
     
     func displayNewDrawingScreen()
     func displayPortfolioScreen()

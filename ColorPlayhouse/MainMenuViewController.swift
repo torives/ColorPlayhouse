@@ -8,13 +8,14 @@
 
 import UIKit
 
-class MainMenuViewController: UIViewController {
-
-    var delegate: MainMenuDelegate?
-    
-    override func viewDidLoad() {
-       
-        super.viewDidLoad()
-    }
+class MainMenuViewController: UIViewController
+{
+    var router: MainMenuRouter?
 }
 
+extension MainMenuViewController
+{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        router?.passDataToNextScene(segue)
+    }
+}

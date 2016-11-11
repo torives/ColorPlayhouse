@@ -93,12 +93,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wood_background" translatesAutoresizingMaskIntoConstraints="NO" id="fV1-7E-3SS"/>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="canvas" translatesAutoresizingMaskIntoConstraints="NO" id="aoe-41-ckm"/>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="palette" translatesAutoresizingMaskIntoConstraints="NO" id="ZHG-JN-ExL">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="291" id="31N-19-ZN8"/>
-                                    <constraint firstAttribute="width" constant="1335" id="hEQ-gv-ztd"/>
-                                </constraints>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="pkM-de-aEB">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qI5-tv-0UT" userLabel="Eraser">
@@ -138,6 +132,12 @@
                                     <constraint firstItem="fF1-wO-5Hu" firstAttribute="leading" secondItem="pkM-de-aEB" secondAttribute="leading" constant="6" id="isx-xT-ODQ"/>
                                 </constraints>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="palette" translatesAutoresizingMaskIntoConstraints="NO" id="ZHG-JN-ExL">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="291" id="31N-19-ZN8"/>
+                                    <constraint firstAttribute="width" constant="1335" id="hEQ-gv-ztd"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="QOM-I8-LJP">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFr-aK-RYG">
@@ -214,19 +214,19 @@
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ZHG-JN-ExL" firstAttribute="top" secondItem="pkM-de-aEB" secondAttribute="bottom" constant="74" id="0Vz-SN-qT4"/>
+                            <constraint firstItem="ZHG-JN-ExL" firstAttribute="top" secondItem="pkM-de-aEB" secondAttribute="bottom" constant="162" id="0Vz-SN-qT4"/>
                             <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="fV1-7E-3SS" secondAttribute="centerX" id="0W5-yo-TIE"/>
                             <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="aoe-41-ckm" secondAttribute="centerX" id="4DY-RI-ZMP"/>
                             <constraint firstItem="pkM-de-aEB" firstAttribute="top" secondItem="k8f-N9-9p5" secondAttribute="bottom" constant="91" id="5XU-gK-Wwt"/>
                             <constraint firstItem="aoe-41-ckm" firstAttribute="top" secondItem="k8f-N9-9p5" secondAttribute="bottom" constant="60" id="61E-Ku-zE3"/>
                             <constraint firstItem="aoe-41-ckm" firstAttribute="centerY" secondItem="Glg-Xt-bza" secondAttribute="centerY" id="6EW-RW-TPE"/>
                             <constraint firstItem="pkM-de-aEB" firstAttribute="leading" secondItem="Glg-Xt-bza" secondAttribute="leading" constant="1499" id="6KT-RJ-7s8"/>
-                            <constraint firstItem="NfB-g0-fV3" firstAttribute="top" secondItem="QOM-I8-LJP" secondAttribute="bottom" constant="148" id="6MV-iI-EHu"/>
+                            <constraint firstItem="NfB-g0-fV3" firstAttribute="top" secondItem="QOM-I8-LJP" secondAttribute="bottom" constant="60" id="6MV-iI-EHu"/>
                             <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="Glg-Xt-bza" secondAttribute="centerX" id="6lm-xA-eAJ"/>
                             <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="QOM-I8-LJP" secondAttribute="centerX" id="DSH-Pw-sdW"/>
                             <constraint firstItem="aoe-41-ckm" firstAttribute="leading" secondItem="Glg-Xt-bza" secondAttribute="leadingMargin" constant="65" id="OkB-lc-gSh"/>
                             <constraint firstAttribute="trailing" secondItem="pkM-de-aEB" secondAttribute="trailing" constant="-337" id="T2d-1h-DVr"/>
-                            <constraint firstItem="ZHG-JN-ExL" firstAttribute="bottom" secondItem="fV1-7E-3SS" secondAttribute="bottom" id="ZjL-gx-5HK"/>
+                            <constraint firstItem="ZHG-JN-ExL" firstAttribute="bottom" secondItem="fV1-7E-3SS" secondAttribute="bottom" constant="88" id="ZjL-gx-5HK"/>
                         </constraints>
                     </view>
                     <connections>

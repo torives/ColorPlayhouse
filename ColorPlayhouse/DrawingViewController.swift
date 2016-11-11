@@ -13,37 +13,8 @@ class DrawingViewController: UIViewController {
     @IBOutlet weak var palette: UIImageView!
     @IBOutlet weak var canvas: UIImageView!
     
-    @IBOutlet weak var eraserOutlet: UIButton!
-    @IBOutlet weak var crayonOutlet: UIButton!
-    @IBOutlet weak var brushOutlet: UIButton!
-    @IBOutlet weak var pencilOutlet: UIButton!
-    
-    @IBOutlet weak var purpleOutlet: UIButton!
-    @IBOutlet weak var magentaOutlet: UIButton!
-    @IBOutlet weak var redOutlet: UIButton!
-    @IBOutlet weak var darOrangeOutlet: UIButton!
-    @IBOutlet weak var orangeOutlet: UIButton!
-    @IBOutlet weak var yellowOutlet: UIButton!
-    @IBOutlet weak var lightGreenOutlet: UIButton!
-    @IBOutlet weak var greenOutlet: UIButton!
-    @IBOutlet weak var lightBlueOutlet: UIButton!
-    @IBOutlet weak var blueOutlet: UIButton!
-    
-    @IBAction func eraser(_ sender: AnyObject) {}
-    @IBAction func crayon(_ sender: AnyObject) {}
-    @IBAction func brush(_ sender: AnyObject) {}
-    @IBAction func pencil(_ sender: AnyObject) {}
-    
-    @IBAction func purple(_ sender: AnyObject) {}
-    @IBAction func magenta(_ sender: AnyObject) {}
-    @IBAction func red(_ sender: AnyObject) {}
-    @IBAction func darkOrange(_ sender: AnyObject) {}
-    @IBAction func orange(_ sender: AnyObject) {}
-    @IBAction func yellow(_ sender: AnyObject) {}
-    @IBAction func lightGreen(_ sender: AnyObject) {}
-    @IBAction func green(_ sender: AnyObject) {}
-    @IBAction func lightBlue(_ sender: AnyObject) {}
-    @IBAction func blue(_ sender: AnyObject) {}
+    @IBOutlet var drawingTools: [UIButton]!
+    @IBOutlet var paletteColors: [UIButton]!
     
     private var _eraserEnabled: Bool = false
     private var _drawingStruct: DrawingStruct = DrawingStruct()
@@ -52,25 +23,9 @@ class DrawingViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        self.palette.isHidden = true
-        self.eraserOutlet.isHidden = true
-        self.pencilOutlet.isHidden = true
-        self.brushOutlet.isHidden = true
-        self.crayonOutlet.isHidden = true
-        
-        self.purpleOutlet.isHidden = true
-        self.purpleOutlet.isHidden = true
-        self.magentaOutlet.isHidden = true
-        self.redOutlet.isHidden = true
-        self.darOrangeOutlet.isHidden = true
-        self.orangeOutlet.isHidden = true
-        self.yellowOutlet.isHidden = true
-        self.lightGreenOutlet.isHidden = true
-        self.greenOutlet.isHidden = true
-        self.lightBlueOutlet.isHidden = true
-        self.blueOutlet.isHidden = true
-        
-        
+        drawingTools.forEach({$0.isHidden = true})
+        paletteColors.forEach({$0.isHidden = true})
+        palette.isHidden = true
         
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
         view.addGestureRecognizer(gesture)
@@ -78,15 +33,22 @@ class DrawingViewController: UIViewController {
 
     func didReceiveTouch(gesture: UIPanGestureRecognizer){
         
-        if (_eraserEnabled) {
-            eraseWithGesture(gesture: gesture)
-        }
-        else {
+//        if (_eraserEnabled) {
+//            eraseWithGesture(gesture: gesture)
+//        }
+//        else {
+        
+        let point = gesture.location(in: view)
+        print("x:\(point.x) y:\(point.y)")
+        
+        if canvas.point(inside: point, with: nil) {
+        
             if gesture.state == .began {
                 updateDrawing(drawingStruct: _drawingStruct)
             }
             drawWithGesture(gesture: gesture)
         }
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
@@ -109,7 +71,8 @@ class DrawingViewController: UIViewController {
         }
         else {
             let drawing = DrawingElement(drawingStruct: drawingStruct)
-            self.view.addSubview(drawing)
+            drawing.frame = canvas.frame
+            self.canvas.addSubview(drawing)
             _currentDrawingElement = drawing
         }
     }

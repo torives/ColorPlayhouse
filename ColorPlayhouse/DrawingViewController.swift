@@ -59,8 +59,23 @@ class DrawingViewController: UIViewController {
     }
     @IBAction func blue(_ sender: AnyObject) {
     }
+    
+    override func viewDidLoad() {
+        
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
+    
+        view.addGestureRecognizer(gesture)
+    }
 
-
+    func didReceiveTouch(gesture: UIPanGestureRecognizer){
+        
+        print("o toque foi em \(gesture.translation(in: view))")
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
+}
+
+extension DrawingViewController: DrawingScreen
+{
+    
 }

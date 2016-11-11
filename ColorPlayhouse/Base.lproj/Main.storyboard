@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="appleTV" orientation="landscape">
-        <adaptation id="light"/>
-    </device>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,11 +20,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background_mainmenu" translatesAutoresizingMaskIntoConstraints="NO" id="lkC-Un-1Ge">
-                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <frame key="frameInset" width="1920" height="1080"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqP-rh-JRm">
-                                <rect key="frame" x="1131" y="237" width="552" height="583"/>
+                                <frame key="frameInset" minX="1131" minY="237" width="552" height="583"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" backgroundImage="my_portfolio_compelte"/>
@@ -35,7 +33,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlV-fV-Csz">
-                                <rect key="frame" x="299" y="237" width="508" height="585"/>
+                                <frame key="frameInset" minX="299" minY="237" width="508" height="585"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" backgroundImage="new_drawing_complete">
@@ -69,6 +67,12 @@
                     <view key="view" contentMode="scaleToFill" id="S3j-KO-Ene">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="my_portfolio_background" translatesAutoresizingMaskIntoConstraints="NO" id="QxC-Y7-GTo">
+                                <frame key="frameInset" width="1920" height="1080"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbC-Ul-NIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -86,7 +90,163 @@
                     <view key="view" contentMode="scaleToFill" id="Glg-Xt-bza">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wood_background" translatesAutoresizingMaskIntoConstraints="NO" id="fV1-7E-3SS"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="canvas" translatesAutoresizingMaskIntoConstraints="NO" id="aoe-41-ckm"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="palette" translatesAutoresizingMaskIntoConstraints="NO" id="ZHG-JN-ExL">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="291" id="31N-19-ZN8"/>
+                                    <constraint firstAttribute="width" constant="1335" id="hEQ-gv-ztd"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="pkM-de-aEB">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qI5-tv-0UT" userLabel="Eraser">
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="eraser"/>
+                                        <connections>
+                                            <action selector="eraser:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="ekk-3M-pwu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbG-QA-gy7" userLabel="Crayon">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="424" id="7jo-8w-xKC"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="crayon"/>
+                                        <connections>
+                                            <action selector="crayon:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="HCA-vC-kDr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfR-ze-E5R" userLabel="Brush">
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="brush"/>
+                                        <connections>
+                                            <action selector="brush:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="oJd-Df-3aF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fF1-wO-5Hu" userLabel="Pencil">
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="pencil"/>
+                                        <connections>
+                                            <action selector="pencil:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="C9x-ui-GRm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hfR-ze-E5R" firstAttribute="leading" secondItem="pkM-de-aEB" secondAttribute="leading" id="Ng7-Hv-yLO"/>
+                                    <constraint firstItem="fF1-wO-5Hu" firstAttribute="leading" secondItem="pkM-de-aEB" secondAttribute="leading" constant="6" id="isx-xT-ODQ"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="QOM-I8-LJP">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFr-aK-RYG">
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="purple"/>
+                                        <connections>
+                                            <action selector="purple:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="6Vb-3H-Rny"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPX-Q2-9NI">
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="magenta"/>
+                                        <connections>
+                                            <action selector="magenta:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="4KN-8z-Lo6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBs-bJ-ibp">
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="red"/>
+                                        <connections>
+                                            <action selector="red:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="J4s-qd-Gar"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujS-tP-0a2">
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="orange_dark"/>
+                                        <connections>
+                                            <action selector="darkOrange:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="pNi-IY-D6z"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o26-fh-aWP">
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="orange"/>
+                                        <connections>
+                                            <action selector="orange:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="13A-Rx-8bo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sz-N8-n6C">
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="yellow"/>
+                                        <connections>
+                                            <action selector="yellow:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="Mca-oT-hLb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOd-ZQ-0F0">
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="light_green"/>
+                                        <connections>
+                                            <action selector="lightGreen:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="vAh-bF-sMc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cN-es-hES">
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="green"/>
+                                        <connections>
+                                            <action selector="green:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="PCM-q6-FPx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xy-El-7ST">
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="blue_light"/>
+                                        <connections>
+                                            <action selector="lightBlue:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="sze-8i-IAu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBa-cA-o9Q">
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="blue"/>
+                                        <connections>
+                                            <action selector="blue:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="r4z-NL-fxA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ZHG-JN-ExL" firstAttribute="top" secondItem="pkM-de-aEB" secondAttribute="bottom" constant="74" id="0Vz-SN-qT4"/>
+                            <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="fV1-7E-3SS" secondAttribute="centerX" id="0W5-yo-TIE"/>
+                            <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="aoe-41-ckm" secondAttribute="centerX" id="4DY-RI-ZMP"/>
+                            <constraint firstItem="pkM-de-aEB" firstAttribute="top" secondItem="k8f-N9-9p5" secondAttribute="bottom" constant="91" id="5XU-gK-Wwt"/>
+                            <constraint firstItem="aoe-41-ckm" firstAttribute="top" secondItem="k8f-N9-9p5" secondAttribute="bottom" constant="60" id="61E-Ku-zE3"/>
+                            <constraint firstItem="aoe-41-ckm" firstAttribute="centerY" secondItem="Glg-Xt-bza" secondAttribute="centerY" id="6EW-RW-TPE"/>
+                            <constraint firstItem="pkM-de-aEB" firstAttribute="leading" secondItem="Glg-Xt-bza" secondAttribute="leading" constant="1499" id="6KT-RJ-7s8"/>
+                            <constraint firstItem="NfB-g0-fV3" firstAttribute="top" secondItem="QOM-I8-LJP" secondAttribute="bottom" constant="148" id="6MV-iI-EHu"/>
+                            <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="Glg-Xt-bza" secondAttribute="centerX" id="6lm-xA-eAJ"/>
+                            <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="QOM-I8-LJP" secondAttribute="centerX" id="DSH-Pw-sdW"/>
+                            <constraint firstItem="aoe-41-ckm" firstAttribute="leading" secondItem="Glg-Xt-bza" secondAttribute="leadingMargin" constant="65" id="OkB-lc-gSh"/>
+                            <constraint firstAttribute="trailing" secondItem="pkM-de-aEB" secondAttribute="trailing" constant="-337" id="T2d-1h-DVr"/>
+                            <constraint firstItem="ZHG-JN-ExL" firstAttribute="bottom" secondItem="fV1-7E-3SS" secondAttribute="bottom" id="ZjL-gx-5HK"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="blueOutlet" destination="IBa-cA-o9Q" id="m9t-nF-wPC"/>
+                        <outlet property="brushOutlet" destination="hfR-ze-E5R" id="mig-hE-Tda"/>
+                        <outlet property="canvas" destination="aoe-41-ckm" id="Tej-JH-5T1"/>
+                        <outlet property="crayonOutlet" destination="XbG-QA-gy7" id="WcL-wc-Db7"/>
+                        <outlet property="darOrangeOutlet" destination="ujS-tP-0a2" id="CH9-r5-TUG"/>
+                        <outlet property="eraserOutlet" destination="qI5-tv-0UT" id="zqR-v7-1qG"/>
+                        <outlet property="greenOutlet" destination="0cN-es-hES" id="oUW-FM-zi3"/>
+                        <outlet property="lightBlueOutlet" destination="7xy-El-7ST" id="Jdm-JY-kP0"/>
+                        <outlet property="lightGreenOutlet" destination="LOd-ZQ-0F0" id="8hB-qa-rFX"/>
+                        <outlet property="magentaOutlet" destination="rPX-Q2-9NI" id="yOL-Qx-GSV"/>
+                        <outlet property="orangeOutlet" destination="o26-fh-aWP" id="Vk5-GE-fee"/>
+                        <outlet property="palette" destination="ZHG-JN-ExL" id="mK6-Gr-Z5j"/>
+                        <outlet property="pencilOutlet" destination="fF1-wO-5Hu" id="5To-rE-g3r"/>
+                        <outlet property="purpleOutlet" destination="fFr-aK-RYG" id="HHB-4B-cUp"/>
+                        <outlet property="redOutlet" destination="ZBs-bJ-ibp" id="Eix-gL-OVd"/>
+                        <outlet property="yellowOutlet" destination="5sz-N8-n6C" id="HU7-8m-OgB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6W-0Y-V87" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -95,7 +255,25 @@
     </scenes>
     <resources>
         <image name="background_mainmenu" width="1920" height="1080"/>
+        <image name="blue" width="106" height="108"/>
+        <image name="blue_light" width="106" height="108"/>
+        <image name="brush" width="757" height="181"/>
+        <image name="canvas" width="1761" height="971"/>
+        <image name="crayon" width="423" height="114"/>
+        <image name="eraser" width="180" height="147"/>
+        <image name="green" width="106" height="108"/>
+        <image name="light_green" width="106" height="108"/>
+        <image name="magenta" width="106" height="108"/>
+        <image name="my_portfolio_background" width="1920" height="1080"/>
         <image name="my_portfolio_compelte" width="544" height="578"/>
         <image name="new_drawing_complete" width="481" height="582"/>
+        <image name="orange" width="106" height="108"/>
+        <image name="orange_dark" width="106" height="108"/>
+        <image name="palette" width="1345" height="293"/>
+        <image name="pencil" width="745" height="104"/>
+        <image name="purple" width="106" height="108"/>
+        <image name="red" width="106" height="108"/>
+        <image name="wood_background" width="1920" height="1080"/>
+        <image name="yellow" width="106" height="108"/>
     </resources>
 </document>

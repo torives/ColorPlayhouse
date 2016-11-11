@@ -174,7 +174,7 @@
 				TargetAttributes = {
 					6E6DACD41DD23CE600C8ADD6 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = D4QEWF5RB3;
+						DevelopmentTeam = 7S5BW22U4Y;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -340,7 +340,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = D4QEWF5RB3;
+				DEVELOPMENT_TEAM = 7S5BW22U4Y;
 				INFOPLIST_FILE = ColorPlayhouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bpy.ColorPlayhouse;
@@ -354,7 +354,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = D4QEWF5RB3;
+				DEVELOPMENT_TEAM = 7S5BW22U4Y;
 				INFOPLIST_FILE = ColorPlayhouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bpy.ColorPlayhouse;

@@ -22,8 +22,8 @@
 		4FEF41EE1DD501F700D185EC /* DrawingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41ED1DD501F700D185EC /* DrawingScreen.swift */; };
 		4FEF41F01DD5022400D185EC /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41EF1DD5022400D185EC /* Canvas.swift */; };
 		4FEF41F21DD625C900D185EC /* DrawingShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41F11DD625C900D185EC /* DrawingShapeLayer.swift */; };
-		4FEF41F41DD641DB00D185EC /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41F31DD641DB00D185EC /* LineView.swift */; };
 		4FEF41F61DD643A500D185EC /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41F51DD643A500D185EC /* Geometry.swift */; };
+		4FEF41F81DD6550900D185EC /* DrawingElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41F71DD6550900D185EC /* DrawingElement.swift */; };
 		6E6DACD91DD23CE600C8ADD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */; };
 		6E6DACDB1DD23CE600C8ADD6 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DACDA1DD23CE600C8ADD6 /* MainMenuViewController.swift */; };
 		6E6DACDE1DD23CE600C8ADD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */; };
@@ -46,8 +46,8 @@
 		4FEF41ED1DD501F700D185EC /* DrawingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingScreen.swift; sourceTree = "<group>"; };
 		4FEF41EF1DD5022400D185EC /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		4FEF41F11DD625C900D185EC /* DrawingShapeLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingShapeLayer.swift; sourceTree = "<group>"; };
-		4FEF41F31DD641DB00D185EC /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		4FEF41F51DD643A500D185EC /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		4FEF41F71DD6550900D185EC /* DrawingElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingElement.swift; sourceTree = "<group>"; };
 		6E6DACD51DD23CE600C8ADD6 /* ColorPlayhouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPlayhouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E6DACDA1DD23CE600C8ADD6 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				4FEF41F51DD643A500D185EC /* Geometry.swift */,
-				4FEF41F31DD641DB00D185EC /* LineView.swift */,
+				4FEF41F71DD6550900D185EC /* DrawingElement.swift */,
 				4FEF41F11DD625C900D185EC /* DrawingShapeLayer.swift */,
 				4FEF41E91DD4F49600D185EC /* DrawingViewController.swift */,
 				4FEF41EB1DD5015600D185EC /* DrawingPresenter.swift */,
@@ -247,8 +247,8 @@
 				4FEF41E71DD4E60700D185EC /* Router.swift in Sources */,
 				4FEF41F21DD625C900D185EC /* DrawingShapeLayer.swift in Sources */,
 				4FEF41EA1DD4F49600D185EC /* DrawingViewController.swift in Sources */,
-				4FEF41F41DD641DB00D185EC /* LineView.swift in Sources */,
 				4FEF41E51DD4E27000D185EC /* TimelapseItem.swift in Sources */,
+				4FEF41F81DD6550900D185EC /* DrawingElement.swift in Sources */,
 				4FEF41DA1DD4DDC400D185EC /* PortfolioScreen.swift in Sources */,
 				4F04F7251DD2777200A5DFB1 /* MainRouter.swift in Sources */,
 			);

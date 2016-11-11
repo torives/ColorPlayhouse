@@ -38,11 +38,11 @@ class DrawingShapeLayer: CAShapeLayer
     
     // MARK: - Public Initializers
     
-    init(lineOptions: PenOptions) {
+    init(color: CGColor, lineWidth: CGFloat, lower: CGFloat, upper: CGFloat, ff: CGFloat) {
         
-        _ff = lineOptions.allOptions["ff"] as! CGFloat
-        _lower = lineOptions.allOptions["LOWER"] as! CGFloat
-        _upper = lineOptions.allOptions["UPPER"] as! CGFloat
+        _ff = ff
+        _lower = lower
+        _upper = upper
         
         super.init()
         
@@ -53,8 +53,8 @@ class DrawingShapeLayer: CAShapeLayer
         self.isOpaque = true
         self.drawsAsynchronously = true
         
-        self.strokeColor = (lineOptions.allOptions["color"] as! CGColor)
-        self.fillColor = (lineOptions.allOptions["color"] as! CGColor)
+        self.strokeColor = color
+        self.fillColor = color
         self.lineWidth = lineWidth
     }
     
@@ -108,15 +108,20 @@ class DrawingShapeLayer: CAShapeLayer
     
     func applyTransform( transform: inout CGAffineTransform, isRotation: Bool) {
         
-        self.path = self.path!.copy(using: &transform)
-        _bezierPath.cgPath = self.path!
-        _hitPath = _hitPath?.copy(using: &transform)
+        if let _ = self.path {
+            self.path = self.path!.copy(using: &transform)
+            _bezierPath.cgPath = self.path!
+        }
+        
+        if let unwrpdHitPath = _hitPath {
+            self._hitPath = unwrpdHitPath.copy(using: &transform)
+        }
         
         if(!isRotation) {
             _boundingBox = _boundingBox.applying(transform)
         }
         else {
-            let box = self.path!.boundingBoxOfPath
+            let box = (path == nil) ? CGRect.zero : path!.boundingBoxOfPath
             
             if(_isDot) {
                 _boundingBox.origin = CGPoint(x: box.origin.x - _boundingBox.size.width/2, y: box.origin.y - _boundingBox.size.height/2)
@@ -142,13 +147,17 @@ class DrawingShapeLayer: CAShapeLayer
     
     
     // MARK: Stroke Methods
-    func startLine(point: CGPoint) {
+    
+    //startLine
+    func strokeBegan(point: CGPoint) {
         _ctr = 0
         _pts[0] = point
         _isFirstPoint = true
     }
     
-    func addNewPointToLine(point: CGPoint) {
+    //addNewPointToLine
+    func strokeMoved(point: CGPoint) {
+     
         if (Geometry.modulusSquared(_pts[_ctr], point) < 25.0) {
             return
         }
@@ -158,7 +167,8 @@ class DrawingShapeLayer: CAShapeLayer
         self.drawLine()
     }
     
-    func finishLineWithPoint(point: CGPoint) {
+    //finishLineWithPoint
+    func strokeEnded(point: CGPoint) {
         
         if(!_isFirstPoint) {
             _ctr += 1
@@ -175,10 +185,17 @@ class DrawingShapeLayer: CAShapeLayer
             _isLastPoint = true
             self.drawLine()
             
-            _boundingBox = self.path!.boundingBoxOfPath
+            if let path = self.path {
+                _boundingBox = path.boundingBoxOfPath
             
-            let distance: CGFloat = 20.0
-            _hitPath = CGPath(__byStroking: self.path!, transform: nil, lineWidth: distance*2.0, lineCap: .round, lineJoin: .round, miterLimit: 0)
+                let distance: CGFloat = 20.0
+                _hitPath = CGPath(__byStroking: self.path!,
+                                  transform: nil,
+                                  lineWidth: distance*2.0,
+                                  lineCap: .round,
+                                  lineJoin: .round,
+                                  miterLimit: 0)
+            }
         }
         else {
             self.makeDot(point: point)

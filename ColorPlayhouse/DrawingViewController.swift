@@ -45,10 +45,10 @@ class DrawingViewController: UIViewController {
     @IBAction func lightBlue(_ sender: AnyObject) {}
     @IBAction func blue(_ sender: AnyObject) {}
     
-    
-    private var _lineView: LineView?
-    private var _currentDrawingShapeLayer: DrawingShapeLayer?
-    private var options = PenOptions()
+    private var _eraserEnabled: Bool = false
+    private var _drawingStruct: DrawingStruct = DrawingStruct()
+    private weak var _currentDrawingElement: DrawingElement?
+    private var _elements: Array<UIView> = Array<UIView>()
     
     override func viewDidLoad() {
         
@@ -78,144 +78,176 @@ class DrawingViewController: UIViewController {
 
     func didReceiveTouch(gesture: UIPanGestureRecognizer){
         
-        //let convertedPoint = convertGesturePointToLocalCoordinate(gesture)
-        let point: CGPoint?
-        print("x:\(gesture.location(in: view).x) y:\(gesture.location(in: view).y)")
+        if (_eraserEnabled) {
+            eraseWithGesture(gesture: gesture)
+        }
+        else {
+            if gesture.state == .began {
+                updateDrawing(drawingStruct: _drawingStruct)
+            }
+            drawWithGesture(gesture: gesture)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
+    
+    
+    
+    
+    func finishDrawing() {
+        if let drawingElement = _currentDrawingElement {
+            if(drawingElement.frame.isEmpty) {
+                drawingElement.removeFromSuperview()
+            }
+        }
+        _currentDrawingElement = nil
+    }
+    
+    func updateDrawing(drawingStruct: DrawingStruct) {
+        if let drawingElement = _currentDrawingElement {
+            drawingElement.updateDrawingStruct(drawingStruct: drawingStruct)
+        }
+        else {
+            let drawing = DrawingElement(drawingStruct: drawingStruct)
+            self.view.addSubview(drawing)
+            _currentDrawingElement = drawing
+        }
+    }
+    
+    func drawWithGesture(gesture: UIPanGestureRecognizer) {
         
         switch gesture.state {
-            
         case .began:
-            drawingBeganWith(gesture: gesture)
+            _currentDrawingElement?.beginDrawing(point: gesture.location(in: self.view))
             
         case .changed:
-            point = gesture.location(in: view)
-            drawingMovedTo(point: point!)
+            _currentDrawingElement?.moveDrawingPoint(point: gesture.location(in: self.view))
             
         case .ended:
-            point = gesture.location(in: view)
-            drawingEndedWith(point: point!)
+            _currentDrawingElement?.endDrawing(point: gesture.location(in: self.view))
             
         case .cancelled, .failed:
-            drawingCancelled()
+            _currentDrawingElement?.cancelDrawing(point: gesture.location(in: self.view))
             
         default:
             break
         }
-    
     }
     
-    private func drawingBeganWith(gesture: UIGestureRecognizer) {
+    func eraseWithGesture(gesture: UIPanGestureRecognizer) {
         
-        let point = gesture.location(in: view)
+        var hasEnded: Bool = false
         
-        if let lineView = _lineView{
+        for case let drawingElement as DrawingElement in _elements {
             
-            if _currentDrawingShapeLayer != nil{
+            switch gesture.state {
+            case .began:
+                drawingElement.beginErasing(point: gesture.location(in: self.view))
                 
-                startDrawingLineWith(point: point)
-            }
-            else{
-                createNewLayer()
-                lineView.layer.addSublayer(_currentDrawingShapeLayer!)
+            case .changed:
+                drawingElement.moveErasingPoint(point: gesture.location(in: self.view))
                 
-                startDrawingLineWith(point: point)
+            case .ended:
+                drawingElement.endErasing(point: gesture.location(in: self.view))
+                hasEnded = true
+                
+            case .cancelled , .failed:
+                drawingElement.cancelErasing(point: gesture.location(in: self.view))
+                hasEnded = true
+                
+            default:
+                break
             }
         }
-        else{
-            _lineView = LineView()
-            view.addSubview(_lineView!)
+        
+        // Hide elemntBar if all selected elements have been erased.
+        if hasEnded {
+            _elements = _elements.filter {
+                if $0.frame.isEmpty {
+                    if $0 == _currentDrawingElement {
+                        _currentDrawingElement = nil
+                    }
+                    //$0.remove()
+                    return false
+                }
+                return true
+            }
             
-            createNewLayer()
-            _lineView!.layer.addSublayer(_currentDrawingShapeLayer!)
-            
-            startDrawingLineWith(point: point)
-        }
-    }
-    
-    private func drawingMovedTo(point: CGPoint) {
-        
-        if _currentDrawingShapeLayer != nil{
-            
-            continueDrawingLineWith(point: point)
-        }
-    }
-    
-    private func drawingEndedWith(point: CGPoint) {
-        
-        if _currentDrawingShapeLayer != nil{
-            
-            finishDrawingLineWith(point: point)
-            
-            _lineView!.addNewLine(line: _currentDrawingShapeLayer!)
-            _currentDrawingShapeLayer = nil
-        }
-    }
-    
-    private func drawingCancelled() {
-        
-        if let currentDrawingShapeLayer = _currentDrawingShapeLayer {
-            currentDrawingShapeLayer.removeFromSuperlayer()
-        }
-        _currentDrawingShapeLayer = nil
-    }
-    
-    //Aux
-    
-    private func startDrawingLineWith(point: CGPoint){
-        
-        _currentDrawingShapeLayer!.startLine(point: point)
-    }
-    
-    private func continueDrawingLineWith(point: CGPoint){
-        
-        _currentDrawingShapeLayer!.addNewPointToLine(point: point)
-    }
-    
-    private func finishDrawingLineWith(point: CGPoint){
-        
-        _currentDrawingShapeLayer?.finishLineWithPoint(point: point)
-    }
-    
-    private func createNewLayer(){
-        _currentDrawingShapeLayer = DrawingShapeLayer(lineOptions: self.options)
-    }
 
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
+        }
+        //
+    }
 }
 
-class PenOptions {
+
+protocol DrawingCanvasTool
+{
+    func updateDrawing(drawingStruct : DrawingStruct)
+    func finishDrawing()
+    func drawWithGesture(gesture : UIPanGestureRecognizer)
+    func eraseWithGesture(gesture : UIPanGestureRecognizer)
+}
+
+
+
+
+// Stroke appearance definition.
+// FF is the default width, LOWER is the minimum and UPPER is the maximum.
+// Increase the UPPER's value to get a thinner stroke.
+struct DrawingStruct
+{
+    var lineWidth: CGFloat
+    var lower: CGFloat
+    var upper: CGFloat
+    var ff: CGFloat
     
-    // MARK: - Public & ReadOnly Properties
+    var color: UIColor
     
-    var allOptions = Dictionary<String,AnyObject>()
+    var shouldThin: Bool
+    var fadeOpacity: Float
     
     
-    // MARK: - Initializers
     
-    init(){
+    init() {
+        // Dummy values
+        lineWidth = 1.0
+        lower = 0.01
+        upper = PenThickness.Thin.value()
+        ff = 0.2
         
-        allOptions["ff"] = CGFloat(2.0) as AnyObject?
-        allOptions["LOWER"] = CGFloat(0.01) as AnyObject?
-        allOptions["UPPER"] = CGFloat(5.0) as AnyObject?
-        allOptions["color"] = UIColor.black.cgColor
-        allOptions["lineWidth"] = CGFloat(2.0) as AnyObject?
-        allOptions["shouldThinEndStroke"] = true as AnyObject?
-        allOptions["fadeOpacity"] = Float(0.3) as AnyObject?
+        color = PenColor.Black.value()
+        
+        shouldThin = true
+        
+        fadeOpacity = 0.3
+    }
+}
+
+enum PenThickness: Float
+{
+    case Thin = 5.0
+    case Thick = 1.0
+    
+    func value() -> CGFloat {
+        return CGFloat(self.rawValue)
     }
     
+    static let allValues = [Thin, Thick]
+}
+
+enum PenColor: String
+{
+    case Black
+    case Red
+    case Blue
+    case Yellow
+    case Green
     
-    // MARK: - Public Methods
-    
-    func updateOption(option: String, withValue value: AnyObject){
-        
-        allOptions.updateValue(value, forKey: option)
+    func value() -> UIColor {
+        return PenColor.color[self]!
     }
     
-    func updateAllOptions(options: Dictionary<String,AnyObject>){
-        
-        for key in options.keys{
-            allOptions.updateValue(options[key]!, forKey: key)
-        }
-    }
+    static let color = [Black : UIColor.black, Red : UIColor.red, Blue : UIColor.blue, Yellow : UIColor.yellow, Green : UIColor.green]
+    
+    static let allValues = [Black, Red, Blue, Yellow, Green]
 }

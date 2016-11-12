@@ -29,6 +29,21 @@ class DrawingViewController: UIViewController {
     @IBOutlet weak var lightBlueOutlet: UIButton!
     @IBOutlet weak var blueOutlet: UIButton!
     
+    let DAO = DataAccessObject.sharedInstance
+    
+    //Code to take screenshot and save to database
+    /*
+     @IBAction func captureScreenShot(_ sender: AnyObject) {
+     var window: UIWindow? = UIApplication.shared.keyWindow
+     window = UIApplication.shared.windows[0] as UIWindow
+     UIGraphicsBeginImageContextWithOptions(window!.frame.size, window!.isOpaque, 0.0)
+     window!.layer.render(in: UIGraphicsGetCurrentContext()!)
+     let screenShot = UIGraphicsGetImageFromCurrentImageContext()!
+     UIGraphicsEndImageContext()
+     
+     DAO.saveImageToUser(image: screenShot)
+     } */
+    
     @IBAction func eraser(_ sender: AnyObject) {
     }
     @IBAction func crayon(_ sender: AnyObject) {

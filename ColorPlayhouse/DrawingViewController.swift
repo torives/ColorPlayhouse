@@ -21,7 +21,7 @@ class DrawingViewController: UIViewController {
     private weak var _currentDrawingElement: DrawingElement?
     private var _elements: Array<UIView> = Array<UIView>()
    
-    let DAO = DataAccessObject.sharedInstance
+//    let DAO = DataAccessObject.sharedInstance
     
     //Code to take screenshot and save to database
     /*

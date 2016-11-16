@@ -17,12 +17,12 @@ class MainMenuViewController: UIViewController
     @IBOutlet weak var myPortfolioOutlet: UIButton!
     
     
-    let DAO = DataAccessObject.sharedInstance
+//    let DAO = DataAccessObject.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        authenticateUser()
+//        authenticateUser()
         // Do any additional setup after loading the view.
     }
 
@@ -37,7 +37,7 @@ class MainMenuViewController: UIViewController
                 
                 // user does not exist
                 if defaults.object(forKey: "userID") == nil {
-                    self.DAO.createUser()
+//                    self.DAO.createUser()
                 }
             }
         }

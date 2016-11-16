@@ -16,10 +16,16 @@ class DrawingViewController: UIViewController {
     @IBOutlet var drawingTools: [UIButton]!
     @IBOutlet var paletteColors: [UIButton]!
     
+    @IBOutlet weak var toolsConstraintToTrailing: NSLayoutConstraint!
+    @IBOutlet weak var paletteConstraintToBottom: NSLayoutConstraint!
+    @IBOutlet weak var colorsConstraintToBottom: NSLayoutConstraint!
+    
+    
     private var _eraserEnabled: Bool = false
     private var _drawingStruct: DrawingStruct = DrawingStruct()
     private weak var _currentDrawingElement: DrawingElement?
     private var _elements: Array<UIView> = Array<UIView>()
+    
    
 //    let DAO = DataAccessObject.sharedInstance
     
@@ -43,8 +49,131 @@ class DrawingViewController: UIViewController {
         paletteColors.forEach({$0.isHidden = true})
         palette.isHidden = true
         
-        let gesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
-        view.addGestureRecognizer(gesture)
+        palette.isHidden = false
+        paletteColors.forEach({$0.isHidden = false})
+        paletteConstraintToBottom.constant = -205
+        colorsConstraintToBottom.constant = -168
+        
+        //205, 404
+        drawingTools.forEach({$0.isHidden = false})
+        toolsConstraintToTrailing.constant = -404
+        
+//        let gesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
+//        view.addGestureRecognizer(gesture)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
+        swipeUp.direction = .up
+        self.view.addGestureRecognizer(swipeUp)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
+        swipeDown.direction = .down
+        self.view.addGestureRecognizer(swipeDown)
+        
+        
+    }
+    
+    
+    
+    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.left:
+                print("left swipe")
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                    self.toolsConstraintToTrailing.constant = 0
+                    self.view.layoutIfNeeded()
+                    }, completion: nil)
+                
+            case UISwipeGestureRecognizerDirection.up:
+                
+                print("up swipe")
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                    self.paletteConstraintToBottom.constant = 0
+                    self.colorsConstraintToBottom.constant = 60
+                    self.view.layoutIfNeeded()
+                    }, completion: nil)
+                
+            case UISwipeGestureRecognizerDirection.right:
+                print ("right swipe")
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                    self.toolsConstraintToTrailing.constant = -404
+                    self.view.layoutIfNeeded()
+                    }, completion: nil)
+                
+            case UISwipeGestureRecognizerDirection.down:
+                
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                    self.paletteConstraintToBottom.constant = -205
+                    self.colorsConstraintToBottom.constant = -168
+                    self.view.layoutIfNeeded()
+                    }, completion: nil)
+                
+            default:
+                break
+            }
+        }
+        
+    }
+    
+    //MARK: - FOCUS
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        
+        super.didUpdateFocus(in: context, with: coordinator)
+        
+        guard let nextFocusedView = context.nextFocusedView else { return }
+        guard let previouslyFocusedView = context.previouslyFocusedView else { return }
+        
+        
+        // forEach -> higher-order function
+        // é uma função que recebe outra
+        
+        
+        
+        guard let nextFocusedButton = paletteColors.first(where: { $0.layer.position == nextFocusedView.layer.position }) else {
+            print("proximo n achado")
+            return
+        }
+        guard let previouslyFocusedButton = paletteColors.first(where: { $0.layer.position == previouslyFocusedView.layer.position }) else {
+            print("previously n achado")
+            return
+        }
+        
+        
+        customFocus(previouslyFocused: previouslyFocusedButton, nextFocused: nextFocusedButton, context: context)
+        
+    }
+    
+    
+    func customFocus(previouslyFocused: UIButton, nextFocused: UIButton, context: UIFocusUpdateContext) {
+        
+        nextFocused.layer.shouldRasterize = true
+        nextFocused.layer.shadowColor = UIColor.black.cgColor
+        nextFocused.layer.shadowOpacity = 0.5
+        nextFocused.layer.shadowRadius = 25
+        nextFocused.layer.shadowOffset = CGSize(width: 0, height: 16)
+        nextFocused.layer.borderWidth = 3
+        nextFocused.layer.borderColor = UIColor.white.cgColor
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+            nextFocused.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        })
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+            previouslyFocused.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        })
+        
+        context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
+        context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
+        
     }
 
     func didReceiveTouch(gesture: UIPanGestureRecognizer){

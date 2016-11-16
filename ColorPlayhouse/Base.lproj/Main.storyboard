@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,11 +20,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background_mainmenu" translatesAutoresizingMaskIntoConstraints="NO" id="lkC-Un-1Ge">
-                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <frame key="frameInset" width="1920" height="1080"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqP-rh-JRm">
-                                <rect key="frame" x="1131" y="237" width="552" height="583"/>
+                                <frame key="frameInset" minX="1131" minY="237" width="552" height="583"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" backgroundImage="my_portfolio_compelte"/>
@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlV-fV-Csz">
-                                <rect key="frame" x="299" y="237" width="508" height="585"/>
+                                <frame key="frameInset" minX="299" minY="237" width="508" height="585"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" backgroundImage="new_drawing_complete">
@@ -69,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="my_portfolio_background" translatesAutoresizingMaskIntoConstraints="NO" id="QxC-Y7-GTo">
-                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <frame key="frameInset" width="1920" height="1080"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -91,101 +91,83 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wood_background" translatesAutoresizingMaskIntoConstraints="NO" id="fV1-7E-3SS">
-                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="canvas" translatesAutoresizingMaskIntoConstraints="NO" id="aoe-41-ckm">
-                                <rect key="frame" x="85" y="60" width="1750" height="960"/>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="pkM-de-aEB">
-                                <rect key="frame" x="1499" y="91" width="758" height="624"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wood_background" translatesAutoresizingMaskIntoConstraints="NO" id="fV1-7E-3SS"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="canvas" translatesAutoresizingMaskIntoConstraints="NO" id="aoe-41-ckm"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="pkM-de-aEB">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qI5-tv-0UT" userLabel="Eraser">
-                                        <rect key="frame" x="289" y="0.0" width="180" height="147"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="eraser"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbG-QA-gy7" userLabel="Crayon">
-                                        <rect key="frame" x="167" y="173" width="424" height="114"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="424" id="7jo-8w-xKC"/>
+                                            <constraint firstAttribute="height" constant="100" id="9la-zs-PTh"/>
+                                            <constraint firstAttribute="width" constant="298" id="cD1-9a-RLB"/>
                                         </constraints>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="crayon"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfR-ze-E5R" userLabel="Brush">
-                                        <rect key="frame" x="0.0" y="313" width="758" height="181"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="121" id="sCw-HT-4TA"/>
+                                        </constraints>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="brush"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fF1-wO-5Hu" userLabel="Pencil">
-                                        <rect key="frame" x="6" y="520" width="746" height="104"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="82" id="rQy-8C-xvQ"/>
+                                        </constraints>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="pencil"/>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="hfR-ze-E5R" firstAttribute="leading" secondItem="pkM-de-aEB" secondAttribute="leading" id="Ng7-Hv-yLO"/>
-                                    <constraint firstItem="fF1-wO-5Hu" firstAttribute="leading" secondItem="pkM-de-aEB" secondAttribute="leading" constant="6" id="isx-xT-ODQ"/>
-                                </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="palette" translatesAutoresizingMaskIntoConstraints="NO" id="ZHG-JN-ExL">
-                                <rect key="frame" x="293" y="877" width="1335" height="291"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="291" id="31N-19-ZN8"/>
-                                    <constraint firstAttribute="width" constant="1335" id="hEQ-gv-ztd"/>
+                                    <constraint firstAttribute="height" constant="205" id="31N-19-ZN8"/>
+                                    <constraint firstAttribute="width" constant="1345" id="hEQ-gv-ztd"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="QOM-I8-LJP">
-                                <rect key="frame" x="349" y="912" width="1222" height="108"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFr-aK-RYG">
-                                        <rect key="frame" x="0.0" y="0.0" width="106" height="108"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="purple"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPX-Q2-9NI">
-                                        <rect key="frame" x="124" y="0.0" width="106" height="108"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="magenta"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBs-bJ-ibp">
-                                        <rect key="frame" x="248" y="0.0" width="106" height="108"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="red"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujS-tP-0a2">
-                                        <rect key="frame" x="372" y="0.0" width="106" height="108"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="orange_dark"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o26-fh-aWP">
-                                        <rect key="frame" x="496" y="0.0" width="106" height="108"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="orange"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sz-N8-n6C">
-                                        <rect key="frame" x="620" y="0.0" width="106" height="108"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="yellow"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOd-ZQ-0F0">
-                                        <rect key="frame" x="744" y="0.0" width="106" height="108"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="light_green"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cN-es-hES">
-                                        <rect key="frame" x="868" y="0.0" width="106" height="108"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="green"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xy-El-7ST">
-                                        <rect key="frame" x="992" y="0.0" width="106" height="108"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="blue_light"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBa-cA-o9Q">
-                                        <rect key="frame" x="1116" y="0.0" width="106" height="108"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="blue"/>
                                     </button>
@@ -193,24 +175,29 @@
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ZHG-JN-ExL" firstAttribute="top" secondItem="pkM-de-aEB" secondAttribute="bottom" constant="162" id="0Vz-SN-qT4"/>
                             <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="fV1-7E-3SS" secondAttribute="centerX" id="0W5-yo-TIE"/>
                             <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="aoe-41-ckm" secondAttribute="centerX" id="4DY-RI-ZMP"/>
                             <constraint firstItem="pkM-de-aEB" firstAttribute="top" secondItem="k8f-N9-9p5" secondAttribute="bottom" constant="91" id="5XU-gK-Wwt"/>
                             <constraint firstItem="aoe-41-ckm" firstAttribute="top" secondItem="k8f-N9-9p5" secondAttribute="bottom" constant="60" id="61E-Ku-zE3"/>
                             <constraint firstItem="aoe-41-ckm" firstAttribute="centerY" secondItem="Glg-Xt-bza" secondAttribute="centerY" id="6EW-RW-TPE"/>
-                            <constraint firstItem="pkM-de-aEB" firstAttribute="leading" secondItem="Glg-Xt-bza" secondAttribute="leading" constant="1499" id="6KT-RJ-7s8"/>
                             <constraint firstItem="NfB-g0-fV3" firstAttribute="top" secondItem="QOM-I8-LJP" secondAttribute="bottom" constant="60" id="6MV-iI-EHu"/>
                             <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="Glg-Xt-bza" secondAttribute="centerX" id="6lm-xA-eAJ"/>
+                            <constraint firstAttribute="trailing" secondItem="pkM-de-aEB" secondAttribute="trailing" id="AIV-4z-BVF"/>
+                            <constraint firstAttribute="trailing" secondItem="fV1-7E-3SS" secondAttribute="trailing" id="AQ5-kB-UVb"/>
                             <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="QOM-I8-LJP" secondAttribute="centerX" id="DSH-Pw-sdW"/>
+                            <constraint firstItem="fV1-7E-3SS" firstAttribute="top" secondItem="Glg-Xt-bza" secondAttribute="top" id="E7t-Sk-eEY"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="ZHG-JN-ExL" secondAttribute="bottom" id="IRF-fa-bbS"/>
                             <constraint firstItem="aoe-41-ckm" firstAttribute="leading" secondItem="Glg-Xt-bza" secondAttribute="leadingMargin" constant="65" id="OkB-lc-gSh"/>
-                            <constraint firstAttribute="trailing" secondItem="pkM-de-aEB" secondAttribute="trailing" constant="-337" id="T2d-1h-DVr"/>
-                            <constraint firstItem="ZHG-JN-ExL" firstAttribute="bottom" secondItem="fV1-7E-3SS" secondAttribute="bottom" constant="88" id="ZjL-gx-5HK"/>
+                            <constraint firstItem="NfB-g0-fV3" firstAttribute="top" secondItem="fV1-7E-3SS" secondAttribute="bottom" id="RFi-QW-8im"/>
+                            <constraint firstItem="fV1-7E-3SS" firstAttribute="leading" secondItem="Glg-Xt-bza" secondAttribute="leading" id="cNo-Rg-nab"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="canvas" destination="aoe-41-ckm" id="Tej-JH-5T1"/>
+                        <outlet property="colorsConstraintToBottom" destination="6MV-iI-EHu" id="Bst-eA-7Ye"/>
                         <outlet property="palette" destination="ZHG-JN-ExL" id="mK6-Gr-Z5j"/>
+                        <outlet property="paletteConstraintToBottom" destination="IRF-fa-bbS" id="226-sN-4C5"/>
+                        <outlet property="toolsConstraintToTrailing" destination="AIV-4z-BVF" id="IbS-CD-mrJ"/>
                         <outletCollection property="drawingTools" destination="qI5-tv-0UT" collectionClass="NSMutableArray" id="oHn-le-CQm"/>
                         <outletCollection property="drawingTools" destination="XbG-QA-gy7" collectionClass="NSMutableArray" id="F9l-0Z-gQJ"/>
                         <outletCollection property="drawingTools" destination="hfR-ze-E5R" collectionClass="NSMutableArray" id="mfY-pg-j5Z"/>
@@ -236,10 +223,10 @@
         <image name="background_mainmenu" width="1920" height="1080"/>
         <image name="blue" width="106" height="108"/>
         <image name="blue_light" width="106" height="108"/>
-        <image name="brush" width="757" height="181"/>
+        <image name="brush" width="401" height="121"/>
         <image name="canvas" width="1761" height="971"/>
-        <image name="crayon" width="423" height="114"/>
-        <image name="eraser" width="180" height="147"/>
+        <image name="crayon" width="298" height="100"/>
+        <image name="eraser" width="146" height="147"/>
         <image name="green" width="106" height="108"/>
         <image name="light_green" width="106" height="108"/>
         <image name="magenta" width="106" height="108"/>
@@ -248,8 +235,8 @@
         <image name="new_drawing_complete" width="481" height="582"/>
         <image name="orange" width="106" height="108"/>
         <image name="orange_dark" width="106" height="108"/>
-        <image name="palette" width="1345" height="293"/>
-        <image name="pencil" width="745" height="104"/>
+        <image name="palette" width="1345" height="205"/>
+        <image name="pencil" width="404" height="82"/>
         <image name="purple" width="106" height="108"/>
         <image name="red" width="106" height="108"/>
         <image name="wood_background" width="1920" height="1080"/>

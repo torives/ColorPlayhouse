@@ -54,48 +54,40 @@ class MainMenuViewController: UIViewController
         
         case newDrawingOutlet:
             coordinator.addCoordinatedAnimations({ () -> Void in
-                //self.tintColor = .white
-                self.newDrawingOutlet.layer.shouldRasterize = true
-                self.newDrawingOutlet.layer.shadowColor = UIColor.black.cgColor
-                self.newDrawingOutlet.layer.shadowOpacity = 0.5
-                self.newDrawingOutlet.layer.shadowRadius = 25
-                self.newDrawingOutlet.layer.shadowOffset = CGSize(width: 0, height: 16)
-                UIView.animate(withDuration: 0.1, animations: { () -> Void in
-                    self.newDrawingOutlet.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-                })
-                UIView.animate(withDuration: 0.1, animations: { () -> Void in
-                    self.myPortfolioOutlet.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-                })
-                
-                 context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
-                 context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
-                
-                
+
+                self.customFocus(previouslyFocused: self.myPortfolioOutlet, nextFocused: self.newDrawingOutlet, context: context)
+     
                 }, completion: nil)
             
         case myPortfolioOutlet:
             coordinator.addCoordinatedAnimations({ () -> Void in
-                //self.tintColor = .white
-                self.myPortfolioOutlet.layer.shouldRasterize = true
-                self.myPortfolioOutlet.layer.shadowColor = UIColor.black.cgColor
-                self.myPortfolioOutlet.layer.shadowOpacity = 0.5
-                self.myPortfolioOutlet.layer.shadowRadius = 25
-                self.myPortfolioOutlet.layer.shadowOffset = CGSize(width: 0, height: 16)
-                UIView.animate(withDuration: 0.1, animations: { () -> Void in
-                    self.newDrawingOutlet.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-                })
-                UIView.animate(withDuration: 0.1, animations: { () -> Void in
-                    self.myPortfolioOutlet.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-                })
-                
-                context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
-                context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
+
+                self.customFocus(previouslyFocused: self.newDrawingOutlet, nextFocused: self.myPortfolioOutlet, context: context)
                 
                 }, completion: nil)
         default:
             return
         }
     }
+    
+    func customFocus(previouslyFocused: UIButton, nextFocused: UIButton, context: UIFocusUpdateContext) {
+        
+        nextFocused.layer.shouldRasterize = true
+        nextFocused.layer.shadowColor = UIColor.black.cgColor
+        nextFocused.layer.shadowOpacity = 0.5
+        nextFocused.layer.shadowRadius = 25
+        nextFocused.layer.shadowOffset = CGSize(width: 0, height: 16)
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+            nextFocused.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        })
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+            previouslyFocused.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        })
+        
+        context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
+        context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
+    }
+    
 }
 
 //MARK:- Segue Handling

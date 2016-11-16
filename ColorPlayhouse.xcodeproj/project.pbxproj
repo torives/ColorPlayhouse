@@ -28,6 +28,8 @@
 		6E6DACDB1DD23CE600C8ADD6 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DACDA1DD23CE600C8ADD6 /* MainMenuViewController.swift */; };
 		6E6DACDE1DD23CE600C8ADD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */; };
 		6E6DACE01DD23CE600C8ADD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DACDF1DD23CE600C8ADD6 /* Assets.xcassets */; };
+		F583CE2E1DD642D9001B17EE /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F583CE2D1DD642D9001B17EE /* CloudKit.framework */; };
+		F583CE301DD6443E001B17EE /* DataAccessObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,9 @@
 		6E6DACDD1DD23CE600C8ADD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6E6DACDF1DD23CE600C8ADD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E6DACE11DD23CE600C8ADD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F583CE2B1DD640A4001B17EE /* ColorPlayhouse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColorPlayhouse.entitlements; sourceTree = "<group>"; };
+		F583CE2D1DD642D9001B17EE /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataAccessObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F583CE2E1DD642D9001B17EE /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +142,7 @@
 			children = (
 				6E6DACD71DD23CE600C8ADD6 /* ColorPlayhouse */,
 				6E6DACD61DD23CE600C8ADD6 /* Products */,
+				F583CE2C1DD642D9001B17EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,14 +157,24 @@
 		6E6DACD71DD23CE600C8ADD6 /* ColorPlayhouse */ = {
 			isa = PBXGroup;
 			children = (
+				F583CE2B1DD640A4001B17EE /* ColorPlayhouse.entitlements */,
 				4F04F7231DD2776600A5DFB1 /* Common */,
 				4F04F71C1DD276EC00A5DFB1 /* MainMenuScene */,
 				4FEF41D61DD4DD6900D185EC /* PorfolioScene */,
 				4FEF41E81DD4F45500D185EC /* DrawingScene */,
 				4F04F71B1DD273D000A5DFB1 /* Resources */,
 				6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */,
+				F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */,
 			);
 			path = ColorPlayhouse;
+			sourceTree = "<group>";
+		};
+		F583CE2C1DD642D9001B17EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F583CE2D1DD642D9001B17EE /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +211,14 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = D4QEWF5RB3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -251,6 +276,7 @@
 				4FEF41F81DD6550900D185EC /* DrawingElement.swift in Sources */,
 				4FEF41DA1DD4DDC400D185EC /* PortfolioScreen.swift in Sources */,
 				4F04F7251DD2777200A5DFB1 /* MainRouter.swift in Sources */,
+				F583CE301DD6443E001B17EE /* DataAccessObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

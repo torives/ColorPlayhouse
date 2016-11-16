@@ -20,6 +20,22 @@ class DrawingViewController: UIViewController {
     private var _drawingStruct: DrawingStruct = DrawingStruct()
     private weak var _currentDrawingElement: DrawingElement?
     private var _elements: Array<UIView> = Array<UIView>()
+   
+    let DAO = DataAccessObject.sharedInstance
+    
+    //Code to take screenshot and save to database
+    /*
+     @IBAction func captureScreenShot(_ sender: AnyObject) {
+     var window: UIWindow? = UIApplication.shared.keyWindow
+     window = UIApplication.shared.windows[0] as UIWindow
+     UIGraphicsBeginImageContextWithOptions(window!.frame.size, window!.isOpaque, 0.0)
+     window!.layer.render(in: UIGraphicsGetCurrentContext()!)
+     let screenShot = UIGraphicsGetImageFromCurrentImageContext()!
+     UIGraphicsEndImageContext()
+     
+     DAO.saveImageToUser(image: screenShot)
+     } */
+
     
     override func viewDidLoad() {
         

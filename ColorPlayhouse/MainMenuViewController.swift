@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class MainMenuViewController: UIViewController
 {
@@ -15,8 +16,32 @@ class MainMenuViewController: UIViewController
     @IBOutlet weak var newDrawingOutlet: UIButton!
     @IBOutlet weak var myPortfolioOutlet: UIButton!
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        router?.passDataToNextScene(segue)
+    
+    let DAO = DataAccessObject.sharedInstance
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        authenticateUser()
+        // Do any additional setup after loading the view.
+    }
+
+    func authenticateUser() {
+        CKContainer.default().accountStatus { (accountStatus, error) in
+            if accountStatus == .noAccount {
+                self.presentCloudKitAlertController()
+            }
+            // user logged in
+            else {
+                let defaults = UserDefaults.standard
+                
+                // user does not exist
+                if defaults.object(forKey: "userID") == nil {
+                    self.DAO.createUser()
+                }
+            }
+        }
+
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
@@ -70,5 +95,34 @@ class MainMenuViewController: UIViewController
         default:
             return
         }
+    }
+}
+
+//MARK:- Segue Handling
+extension MainMenuViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        router?.passDataToNextScene(segue)
+    }
+}
+
+
+//MARK:- Alert Controller
+extension MainMenuViewController {
+    
+    func presentCloudKitAlertController() {
+        let alertController = UIAlertController(title: NSLocalizedString("LOGIN_ICLOUD_TITLE", comment: ""), message: NSLocalizedString("LOGIN_ICLOUD_MESSAGE", comment: ""), preferredStyle: .alert)
+        
+        let settingsAction = UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            let settingsURL = NSURL(string: UIApplicationOpenSettingsURLString)
+            if let url = settingsURL {
+                UIApplication.shared.openURL(url as URL)
+            }
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(settingsAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }

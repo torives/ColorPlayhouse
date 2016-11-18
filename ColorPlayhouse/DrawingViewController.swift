@@ -106,7 +106,7 @@ class DrawingViewController: UIViewController {
         toolsConstraintToTrailing.constant = -404
         
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
-        view.addGestureRecognizer(gesture)
+        //view.addGestureRecognizer(gesture)
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
         swipeLeft.direction = .left
@@ -212,10 +212,8 @@ class DrawingViewController: UIViewController {
             
             guard let nextFocusedView = context.nextFocusedView else { return }
             guard let previouslyFocusedView = context.previouslyFocusedView else { return }
-        
+            
             customFocus(previouslyFocused: previouslyFocusedView as! UIButton, nextFocused: nextFocusedView as! UIButton, context: context)
-            print ("NEXT FOCUSED VIEW")
-            print (nextFocusedView)
             
             if paletteColors.contains(nextFocusedView as! UIButton) {
                 selectedColor = nextFocusedView as? UIButton
@@ -223,6 +221,19 @@ class DrawingViewController: UIViewController {
             
             if drawingTools.contains(nextFocusedView as! UIButton) {
                 selectedTool = nextFocusedView as? UIButton
+                
+                switch selectedTool?.backgroundImage(for: .normal) {
+                case #imageLiteral(resourceName: "pencil")?:
+                    pointer.image = UIImage(named: "pencil_pointer")
+                case #imageLiteral(resourceName: "brush")?:
+                    pointer.image = UIImage(named: "brush_pointer")
+                case #imageLiteral(resourceName: "eraser")?:
+                    pointer.image = UIImage(named: "eraser_pointer")
+                case #imageLiteral(resourceName: "crayon")?:
+                    pointer.image = UIImage(named: "crayon_pointer")
+                default:
+                    return
+                }
             }
         }
     }

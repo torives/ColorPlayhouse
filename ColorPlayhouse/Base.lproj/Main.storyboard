@@ -93,36 +93,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wood_background" translatesAutoresizingMaskIntoConstraints="NO" id="fV1-7E-3SS"/>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="canvas" translatesAutoresizingMaskIntoConstraints="NO" id="aoe-41-ckm"/>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="pkM-de-aEB">
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qI5-tv-0UT" userLabel="Eraser">
-                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                        <state key="normal" backgroundImage="eraser"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbG-QA-gy7" userLabel="Crayon">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="9la-zs-PTh"/>
-                                            <constraint firstAttribute="width" constant="298" id="cD1-9a-RLB"/>
-                                        </constraints>
-                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                        <state key="normal" backgroundImage="crayon"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfR-ze-E5R" userLabel="Brush">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="121" id="sCw-HT-4TA"/>
-                                        </constraints>
-                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                        <state key="normal" backgroundImage="brush"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fF1-wO-5Hu" userLabel="Pencil">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="82" id="rQy-8C-xvQ"/>
-                                        </constraints>
-                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                        <state key="normal" backgroundImage="pencil"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="palette" translatesAutoresizingMaskIntoConstraints="NO" id="ZHG-JN-ExL">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="205" id="31N-19-ZN8"/>
@@ -134,42 +104,114 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFr-aK-RYG">
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="purple"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="h60-lD-yD5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPX-Q2-9NI">
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="magenta"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="FNm-lL-tMv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBs-bJ-ibp">
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="red"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="Lhf-Gl-RN2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujS-tP-0a2">
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="orange_dark"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="BHw-iG-tm9"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o26-fh-aWP">
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="orange"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="LRA-Dr-TpY"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sz-N8-n6C">
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="yellow"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="1lU-oH-V63"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOd-ZQ-0F0">
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="light_green"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="7FS-Hf-EHF"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cN-es-hES">
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="green"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="xwC-Ha-4Dw"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xy-El-7ST">
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="blue_light"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="lzV-5X-S1H"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBa-cA-o9Q">
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="blue"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="JwJ-VG-PP5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="pkM-de-aEB">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qI5-tv-0UT" userLabel="Eraser">
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="eraser"/>
+                                        <connections>
+                                            <action selector="toolClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="Wv2-RX-7Tz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbG-QA-gy7" userLabel="Crayon">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="9la-zs-PTh"/>
+                                            <constraint firstAttribute="width" constant="298" id="cD1-9a-RLB"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="crayon"/>
+                                        <connections>
+                                            <action selector="toolClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="xSl-dY-zRQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfR-ze-E5R" userLabel="Brush">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="121" id="sCw-HT-4TA"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="brush"/>
+                                        <connections>
+                                            <action selector="toolClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="JRJ-Py-oih"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fF1-wO-5Hu" userLabel="Pencil">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="82" id="rQy-8C-xvQ"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="pencil"/>
+                                        <connections>
+                                            <action selector="toolClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="y3y-8W-pAC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -177,7 +219,7 @@
                         <constraints>
                             <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="fV1-7E-3SS" secondAttribute="centerX" id="0W5-yo-TIE"/>
                             <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="aoe-41-ckm" secondAttribute="centerX" id="4DY-RI-ZMP"/>
-                            <constraint firstItem="pkM-de-aEB" firstAttribute="top" secondItem="k8f-N9-9p5" secondAttribute="bottom" constant="91" id="5XU-gK-Wwt"/>
+                            <constraint firstItem="pkM-de-aEB" firstAttribute="top" secondItem="k8f-N9-9p5" secondAttribute="bottom" constant="205" id="5XU-gK-Wwt"/>
                             <constraint firstItem="aoe-41-ckm" firstAttribute="top" secondItem="k8f-N9-9p5" secondAttribute="bottom" constant="60" id="61E-Ku-zE3"/>
                             <constraint firstItem="aoe-41-ckm" firstAttribute="centerY" secondItem="Glg-Xt-bza" secondAttribute="centerY" id="6EW-RW-TPE"/>
                             <constraint firstItem="NfB-g0-fV3" firstAttribute="top" secondItem="QOM-I8-LJP" secondAttribute="bottom" constant="60" id="6MV-iI-EHu"/>

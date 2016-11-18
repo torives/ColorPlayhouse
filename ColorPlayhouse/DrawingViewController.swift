@@ -10,11 +10,50 @@ import UIKit
 
 class DrawingViewController: UIViewController {
     
+    var paletteIsActive = false
+    var toolsIsActive = false
+    
+    override var preferredFocusEnvironments: [UIFocusEnvironment] {
+        
+        if paletteIsActive {
+            return paletteColors
+        }
+        else if toolsIsActive {
+            return drawingTools
+        }
+        else{
+            return []
+        }
+    }
+    
     @IBOutlet weak var palette: UIImageView!
     @IBOutlet weak var canvas: UIImageView!
     
     @IBOutlet var drawingTools: [UIButton]!
     @IBOutlet var paletteColors: [UIButton]!
+    
+    @IBAction func colorClick(_ sender: AnyObject) {
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            self.paletteConstraintToBottom.constant = -205
+            self.colorsConstraintToBottom.constant = -168
+            self.view.layoutIfNeeded()
+            }, completion: nil)
+        
+        paletteIsActive = false
+        setNeedsFocusUpdate()
+    }
+    
+    @IBAction func toolClick(_ sender: AnyObject) {
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            self.toolsConstraintToTrailing.constant = -430
+            self.view.layoutIfNeeded()
+            }, completion: nil)
+        
+        toolsIsActive = false
+        setNeedsFocusUpdate()
+    }
     
     @IBOutlet weak var toolsConstraintToTrailing: NSLayoutConstraint!
     @IBOutlet weak var paletteConstraintToBottom: NSLayoutConstraint!
@@ -26,8 +65,8 @@ class DrawingViewController: UIViewController {
     private weak var _currentDrawingElement: DrawingElement?
     private var _elements: Array<UIView> = Array<UIView>()
     
-   
-//    let DAO = DataAccessObject.sharedInstance
+    
+    //    let DAO = DataAccessObject.sharedInstance
     
     //Code to take screenshot and save to database
     /*
@@ -41,10 +80,10 @@ class DrawingViewController: UIViewController {
      
      DAO.saveImageToUser(image: screenShot)
      } */
-
+    
     
     override func viewDidLoad() {
-        
+
         drawingTools.forEach({$0.isHidden = true})
         paletteColors.forEach({$0.isHidden = true})
         palette.isHidden = true
@@ -53,13 +92,11 @@ class DrawingViewController: UIViewController {
         paletteColors.forEach({$0.isHidden = false})
         paletteConstraintToBottom.constant = -205
         colorsConstraintToBottom.constant = -168
-        
-        //205, 404
         drawingTools.forEach({$0.isHidden = false})
         toolsConstraintToTrailing.constant = -404
         
-//        let gesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
-//        view.addGestureRecognizer(gesture)
+        //let gesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
+        //view.addGestureRecognizer(gesture)
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
         swipeLeft.direction = .left
@@ -77,10 +114,7 @@ class DrawingViewController: UIViewController {
         swipeDown.direction = .down
         self.view.addGestureRecognizer(swipeDown)
         
-        
     }
-    
-    
     
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         
@@ -88,35 +122,59 @@ class DrawingViewController: UIViewController {
             
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.left:
-                print("left swipe")
-                UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-                    self.toolsConstraintToTrailing.constant = 0
-                    self.view.layoutIfNeeded()
-                    }, completion: nil)
+                if !paletteIsActive {
+                    
+                    print("left swipe")
+                    
+                    UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                        self.toolsConstraintToTrailing.constant = 0
+                        self.view.layoutIfNeeded()
+                        }, completion: nil)
+                    
+                    toolsIsActive = true
+                    setNeedsFocusUpdate()
+                }
+                
                 
             case UISwipeGestureRecognizerDirection.up:
-                
-                print("up swipe")
-                UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-                    self.paletteConstraintToBottom.constant = 0
-                    self.colorsConstraintToBottom.constant = 60
-                    self.view.layoutIfNeeded()
-                    }, completion: nil)
+                if toolsIsActive == false {
+                    print("up swipe")
+                    UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                        self.paletteConstraintToBottom.constant = 0
+                        self.colorsConstraintToBottom.constant = 60
+                        self.view.layoutIfNeeded()
+                        }, completion: nil)
+                    paletteIsActive = true
+                    setNeedsFocusUpdate()
+                }
+                print ("********")
+                print (preferredFocusEnvironments.count)
                 
             case UISwipeGestureRecognizerDirection.right:
                 print ("right swipe")
-                UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-                    self.toolsConstraintToTrailing.constant = -404
-                    self.view.layoutIfNeeded()
-                    }, completion: nil)
+                
+                if toolsIsActive{
+        
+                    UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                        self.toolsConstraintToTrailing.constant = -430
+                        self.view.layoutIfNeeded()
+                        }, completion: nil)
+                    toolsIsActive = false
+                    setNeedsFocusUpdate()
+                }
                 
             case UISwipeGestureRecognizerDirection.down:
-                
-                UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-                    self.paletteConstraintToBottom.constant = -205
-                    self.colorsConstraintToBottom.constant = -168
-                    self.view.layoutIfNeeded()
-                    }, completion: nil)
+        
+                if paletteIsActive{
+                    
+                    UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                        self.paletteConstraintToBottom.constant = -205
+                        self.colorsConstraintToBottom.constant = -168
+                        self.view.layoutIfNeeded()
+                        }, completion: nil)
+                    paletteIsActive = false
+                    setNeedsFocusUpdate()
+                }
                 
             default:
                 break
@@ -125,33 +183,31 @@ class DrawingViewController: UIViewController {
         
     }
     
+    
     //MARK: - FOCUS
+    
+    override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
+        if toolsIsActive || paletteIsActive{
+            return true
+        }
+        else{
+            return false
+        }
+    }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         
         super.didUpdateFocus(in: context, with: coordinator)
         
-        guard let nextFocusedView = context.nextFocusedView else { return }
-        guard let previouslyFocusedView = context.previouslyFocusedView else { return }
+        if toolsIsActive || paletteIsActive {
+            
+            guard let nextFocusedView = context.nextFocusedView else { return }
+            guard let previouslyFocusedView = context.previouslyFocusedView else { return }
         
-        
-        // forEach -> higher-order function
-        // é uma função que recebe outra
-        
-        
-        
-        guard let nextFocusedButton = paletteColors.first(where: { $0.layer.position == nextFocusedView.layer.position }) else {
-            print("proximo n achado")
-            return
+            customFocus(previouslyFocused: previouslyFocusedView as! UIButton, nextFocused: nextFocusedView as! UIButton, context: context)
+            print ("NEXT FOCUSED VIEW")
+            print (nextFocusedView)
         }
-        guard let previouslyFocusedButton = paletteColors.first(where: { $0.layer.position == previouslyFocusedView.layer.position }) else {
-            print("previously n achado")
-            return
-        }
-        
-        
-        customFocus(previouslyFocused: previouslyFocusedButton, nextFocused: nextFocusedButton, context: context)
-        
     }
     
     
@@ -162,8 +218,6 @@ class DrawingViewController: UIViewController {
         nextFocused.layer.shadowOpacity = 0.5
         nextFocused.layer.shadowRadius = 25
         nextFocused.layer.shadowOffset = CGSize(width: 0, height: 16)
-        nextFocused.layer.borderWidth = 3
-        nextFocused.layer.borderColor = UIColor.white.cgColor
         UIView.animate(withDuration: 0.1, animations: { () -> Void in
             nextFocused.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
         })
@@ -175,25 +229,25 @@ class DrawingViewController: UIViewController {
         context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
         
     }
-
+    
     func didReceiveTouch(gesture: UIPanGestureRecognizer){
         
-//        if (_eraserEnabled) {
-//            eraseWithGesture(gesture: gesture)
-//        }
-//        else {
+        //        if (_eraserEnabled) {
+        //            eraseWithGesture(gesture: gesture)
+        //        }
+        //        else {
         
         let point = gesture.location(in: view)
         print("x:\(point.x) y:\(point.y)")
         
         if canvas.point(inside: point, with: nil) {
-        
+            
             if gesture.state == .began {
                 updateDrawing(drawingStruct: _drawingStruct)
             }
             drawWithGesture(gesture: gesture)
         }
-//        }
+        //        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
@@ -281,7 +335,7 @@ class DrawingViewController: UIViewController {
                 return true
             }
             
-
+            
         }
         //
     }

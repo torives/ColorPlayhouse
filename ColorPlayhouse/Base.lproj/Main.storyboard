@@ -215,6 +215,10 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pencil_pointer" translatesAutoresizingMaskIntoConstraints="NO" id="S9k-IV-Nmh">
+                                <frame key="frameInset" minX="396" minY="205" width="81" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="fV1-7E-3SS" secondAttribute="centerX" id="0W5-yo-TIE"/>
@@ -239,6 +243,7 @@
                         <outlet property="colorsConstraintToBottom" destination="6MV-iI-EHu" id="Bst-eA-7Ye"/>
                         <outlet property="palette" destination="ZHG-JN-ExL" id="mK6-Gr-Z5j"/>
                         <outlet property="paletteConstraintToBottom" destination="IRF-fa-bbS" id="226-sN-4C5"/>
+                        <outlet property="pointer" destination="S9k-IV-Nmh" id="zYx-ff-qE9"/>
                         <outlet property="toolsConstraintToTrailing" destination="AIV-4z-BVF" id="IbS-CD-mrJ"/>
                         <outletCollection property="drawingTools" destination="qI5-tv-0UT" collectionClass="NSMutableArray" id="oHn-le-CQm"/>
                         <outletCollection property="drawingTools" destination="XbG-QA-gy7" collectionClass="NSMutableArray" id="F9l-0Z-gQJ"/>
@@ -279,6 +284,7 @@
         <image name="orange_dark" width="106" height="108"/>
         <image name="palette" width="1345" height="205"/>
         <image name="pencil" width="404" height="82"/>
+        <image name="pencil_pointer" width="81" height="122"/>
         <image name="purple" width="106" height="108"/>
         <image name="red" width="106" height="108"/>
         <image name="wood_background" width="1920" height="1080"/>

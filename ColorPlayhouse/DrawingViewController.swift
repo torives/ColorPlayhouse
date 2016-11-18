@@ -13,18 +13,25 @@ class DrawingViewController: UIViewController {
     var paletteIsActive = false
     var toolsIsActive = false
     
+    var selectedColor: UIButton?
+    var selectedTool: UIButton?
+    
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
         
         if paletteIsActive {
-            return paletteColors
+            //return paletteColors
+            return [selectedColor!]
         }
         else if toolsIsActive {
-            return drawingTools
+            //return drawingTools
+            return [selectedTool!]
         }
-        else{
+        else {
             return []
         }
     }
+    
+    @IBOutlet weak var pointer: UIImageView!
     
     @IBOutlet weak var palette: UIImageView!
     @IBOutlet weak var canvas: UIImageView!
@@ -83,6 +90,9 @@ class DrawingViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        
+        selectedColor = paletteColors[0]
+        selectedTool = drawingTools[0]
 
         drawingTools.forEach({$0.isHidden = true})
         paletteColors.forEach({$0.isHidden = true})
@@ -95,8 +105,8 @@ class DrawingViewController: UIViewController {
         drawingTools.forEach({$0.isHidden = false})
         toolsConstraintToTrailing.constant = -404
         
-        //let gesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
-        //view.addGestureRecognizer(gesture)
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
+        view.addGestureRecognizer(gesture)
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
         swipeLeft.direction = .left
@@ -180,7 +190,6 @@ class DrawingViewController: UIViewController {
                 break
             }
         }
-        
     }
     
     
@@ -207,6 +216,14 @@ class DrawingViewController: UIViewController {
             customFocus(previouslyFocused: previouslyFocusedView as! UIButton, nextFocused: nextFocusedView as! UIButton, context: context)
             print ("NEXT FOCUSED VIEW")
             print (nextFocusedView)
+            
+            if paletteColors.contains(nextFocusedView as! UIButton) {
+                selectedColor = nextFocusedView as? UIButton
+            }
+            
+            if drawingTools.contains(nextFocusedView as! UIButton) {
+                selectedTool = nextFocusedView as? UIButton
+            }
         }
     }
     
@@ -237,8 +254,11 @@ class DrawingViewController: UIViewController {
         //        }
         //        else {
         
+        
         let point = gesture.location(in: view)
         print("x:\(point.x) y:\(point.y)")
+        
+        self.pointer.frame.origin = point
         
         if canvas.point(inside: point, with: nil) {
             

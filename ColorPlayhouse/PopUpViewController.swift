@@ -35,9 +35,6 @@ class PopUpViewController: UIViewController {
         setupView()
         showAnimation()
         addMenuButtonRecognizer()
-        setNeedsFocusUpdate()
-        
-        // Do any additional setup after loading the view.
     }
     
 
@@ -108,7 +105,7 @@ class PopUpViewController: UIViewController {
 
 extension PopUpViewController {
     func addMenuButtonRecognizer() {
-        let menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DrawingViewController.handlePressMenuButton))
+        let menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handlePressMenuButton))
         menuTapGestureRecognizer.allowedPressTypes = [NSNumber(integerLiteral: UIPressType.menu.rawValue)]
         self.view.addGestureRecognizer(menuTapGestureRecognizer)
     }
@@ -116,7 +113,6 @@ extension PopUpViewController {
     
     func handlePressMenuButton() {
         removeAnimation()
-        
     }
     
     override var preferredFocusEnvironments: [UIFocusEnvironment] {

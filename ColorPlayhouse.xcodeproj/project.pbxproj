@@ -165,12 +165,12 @@
 		6E6DACD71DD23CE600C8ADD6 /* ColorPlayhouse */ = {
 			isa = PBXGroup;
 			children = (
-				F54FF4181DE377700020E547 /* PopUp Scene */,
 				F583CE2B1DD640A4001B17EE /* ColorPlayhouse.entitlements */,
 				4F04F7231DD2776600A5DFB1 /* Common */,
 				4F04F71C1DD276EC00A5DFB1 /* MainMenuScene */,
 				4FEF41D61DD4DD6900D185EC /* PorfolioScene */,
 				4FEF41E81DD4F45500D185EC /* DrawingScene */,
+				F54FF4181DE377700020E547 /* PopUp Scene */,
 				4F04F71B1DD273D000A5DFB1 /* Resources */,
 				6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */,
 				F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */,

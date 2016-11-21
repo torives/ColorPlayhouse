@@ -42,6 +42,7 @@ class DrawingViewController: UIViewController {
     
     private var paletteIsActive = false
     private var toolsIsActive = false
+    private var popupIsOpen = false
     
     private var selectedColor: UIButton?
     private var selectedTool: UIButton?
@@ -113,6 +114,7 @@ class DrawingViewController: UIViewController {
         view.gestureRecognizers?.forEach({$0.isEnabled = false})
         menuButtonTap?.isEnabled = true
         
+        popupIsOpen = true
         presentPopUp()
     }
     
@@ -122,7 +124,7 @@ class DrawingViewController: UIViewController {
     //MARK: Focus Handling
     
     override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
-        if toolsIsActive || paletteIsActive{
+        if toolsIsActive || paletteIsActive || popupIsOpen {
             return true
         }
         else{

@@ -73,23 +73,15 @@ class DrawingViewController: UIViewController {
     private var _elements: Array<UIView> = Array<UIView>()
     
     
-    //    let DAO = DataAccessObject.sharedInstance
+    let DAO = DataAccessObject.sharedInstance
     
-    //Code to take screenshot and save to database
-    /*
-     @IBAction func captureScreenShot(_ sender: AnyObject) {
-     var window: UIWindow? = UIApplication.shared.keyWindow
-     window = UIApplication.shared.windows[0] as UIWindow
-     UIGraphicsBeginImageContextWithOptions(window!.frame.size, window!.isOpaque, 0.0)
-     window!.layer.render(in: UIGraphicsGetCurrentContext()!)
-     let screenShot = UIGraphicsGetImageFromCurrentImageContext()!
-     UIGraphicsEndImageContext()
-     
-     DAO.saveImageToUser(image: screenShot)
-     } */
-    
-    
+    var timer: Timer!
+    var screenshotsPaths = [String]()
+
+
     override func viewDidLoad() {
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(DrawingViewController.printScreen), userInfo: nil, repeats: true)
         
         selectedColor = paletteColors[0]
         selectedTool = drawingTools[0]
@@ -124,6 +116,20 @@ class DrawingViewController: UIViewController {
         swipeDown.direction = .down
         self.view.addGestureRecognizer(swipeDown)
         
+        addRecognizers()
+        
+    }
+    
+    
+    func addRecognizers() {
+        addMenuButtonRecognizer()
+        addPanGestureRecognizer()
+        
+    }
+    
+    func addPanGestureRecognizer() {
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
+        view.addGestureRecognizer(gesture)
     }
     
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
@@ -371,6 +377,55 @@ class DrawingViewController: UIViewController {
         //
     }
 }
+
+extension DrawingViewController {
+    func addMenuButtonRecognizer() {
+        let menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DrawingViewController.handlePressMenuButton))
+        menuTapGestureRecognizer.allowedPressTypes = [NSNumber(integerLiteral: UIPressType.menu.rawValue)]
+        self.view.addGestureRecognizer(menuTapGestureRecognizer)
+    }
+    
+    
+    func handlePressMenuButton() {
+        timer.invalidate()
+        
+        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
+        popUpVC.screenshotsPaths = self.screenshotsPaths
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+        
+    }
+}
+
+//MARK:- Image and Video Handling
+extension DrawingViewController {
+    
+    func printScreen() {
+        var window: UIWindow? = UIApplication.shared.keyWindow
+        window = UIApplication.shared.windows[0] as UIWindow
+        UIGraphicsBeginImageContextWithOptions(window!.frame.size, window!.isOpaque, 0.0)
+        window!.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let screenShot = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        saveImageToDocumentsDirectory(image: screenShot)
+    }
+    
+    func saveImageToDocumentsDirectory(image: UIImage) {
+        let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        let path = NSURL(fileURLWithPath: documentsDirectory).appendingPathComponent("image\(screenshotsPaths.count)")
+        print(path?.absoluteString)
+        screenshotsPaths.append((path?.absoluteString)!)
+        let data = UIImagePNGRepresentation(image)
+        try! data?.write(to: path!, options: .atomic)
+    }
+    
+}
+
 
 
 protocol DrawingCanvasTool

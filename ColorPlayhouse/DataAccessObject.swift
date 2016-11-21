@@ -14,9 +14,9 @@ struct DataAccessObject {
     private init() {}
     
     static let sharedInstance = DataAccessObject()
-
+    
     let publicDatabase = CKContainer(identifier: "iCloud.com.bpy.ColorPlayhouse").publicCloudDatabase
-        
+    
     func createUser() {
         let userRecord = CKRecord(recordType: "Users")
         
@@ -33,7 +33,7 @@ struct DataAccessObject {
         }
     }
     
-    func saveImageToUser(image: UIImage) {
+    func saveImageToUser(path: String) {
         let asset = CKRecord(recordType: "Asset")
         
         let defaults = UserDefaults.standard
@@ -41,22 +41,11 @@ struct DataAccessObject {
         
         asset["user"] = CKReference(recordID:CKRecordID(recordName: userID), action: CKReferenceAction.deleteSelf)
         
-        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
-        let nsUserDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        let writePath = NSURL(fileURLWithPath: path)
         
-        let paths = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
-        if paths.count > 0 {
-            let writePath = NSURL(fileURLWithPath: paths[0]).appendingPathComponent("Image2.png")
-            
-            do {
-                try! UIImagePNGRepresentation(image)?.write(to: writePath!, options: Data.WritingOptions.atomic)
-            }
-            
-            let File : CKAsset?  = CKAsset(fileURL: writePath!)
-            asset["asset"] = File
-
-        }
-
+        let File : CKAsset?  = CKAsset(fileURL: writePath as URL)
+        asset["asset"] = File
+        
         self.publicDatabase.save(asset) {
             record, error in
             if error != nil {

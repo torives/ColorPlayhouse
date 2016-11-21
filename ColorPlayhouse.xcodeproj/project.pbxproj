@@ -30,6 +30,8 @@
 		6E6DACE01DD23CE600C8ADD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DACDF1DD23CE600C8ADD6 /* Assets.xcassets */; };
 		6E9C5E551DDF95B500A33773 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C5E541DDF95B500A33773 /* PortfolioCell.swift */; };
 		6EE2827A1DDE256400600C95 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE282791DDE256400600C95 /* CloudKit.framework */; };
+		F54FF41A1DE377870020E547 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54FF4191DE377870020E547 /* PopUpViewController.swift */; };
+		F54FF41C1DE3780B0020E547 /* TimelapseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54FF41B1DE3780B0020E547 /* TimelapseBuilder.swift */; };
 		F583CE301DD6443E001B17EE /* DataAccessObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,8 @@
 		6E6DACE11DD23CE600C8ADD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E9C5E541DDF95B500A33773 /* PortfolioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioCell.swift; sourceTree = "<group>"; };
 		6EE282791DDE256400600C95 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		F54FF4191DE377870020E547 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		F54FF41B1DE3780B0020E547 /* TimelapseBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelapseBuilder.swift; sourceTree = "<group>"; };
 		F583CE2B1DD640A4001B17EE /* ColorPlayhouse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColorPlayhouse.entitlements; sourceTree = "<group>"; };
 		F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataAccessObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +103,7 @@
 			children = (
 				4F04F7241DD2777200A5DFB1 /* MainRouter.swift */,
 				4FEF41E61DD4E60700D185EC /* Router.swift */,
+				F54FF41B1DE3780B0020E547 /* TimelapseBuilder.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 		6E6DACD71DD23CE600C8ADD6 /* ColorPlayhouse */ = {
 			isa = PBXGroup;
 			children = (
+				F54FF4181DE377700020E547 /* PopUp Scene */,
 				F583CE2B1DD640A4001B17EE /* ColorPlayhouse.entitlements */,
 				4F04F7231DD2776600A5DFB1 /* Common */,
 				4F04F71C1DD276EC00A5DFB1 /* MainMenuScene */,
@@ -170,6 +176,14 @@
 				F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */,
 			);
 			path = ColorPlayhouse;
+			sourceTree = "<group>";
+		};
+		F54FF4181DE377700020E547 /* PopUp Scene */ = {
+			isa = PBXGroup;
+			children = (
+				F54FF4191DE377870020E547 /* PopUpViewController.swift */,
+			);
+			name = "PopUp Scene";
 			sourceTree = "<group>";
 		};
 		F583CE2C1DD642D9001B17EE /* Frameworks */ = {
@@ -263,6 +277,7 @@
 				4FEF41E31DD4E26000D185EC /* ImageItem.swift in Sources */,
 				6E6DACDB1DD23CE600C8ADD6 /* MainMenuViewController.swift in Sources */,
 				6E6DACD91DD23CE600C8ADD6 /* AppDelegate.swift in Sources */,
+				F54FF41A1DE377870020E547 /* PopUpViewController.swift in Sources */,
 				4FEF41F01DD5022400D185EC /* Canvas.swift in Sources */,
 				4FEF41EC1DD5015600D185EC /* DrawingPresenter.swift in Sources */,
 				4FEF41DC1DD4DE0000D185EC /* PortfolioPresenter.swift in Sources */,
@@ -280,6 +295,7 @@
 				4FEF41F81DD6550900D185EC /* DrawingElement.swift in Sources */,
 				4FEF41DA1DD4DDC400D185EC /* PortfolioScreen.swift in Sources */,
 				4F04F7251DD2777200A5DFB1 /* MainRouter.swift in Sources */,
+				F54FF41C1DE3780B0020E547 /* TimelapseBuilder.swift in Sources */,
 				F583CE301DD6443E001B17EE /* DataAccessObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

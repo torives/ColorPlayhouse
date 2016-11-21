@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="tvOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -302,18 +302,105 @@
             </objects>
             <point key="canvasLocation" x="1644" y="759"/>
         </scene>
+        <!--Pop Up View Controller-->
+        <scene sceneID="Hgf-W5-JpY">
+            <objects>
+                <viewController storyboardIdentifier="popUpVC" id="F6T-6E-1bt" customClass="PopUpViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="USg-Nx-NxV"/>
+                        <viewControllerLayoutGuide type="bottom" id="vWv-4L-Joa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I6g-Lo-820">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ONT-4Y-Kpm">
+                                <frame key="frameInset" minX="330" minY="253" width="1261" height="574"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="box" translatesAutoresizingMaskIntoConstraints="NO" id="ChA-HD-Aly">
+                                        <frame key="frameInset" width="1261" height="574"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hg8-0h-XXj">
+                                        <frame key="frameInset" minX="667" minY="167" width="520" height="133"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" image="clear all"/>
+                                        <connections>
+                                            <action selector="didPressClearButton:" destination="F6T-6E-1bt" eventType="primaryActionTriggered" id="IqL-11-ndh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIf-qA-4zU">
+                                        <frame key="frameInset" minX="667" minY="395" width="520" height="133"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" image="share"/>
+                                        <connections>
+                                            <action selector="didPressShareButton:" destination="F6T-6E-1bt" eventType="primaryActionTriggered" id="zTw-Wz-uss"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KkA-X0-X62">
+                                        <frame key="frameInset" minX="667" minY="281" width="520" height="133"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" image="save"/>
+                                        <connections>
+                                            <action selector="didPressSaveButton:" destination="F6T-6E-1bt" eventType="primaryActionTriggered" id="bdy-hW-eua"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCJ-3f-4c4">
+                                        <frame key="frameInset" minX="667" minY="53" width="520" height="133"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" image="menu"/>
+                                        <connections>
+                                            <action selector="didPressMenuButton:" destination="F6T-6E-1bt" eventType="primaryActionTriggered" id="xhN-H9-S3m"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KSQ-gt-iQi">
+                                        <frame key="frameInset" minX="57" minY="68" width="603" height="438"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkG-6b-rfe">
+                                        <frame key="frameInset" minX="258" minY="207" width="202" height="162"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" image="play"/>
+                                        <connections>
+                                            <action selector="didPressPlayVideoButton:" destination="F6T-6E-1bt" eventType="primaryActionTriggered" id="8ri-O8-mCT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="popupView" destination="ONT-4Y-Kpm" id="ggj-5X-JFS"/>
+                        <outlet property="screenshotImageView" destination="KSQ-gt-iQi" id="RGe-7y-uTx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gBg-R3-fvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3861" y="759"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background_mainmenu" width="1920" height="1080"/>
         <image name="blue" width="106" height="108"/>
         <image name="blue_light" width="106" height="108"/>
+        <image name="box" width="1261" height="574"/>
         <image name="brush" width="401" height="121"/>
         <image name="canvas" width="1761" height="971"/>
+        <image name="clear all" width="440" height="93"/>
         <image name="crayon" width="298" height="100"/>
         <image name="eraser" width="146" height="147"/>
         <image name="green" width="106" height="108"/>
         <image name="light_green" width="106" height="108"/>
         <image name="magenta" width="106" height="108"/>
+        <image name="menu" width="440" height="93"/>
         <image name="my_portfolio_background" width="1920" height="1080"/>
         <image name="my_portfolio_compelte" width="544" height="578"/>
         <image name="new_drawing_complete" width="481" height="582"/>
@@ -322,8 +409,11 @@
         <image name="palette" width="1345" height="205"/>
         <image name="pencil" width="404" height="82"/>
         <image name="pencil_pointer" width="81" height="122"/>
+        <image name="play" width="122" height="122"/>
         <image name="purple" width="106" height="108"/>
         <image name="red" width="106" height="108"/>
+        <image name="save" width="440" height="93"/>
+        <image name="share" width="440" height="93"/>
         <image name="wood_background" width="1920" height="1080"/>
         <image name="yellow" width="106" height="108"/>
     </resources>

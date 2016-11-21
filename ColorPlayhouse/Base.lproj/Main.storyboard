@@ -378,8 +378,13 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="clearAllButton" destination="hg8-0h-XXj" id="Ke6-WW-iJ2"/>
+                        <outlet property="menuButton" destination="wCJ-3f-4c4" id="Sfo-Ww-ffR"/>
+                        <outlet property="playButton" destination="XkG-6b-rfe" id="R19-Dw-rSW"/>
                         <outlet property="popupView" destination="ONT-4Y-Kpm" id="ggj-5X-JFS"/>
+                        <outlet property="saveButton" destination="KkA-X0-X62" id="r0K-xJ-mgw"/>
                         <outlet property="screenshotImageView" destination="KSQ-gt-iQi" id="RGe-7y-uTx"/>
+                        <outlet property="shareButton" destination="rIf-qA-4zU" id="uDZ-hP-ZmL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBg-R3-fvn" userLabel="First Responder" sceneMemberID="firstResponder"/>

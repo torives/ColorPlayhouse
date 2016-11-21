@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GameController
 
 class DrawingViewController: UIViewController {
     
@@ -59,6 +60,9 @@ class DrawingViewController: UIViewController {
         paletteConstraintToBottom.constant = -205
         colorsConstraintToBottom.constant = -168
         toolsConstraintToTrailing.constant = -404
+        
+        let controller = GCController.controllers().first!
+        controller.microGamepad?.buttonX.pressedChangedHandler = { if $2 { self.drawingGesture?.isEnabled = !self.drawingGesture!.isEnabled } }
         
         drawingGesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
         drawingGesture?.isEnabled = false

@@ -10,62 +10,38 @@ import UIKit
 
 class DrawingViewController: UIViewController {
     
-    var paletteIsActive = false
-    var toolsIsActive = false
-    
-    var selectedColor: UIButton?
-    var selectedTool: UIButton?
-    
-    override var preferredFocusEnvironments: [UIFocusEnvironment] {
-        
-        if paletteIsActive {
-            //return paletteColors
-            return [selectedColor!]
-        }
-        else if toolsIsActive {
-            //return drawingTools
-            return [selectedTool!]
-        }
-        else {
-            return []
-        }
-    }
+    //MARK: - Properties
+    //MARK: Outlets
     
     @IBOutlet weak var pointer: UIImageView!
-    
     @IBOutlet weak var palette: UIImageView!
     @IBOutlet weak var canvas: UIImageView!
     
     @IBOutlet var drawingTools: [UIButton]!
     @IBOutlet var paletteColors: [UIButton]!
     
-    @IBAction func colorClick(_ sender: AnyObject) {
-        
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-            self.paletteConstraintToBottom.constant = -205
-            self.colorsConstraintToBottom.constant = -168
-            self.view.layoutIfNeeded()
-            }, completion: nil)
-        
-        paletteIsActive = false
-        setNeedsFocusUpdate()
-    }
-    
-    @IBAction func toolClick(_ sender: AnyObject) {
-        
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-            self.toolsConstraintToTrailing.constant = -430
-            self.view.layoutIfNeeded()
-            }, completion: nil)
-        
-        toolsIsActive = false
-        setNeedsFocusUpdate()
-    }
-    
     @IBOutlet weak var toolsConstraintToTrailing: NSLayoutConstraint!
     @IBOutlet weak var paletteConstraintToBottom: NSLayoutConstraint!
     @IBOutlet weak var colorsConstraintToBottom: NSLayoutConstraint!
     
+    //MARK: Public Properties
+    
+    override var preferredFocusEnvironments: [UIFocusEnvironment] {
+        
+        if paletteIsActive { return [selectedColor!] }
+        else if toolsIsActive { return [selectedTool!] }
+        else { return [] }
+    }
+    
+    //MARK: Private Properties
+    
+    private var paletteIsActive = false
+    private var toolsIsActive = false
+    
+    private var selectedColor: UIButton?
+    private var selectedTool: UIButton?
+    
+    private var drawingGesture: UIPanGestureRecognizer?
     
     private var _eraserEnabled: Bool = false
     private var _drawingStruct: DrawingStruct = DrawingStruct()
@@ -73,40 +49,20 @@ class DrawingViewController: UIViewController {
     private var _elements: Array<UIView> = Array<UIView>()
     
     
-    //    let DAO = DataAccessObject.sharedInstance
-    
-    //Code to take screenshot and save to database
-    /*
-     @IBAction func captureScreenShot(_ sender: AnyObject) {
-     var window: UIWindow? = UIApplication.shared.keyWindow
-     window = UIApplication.shared.windows[0] as UIWindow
-     UIGraphicsBeginImageContextWithOptions(window!.frame.size, window!.isOpaque, 0.0)
-     window!.layer.render(in: UIGraphicsGetCurrentContext()!)
-     let screenShot = UIGraphicsGetImageFromCurrentImageContext()!
-     UIGraphicsEndImageContext()
-     
-     DAO.saveImageToUser(image: screenShot)
-     } */
-    
+    //MARK: - Methods
     
     override func viewDidLoad() {
         
         selectedColor = paletteColors[0]
         selectedTool = drawingTools[0]
-
-        drawingTools.forEach({$0.isHidden = true})
-        paletteColors.forEach({$0.isHidden = true})
-        palette.isHidden = true
         
-        palette.isHidden = false
-        paletteColors.forEach({$0.isHidden = false})
         paletteConstraintToBottom.constant = -205
         colorsConstraintToBottom.constant = -168
-        drawingTools.forEach({$0.isHidden = false})
         toolsConstraintToTrailing.constant = -404
         
-        let gesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
-        //view.addGestureRecognizer(gesture)
+        drawingGesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
+        drawingGesture?.isEnabled = false
+        view.addGestureRecognizer(drawingGesture!)
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
         swipeLeft.direction = .left
@@ -123,8 +79,99 @@ class DrawingViewController: UIViewController {
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
         swipeDown.direction = .down
         self.view.addGestureRecognizer(swipeDown)
+    }
+    
+    //MARK: IBAction Methods
+    
+    @IBAction func colorClick(_ sender: AnyObject) {
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            self.paletteConstraintToBottom.constant = -205
+            self.colorsConstraintToBottom.constant = -168
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        
+        paletteIsActive = false
+        setNeedsFocusUpdate()
+    }
+    
+    @IBAction func toolClick(_ sender: AnyObject) {
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            self.toolsConstraintToTrailing.constant = -430
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        
+        toolsIsActive = false
+        setNeedsFocusUpdate()
+    }
+
+    //MARK: Focus Handling
+    
+    override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
+        if toolsIsActive || paletteIsActive{
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        
+        super.didUpdateFocus(in: context, with: coordinator)
+        
+        if toolsIsActive || paletteIsActive {
+            
+            guard let nextFocusedView = context.nextFocusedView else { return }
+            guard let previouslyFocusedView = context.previouslyFocusedView else { return }
+            
+            customFocus(previouslyFocused: previouslyFocusedView as! UIButton, nextFocused: nextFocusedView as! UIButton, context: context)
+            
+            if paletteColors.contains(nextFocusedView as! UIButton) {
+                selectedColor = nextFocusedView as? UIButton
+            }
+            
+            if drawingTools.contains(nextFocusedView as! UIButton) {
+                selectedTool = nextFocusedView as? UIButton
+                
+                switch selectedTool?.backgroundImage(for: .normal) {
+                case #imageLiteral(resourceName: "pencil")?:
+                    pointer.image = UIImage(named: "pencil_pointer")
+                case #imageLiteral(resourceName: "brush")?:
+                    pointer.image = UIImage(named: "brush_pointer")
+                case #imageLiteral(resourceName: "eraser")?:
+                    pointer.image = UIImage(named: "eraser_pointer")
+                case #imageLiteral(resourceName: "crayon")?:
+                    pointer.image = UIImage(named: "crayon_pointer")
+                default:
+                    return
+                }
+            }
+        }
+    }
+    
+    
+    func customFocus(previouslyFocused: UIButton, nextFocused: UIButton, context: UIFocusUpdateContext) {
+        
+        nextFocused.layer.shouldRasterize = true
+        nextFocused.layer.shadowColor = UIColor.black.cgColor
+        nextFocused.layer.shadowOpacity = 0.5
+        nextFocused.layer.shadowRadius = 25
+        nextFocused.layer.shadowOffset = CGSize(width: 0, height: 16)
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+            nextFocused.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        })
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+            previouslyFocused.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        })
+        
+        context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
+        context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
         
     }
+    
+    //MARK: Interface Gesture Handling
     
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         
@@ -193,82 +240,11 @@ class DrawingViewController: UIViewController {
     }
     
     
-    //MARK: - FOCUS
-    
-    override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
-        if toolsIsActive || paletteIsActive{
-            return true
-        }
-        else{
-            return false
-        }
-    }
-    
-    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        
-        super.didUpdateFocus(in: context, with: coordinator)
-        
-        if toolsIsActive || paletteIsActive {
-            
-            guard let nextFocusedView = context.nextFocusedView else { return }
-            guard let previouslyFocusedView = context.previouslyFocusedView else { return }
-            
-            customFocus(previouslyFocused: previouslyFocusedView as! UIButton, nextFocused: nextFocusedView as! UIButton, context: context)
-            
-            if paletteColors.contains(nextFocusedView as! UIButton) {
-                selectedColor = nextFocusedView as? UIButton
-            }
-            
-            if drawingTools.contains(nextFocusedView as! UIButton) {
-                selectedTool = nextFocusedView as? UIButton
-                
-                switch selectedTool?.backgroundImage(for: .normal) {
-                case #imageLiteral(resourceName: "pencil")?:
-                    pointer.image = UIImage(named: "pencil_pointer")
-                case #imageLiteral(resourceName: "brush")?:
-                    pointer.image = UIImage(named: "brush_pointer")
-                case #imageLiteral(resourceName: "eraser")?:
-                    pointer.image = UIImage(named: "eraser_pointer")
-                case #imageLiteral(resourceName: "crayon")?:
-                    pointer.image = UIImage(named: "crayon_pointer")
-                default:
-                    return
-                }
-            }
-        }
-    }
-    
-    
-    func customFocus(previouslyFocused: UIButton, nextFocused: UIButton, context: UIFocusUpdateContext) {
-        
-        nextFocused.layer.shouldRasterize = true
-        nextFocused.layer.shadowColor = UIColor.black.cgColor
-        nextFocused.layer.shadowOpacity = 0.5
-        nextFocused.layer.shadowRadius = 25
-        nextFocused.layer.shadowOffset = CGSize(width: 0, height: 16)
-        UIView.animate(withDuration: 0.1, animations: { () -> Void in
-            nextFocused.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-        })
-        UIView.animate(withDuration: 0.1, animations: { () -> Void in
-            previouslyFocused.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        })
-        
-        context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
-        context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
-        
-    }
+    //MARK: Drawing Gesture Handling
     
     func didReceiveTouch(gesture: UIPanGestureRecognizer){
         
-        //        if (_eraserEnabled) {
-        //            eraseWithGesture(gesture: gesture)
-        //        }
-        //        else {
-        
-        
         let point = gesture.location(in: view)
-        print("x:\(point.x) y:\(point.y)")
-        
         self.pointer.frame.origin = point
         
         if canvas.point(inside: point, with: nil) {
@@ -278,13 +254,7 @@ class DrawingViewController: UIViewController {
             }
             drawWithGesture(gesture: gesture)
         }
-        //        }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
-    
-    
-    
     
     func finishDrawing() {
         if let drawingElement = _currentDrawingElement {
@@ -329,8 +299,6 @@ class DrawingViewController: UIViewController {
     
     func eraseWithGesture(gesture: UIPanGestureRecognizer) {
         
-        var hasEnded: Bool = false
-        
         for case let drawingElement as DrawingElement in _elements {
             
             switch gesture.state {
@@ -342,36 +310,23 @@ class DrawingViewController: UIViewController {
                 
             case .ended:
                 drawingElement.endErasing(point: gesture.location(in: self.view))
-                hasEnded = true
                 
             case .cancelled , .failed:
                 drawingElement.cancelErasing(point: gesture.location(in: self.view))
-                hasEnded = true
                 
             default:
                 break
             }
         }
-        
-        // Hide elemntBar if all selected elements have been erased.
-        if hasEnded {
-            _elements = _elements.filter {
-                if $0.frame.isEmpty {
-                    if $0 == _currentDrawingElement {
-                        _currentDrawingElement = nil
-                    }
-                    //$0.remove()
-                    return false
-                }
-                return true
-            }
-            
-            
-        }
-        //
     }
 }
 
+
+//MARK: - Gesture Handling Legacy Types
+
+//  FIX-ME:
+//  These types are here for compatibility reasons with the drawing algorithm currently being used.
+//  They are not necessarily useful and certaily should be removed from this file.
 
 protocol DrawingCanvasTool
 {
@@ -380,9 +335,6 @@ protocol DrawingCanvasTool
     func drawWithGesture(gesture : UIPanGestureRecognizer)
     func eraseWithGesture(gesture : UIPanGestureRecognizer)
 }
-
-
-
 
 // Stroke appearance definition.
 // FF is the default width, LOWER is the minimum and UPPER is the maximum.
@@ -398,8 +350,6 @@ struct DrawingStruct
     
     var shouldThin: Bool
     var fadeOpacity: Float
-    
-    
     
     init() {
         // Dummy values

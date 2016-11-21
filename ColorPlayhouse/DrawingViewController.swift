@@ -102,21 +102,18 @@ class DrawingViewController: UIViewController {
   
     @objc private func menuButtonWasPressed(){
         
-        
+        dismissPopUp()
+        menuButtonTap?.isEnabled = false
+        view.gestureRecognizers?.forEach({$0.isEnabled = true})
     }
     
     @objc private func playButtonWasPressed(){
         
         timer.invalidate()
+        view.gestureRecognizers?.forEach({$0.isEnabled = false})
         menuButtonTap?.isEnabled = true
         
-        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
-        popUpVC.screenshotsPaths = self.screenshotsPaths
-        self.addChildViewController(popUpVC)
-        
-        popUpVC.view.frame = self.view.frame
-        self.view.addSubview(popUpVC.view)
-        popUpVC.didMove(toParentViewController: self)
+        presentPopUp()
     }
     
     @objc private func selectButtonWasPressed(){ drawingGesture?.isEnabled = !drawingGesture!.isEnabled }
@@ -358,7 +355,6 @@ class DrawingViewController: UIViewController {
         let backgroundQueue = DispatchQueue(label: "SnapshotQueue",
                                             qos: .background,
                                             target: nil)
-        
         backgroundQueue.async {
             
             UIGraphicsBeginImageContextWithOptions(window!.frame.size, window!.isOpaque, 0.0)
@@ -429,6 +425,43 @@ class DrawingViewController: UIViewController {
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
         swipeDown.direction = .down
         self.view.addGestureRecognizer(swipeDown)
+    }
+    
+    
+    //MARK: PopUp Methods
+    
+    private func presentPopUp() {
+        
+        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
+        popUpVC.screenshotsPaths = self.screenshotsPaths
+        
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        
+        popUpVC.didMove(toParentViewController: self)
+    }
+    
+    private func dismissPopUp() {
+        
+        let popUp = self.childViewControllers.first
+        
+        UIView.animate(withDuration: 0.25,
+                       
+            animations: {
+                popUp?.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+                popUp?.view.alpha = 0
+            },
+            
+            completion: { (isFinished) in
+            
+                if isFinished{
+                    popUp?.willMove(toParentViewController: self)
+                    popUp?.view.removeFromSuperview()
+                    popUp?.removeFromParentViewController()
+                }
+            })
     }
 }
 

@@ -29,11 +29,22 @@
 		6E6DACDE1DD23CE600C8ADD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */; };
 		6E6DACE01DD23CE600C8ADD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DACDF1DD23CE600C8ADD6 /* Assets.xcassets */; };
 		6E9C5E551DDF95B500A33773 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C5E541DDF95B500A33773 /* PortfolioCell.swift */; };
+		6E9C5E961DE4487500A33773 /* ColorPlayhouseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C5E951DE4487500A33773 /* ColorPlayhouseUITests.swift */; };
 		6EE2827A1DDE256400600C95 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE282791DDE256400600C95 /* CloudKit.framework */; };
 		F54FF41A1DE377870020E547 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54FF4191DE377870020E547 /* PopUpViewController.swift */; };
 		F54FF41C1DE3780B0020E547 /* TimelapseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54FF41B1DE3780B0020E547 /* TimelapseBuilder.swift */; };
 		F583CE301DD6443E001B17EE /* DataAccessObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6E9C5E981DE4487500A33773 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E6DACCD1DD23CE600C8ADD6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E6DACD41DD23CE600C8ADD6;
+			remoteInfo = ColorPlayhouse;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4F04F7211DD2775100A5DFB1 /* MainMenuRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuRouter.swift; sourceTree = "<group>"; };
@@ -60,6 +71,9 @@
 		6E6DACDF1DD23CE600C8ADD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E6DACE11DD23CE600C8ADD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E9C5E541DDF95B500A33773 /* PortfolioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioCell.swift; sourceTree = "<group>"; };
+		6E9C5E931DE4487500A33773 /* ColorPlayhouseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorPlayhouseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E9C5E951DE4487500A33773 /* ColorPlayhouseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPlayhouseUITests.swift; sourceTree = "<group>"; };
+		6E9C5E971DE4487500A33773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EE282791DDE256400600C95 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		F54FF4191DE377870020E547 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		F54FF41B1DE3780B0020E547 /* TimelapseBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelapseBuilder.swift; sourceTree = "<group>"; };
@@ -73,6 +87,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EE2827A1DDE256400600C95 /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9C5E901DE4487500A33773 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				6E6DACD71DD23CE600C8ADD6 /* ColorPlayhouse */,
+				6E9C5E941DE4487500A33773 /* ColorPlayhouseUITests */,
 				6E6DACD61DD23CE600C8ADD6 /* Products */,
 				F583CE2C1DD642D9001B17EE /* Frameworks */,
 			);
@@ -158,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				6E6DACD51DD23CE600C8ADD6 /* ColorPlayhouse.app */,
+				6E9C5E931DE4487500A33773 /* ColorPlayhouseUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,6 +199,15 @@
 				F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */,
 			);
 			path = ColorPlayhouse;
+			sourceTree = "<group>";
+		};
+		6E9C5E941DE4487500A33773 /* ColorPlayhouseUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6E9C5E951DE4487500A33773 /* ColorPlayhouseUITests.swift */,
+				6E9C5E971DE4487500A33773 /* Info.plist */,
+			);
+			path = ColorPlayhouseUITests;
 			sourceTree = "<group>";
 		};
 		F54FF4181DE377700020E547 /* PopUp Scene */ = {
@@ -214,6 +246,24 @@
 			productReference = 6E6DACD51DD23CE600C8ADD6 /* ColorPlayhouse.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6E9C5E921DE4487500A33773 /* ColorPlayhouseUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E9C5E9C1DE4487500A33773 /* Build configuration list for PBXNativeTarget "ColorPlayhouseUITests" */;
+			buildPhases = (
+				6E9C5E8F1DE4487500A33773 /* Sources */,
+				6E9C5E901DE4487500A33773 /* Frameworks */,
+				6E9C5E911DE4487500A33773 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E9C5E991DE4487500A33773 /* PBXTargetDependency */,
+			);
+			name = ColorPlayhouseUITests;
+			productName = ColorPlayhouseUITests;
+			productReference = 6E9C5E931DE4487500A33773 /* ColorPlayhouseUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -237,6 +287,12 @@
 							};
 						};
 					};
+					6E9C5E921DE4487500A33773 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 7S5BW22U4Y;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6E6DACD41DD23CE600C8ADD6;
+					};
 				};
 			};
 			buildConfigurationList = 6E6DACD01DD23CE600C8ADD6 /* Build configuration list for PBXProject "ColorPlayhouse" */;
@@ -253,6 +309,7 @@
 			projectRoot = "";
 			targets = (
 				6E6DACD41DD23CE600C8ADD6 /* ColorPlayhouse */,
+				6E9C5E921DE4487500A33773 /* ColorPlayhouseUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -264,6 +321,13 @@
 			files = (
 				6E6DACE01DD23CE600C8ADD6 /* Assets.xcassets in Resources */,
 				6E6DACDE1DD23CE600C8ADD6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E9C5E911DE4487500A33773 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +364,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6E9C5E8F1DE4487500A33773 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E9C5E961DE4487500A33773 /* ColorPlayhouseUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6E9C5E991DE4487500A33773 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E6DACD41DD23CE600C8ADD6 /* ColorPlayhouse */;
+			targetProxy = 6E9C5E981DE4487500A33773 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */ = {
@@ -437,6 +517,32 @@
 			};
 			name = Release;
 		};
+		6E9C5E9A1DE4487500A33773 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 7S5BW22U4Y;
+				INFOPLIST_FILE = ColorPlayhouseUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.priscila.ColorPlayhouseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = ColorPlayhouse;
+			};
+			name = Debug;
+		};
+		6E9C5E9B1DE4487500A33773 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 7S5BW22U4Y;
+				INFOPLIST_FILE = ColorPlayhouseUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.priscila.ColorPlayhouseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = ColorPlayhouse;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -457,6 +563,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		6E9C5E9C1DE4487500A33773 /* Build configuration list for PBXNativeTarget "ColorPlayhouseUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E9C5E9A1DE4487500A33773 /* Debug */,
+				6E9C5E9B1DE4487500A33773 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

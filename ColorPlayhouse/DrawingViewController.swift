@@ -25,7 +25,7 @@ class DrawingViewController: UIViewController {
     @IBOutlet weak var paletteConstraintToBottom: NSLayoutConstraint!
     @IBOutlet weak var colorsConstraintToBottom: NSLayoutConstraint!
     
-    //MARK: Public Properties
+    //MARK: - Public Properties
     
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
         
@@ -34,7 +34,7 @@ class DrawingViewController: UIViewController {
         else { return [] }
     }
     
-    //MARK: Private Properties
+    //MARK: - Private Properties
     
     private var paletteIsActive = false
     private var toolsIsActive = false
@@ -51,6 +51,7 @@ class DrawingViewController: UIViewController {
     
     
     let DAO = DataAccessObject.sharedInstance
+    
     //MARK: - Methods
     
     var timer: Timer!
@@ -107,7 +108,7 @@ class DrawingViewController: UIViewController {
         view.addGestureRecognizer(gesture)
     }
     
-    //MARK: IBAction Methods
+    //MARK: - IBAction Methods
     
     @IBAction func colorClick(_ sender: AnyObject) {
         
@@ -132,7 +133,7 @@ class DrawingViewController: UIViewController {
         setNeedsFocusUpdate()
     }
 
-    //MARK: Focus Handling
+    //MARK: - Focus Handling
     
     override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
         if toolsIsActive || paletteIsActive{
@@ -197,7 +198,7 @@ class DrawingViewController: UIViewController {
         
     }
     
-    //MARK: Interface Gesture Handling
+    //MARK: - Interface Gesture Handling
     
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         
@@ -266,7 +267,7 @@ class DrawingViewController: UIViewController {
     }
     
     
-    //MARK: Drawing Gesture Handling
+    //MARK: - Drawing Gesture Handling
     
     func didReceiveTouch(gesture: UIPanGestureRecognizer){
         

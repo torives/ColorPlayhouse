@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GameController
 
 class DrawingViewController: UIViewController {
     
@@ -36,13 +35,20 @@ class DrawingViewController: UIViewController {
     
     //MARK: - Private Properties
     
+    private let DAO = DataAccessObject.sharedInstance
+    
+    private var timer: Timer!
+    private var screenshotsPaths = [String]()
+    
     private var paletteIsActive = false
     private var toolsIsActive = false
+    private var popupIsOpen = false
     
     private var selectedColor: UIButton?
     private var selectedTool: UIButton?
     
     private var drawingGesture: UIPanGestureRecognizer?
+    private var menuButtonTap: UITapGestureRecognizer?
     
     private var _eraserEnabled: Bool = false
     private var _drawingStruct: DrawingStruct = DrawingStruct()
@@ -50,18 +56,12 @@ class DrawingViewController: UIViewController {
     private var _elements: Array<UIView> = Array<UIView>()
     
     
-    let DAO = DataAccessObject.sharedInstance
-    
     //MARK: - Methods
     
-    var timer: Timer!
-    var screenshotsPaths = [String]()
-
-
     override func viewDidLoad() {
         
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(DrawingViewController.printScreen), userInfo: nil, repeats: true)
-        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(printScreen), userInfo: nil, repeats: true)
+
         selectedColor = paletteColors[0]
         selectedTool = drawingTools[0]
         
@@ -69,44 +69,9 @@ class DrawingViewController: UIViewController {
         colorsConstraintToBottom.constant = -168
         toolsConstraintToTrailing.constant = -404
         
-        let controller = GCController.controllers().first!
-        controller.microGamepad?.buttonX.pressedChangedHandler = { if $2 { self.drawingGesture?.isEnabled = !self.drawingGesture!.isEnabled } }
-        
-        drawingGesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
-        drawingGesture?.isEnabled = false
-        view.addGestureRecognizer(drawingGesture!)
-        
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
-        swipeLeft.direction = .left
-        self.view.addGestureRecognizer(swipeLeft)
-        
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
-        swipeRight.direction = .right
-        self.view.addGestureRecognizer(swipeRight)
-        
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
-        swipeUp.direction = .up
-        self.view.addGestureRecognizer(swipeUp)
-        
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
-        swipeDown.direction = .down
-        self.view.addGestureRecognizer(swipeDown)
-        
-        addRecognizers()
-        
+        configureUserInteraction()
     }
     
-    
-    func addRecognizers() {
-        addMenuButtonRecognizer()
-        addPanGestureRecognizer()
-        
-    }
-    
-    func addPanGestureRecognizer() {
-        let gesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
-        view.addGestureRecognizer(gesture)
-    }
     
     //MARK: - IBAction Methods
     
@@ -132,11 +97,34 @@ class DrawingViewController: UIViewController {
         toolsIsActive = false
         setNeedsFocusUpdate()
     }
+    
+    
+    //MARK: Controller Button Actions
+  
+    @objc private func menuButtonWasPressed(){
+        
+        dismissPopUp()
+        menuButtonTap?.isEnabled = false
+        view.gestureRecognizers?.forEach({$0.isEnabled = true})
+    }
+    
+    @objc private func playButtonWasPressed(){
+        
+        timer.invalidate()
+        view.gestureRecognizers?.forEach({$0.isEnabled = false})
+        menuButtonTap?.isEnabled = true
+        
+        popupIsOpen = true
+        presentPopUp()
+    }
+    
+    @objc private func selectButtonWasPressed(){ drawingGesture?.isEnabled = !drawingGesture!.isEnabled }
 
-    //MARK: - Focus Handling
+    
+    //MARK: Focus Handling
     
     override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
-        if toolsIsActive || paletteIsActive{
+        if toolsIsActive || paletteIsActive || popupIsOpen {
             return true
         }
         else{
@@ -178,7 +166,6 @@ class DrawingViewController: UIViewController {
         }
     }
     
-    
     func customFocus(previouslyFocused: UIButton, nextFocused: UIButton, context: UIFocusUpdateContext) {
         
         nextFocused.layer.shouldRasterize = true
@@ -198,17 +185,20 @@ class DrawingViewController: UIViewController {
         
     }
     
-    //MARK: - Interface Gesture Handling
+
+    //MARK: Interface Gesture Handling
     
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             
+            defer { setNeedsFocusUpdate() }
+            
             switch swipeGesture.direction {
+            
             case UISwipeGestureRecognizerDirection.left:
+            
                 if !paletteIsActive {
-                    
-                    print("left swipe")
                     
                     UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
                         self.toolsConstraintToTrailing.constant = 0
@@ -216,26 +206,22 @@ class DrawingViewController: UIViewController {
                         }, completion: nil)
                     
                     toolsIsActive = true
-                    setNeedsFocusUpdate()
                 }
                 
-                
             case UISwipeGestureRecognizerDirection.up:
+                
                 if toolsIsActive == false {
-                    print("up swipe")
+                    
                     UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
                         self.paletteConstraintToBottom.constant = 0
                         self.colorsConstraintToBottom.constant = 60
                         self.view.layoutIfNeeded()
                         }, completion: nil)
+                   
                     paletteIsActive = true
-                    setNeedsFocusUpdate()
                 }
-                print ("********")
-                print (preferredFocusEnvironments.count)
                 
             case UISwipeGestureRecognizerDirection.right:
-                print ("right swipe")
                 
                 if toolsIsActive{
         
@@ -243,8 +229,8 @@ class DrawingViewController: UIViewController {
                         self.toolsConstraintToTrailing.constant = -430
                         self.view.layoutIfNeeded()
                         }, completion: nil)
+                    
                     toolsIsActive = false
-                    setNeedsFocusUpdate()
                 }
                 
             case UISwipeGestureRecognizerDirection.down:
@@ -256,8 +242,8 @@ class DrawingViewController: UIViewController {
                         self.colorsConstraintToBottom.constant = -168
                         self.view.layoutIfNeeded()
                         }, completion: nil)
+                    
                     paletteIsActive = false
-                    setNeedsFocusUpdate()
                 }
                 
             default:
@@ -346,17 +332,12 @@ class DrawingViewController: UIViewController {
             }
         }
     }
-}
-
-extension DrawingViewController {
-    func addMenuButtonRecognizer() {
-        let menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DrawingViewController.handlePressMenuButton))
-        menuTapGestureRecognizer.allowedPressTypes = [NSNumber(integerLiteral: UIPressType.menu.rawValue)]
-        self.view.addGestureRecognizer(menuTapGestureRecognizer)
-    }
     
     
-    func handlePressMenuButton() {
+    //MARK: Timelapse Functions
+    
+    private func showTimelapsePopUp() {
+        
         timer.invalidate()
         
         let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
@@ -366,36 +347,125 @@ extension DrawingViewController {
         popUpVC.view.frame = self.view.frame
         self.view.addSubview(popUpVC.view)
         popUpVC.didMove(toParentViewController: self)
-        
     }
-}
-
-//MARK:- Image and Video Handling
-extension DrawingViewController {
     
-    func printScreen() {
+    @objc private func printScreen() {
+        
         var window: UIWindow? = UIApplication.shared.keyWindow
         window = UIApplication.shared.windows[0] as UIWindow
-        UIGraphicsBeginImageContextWithOptions(window!.frame.size, window!.isOpaque, 0.0)
-        window!.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let screenShot = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
         
-        saveImageToDocumentsDirectory(image: screenShot)
+        let backgroundQueue = DispatchQueue(label: "SnapshotQueue",
+                                            qos: .background,
+                                            target: nil)
+        backgroundQueue.async {
+            
+            UIGraphicsBeginImageContextWithOptions(window!.frame.size, window!.isOpaque, 0.0)
+            window!.layer.render(in: UIGraphicsGetCurrentContext()!)
+            let screenShot = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            
+            self.saveImageToDocumentsDirectory(image: screenShot)
+        }
     }
     
-    func saveImageToDocumentsDirectory(image: UIImage) {
+    private func saveImageToDocumentsDirectory(image: UIImage) {
+        
         let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
         let path = NSURL(fileURLWithPath: documentsDirectory).appendingPathComponent("image\(screenshotsPaths.count)")
         print(path?.absoluteString)
+        
         screenshotsPaths.append((path?.absoluteString)!)
         let data = UIImagePNGRepresentation(image)
         try! data?.write(to: path!, options: .atomic)
     }
+   
+    //MARK: Auxiliary Functions
     
+    private func configureUserInteraction() {
+        setupControllerButtons()
+        addDrawingGesture()
+        addCanvasControlGestures()
+    }
+    
+    private func setupControllerButtons(){
+        
+        menuButtonTap = UITapGestureRecognizer(target: self, action: #selector(menuButtonWasPressed))
+        menuButtonTap?.allowedPressTypes = [NSNumber(value: UIPressType.menu.rawValue)]
+        menuButtonTap?.isEnabled = false
+        self.view.addGestureRecognizer(menuButtonTap!)
+        
+        let playButtonTap = UITapGestureRecognizer(target: self, action: #selector(playButtonWasPressed))
+        playButtonTap.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue)]
+        self.view.addGestureRecognizer(playButtonTap)
+        
+        let selectButtonTap = UITapGestureRecognizer(target: self, action: #selector(selectButtonWasPressed))
+        selectButtonTap.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
+        self.view.addGestureRecognizer(selectButtonTap)
+    }
+    
+    private func addDrawingGesture() {
+        drawingGesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
+        drawingGesture?.isEnabled = false
+        view.addGestureRecognizer(drawingGesture!)
+    }
+    
+    private func addCanvasControlGestures(){
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
+        swipeUp.direction = .up
+        self.view.addGestureRecognizer(swipeUp)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
+        swipeDown.direction = .down
+        self.view.addGestureRecognizer(swipeDown)
+    }
+    
+    
+    //MARK: PopUp Methods
+    
+    private func presentPopUp() {
+        
+        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
+        popUpVC.screenshotsPaths = self.screenshotsPaths
+        
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        
+        popUpVC.didMove(toParentViewController: self)
+    }
+    
+    private func dismissPopUp() {
+        
+        let popUp = self.childViewControllers.first
+        
+        UIView.animate(withDuration: 0.25,
+                       
+            animations: {
+                popUp?.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+                popUp?.view.alpha = 0
+            },
+            
+            completion: { (isFinished) in
+            
+                if isFinished{
+                    popUp?.willMove(toParentViewController: self)
+                    popUp?.view.removeFromSuperview()
+                    popUp?.removeFromParentViewController()
+                }
+            })
+    }
 }
-
 
 
 //MARK: - Gesture Handling Legacy Types

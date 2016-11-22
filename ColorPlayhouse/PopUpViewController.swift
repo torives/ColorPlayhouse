@@ -13,7 +13,6 @@ import AVKit
 class PopUpViewController: UIViewController {
     
     @IBOutlet weak var popupView: UIView!
-    
     @IBOutlet weak var screenshotImageView: UIImageView!
     
     @IBOutlet weak var playButton: UIButton!
@@ -34,14 +33,48 @@ class PopUpViewController: UIViewController {
         setImage()
         setupView()
         showAnimation()
-        addMenuButtonRecognizer()
-        setNeedsFocusUpdate()
-        
-        // Do any additional setup after loading the view.
     }
     
+    //MARK: IBAction Methods
+    
+    @IBAction func didPressPlayVideoButton(_ sender: AnyObject) {
+        self.timeLapseBuilder = TimeLapseBuilder(photoURLs: screenshotsPaths)
+        self.timeLapseBuilder!.build(
+            progress: { (progress: Progress) in
+                NSLog("Progress: \(progress.completedUnitCount) / \(progress.totalUnitCount)")
+                
+        },
+            success: { url in
+                NSLog("Output written to \(url)")
+                self.playVideo(videoOutputURL: url as URL)
+        },
+            failure: { error in
+                NSLog("failure: \(error)")
+                
+        }
+        )
+    }
+    
+    @IBAction func didPressClearButton(_ sender: AnyObject) {
+        print("Clear Button Pressed")
+    }
+    
+    @IBAction func didPressSaveButton(_ sender: AnyObject) {
+        DAO.saveImageToUser(path: screenshotsPaths.last!)
+    }
+    
+    @IBAction func didPressShareButton(_ sender: AnyObject) {
+        print("Share Button Pressed")
+    }
+    
+    @IBAction func didPressMenuButton(_ sender: AnyObject) {
+        print("Menu Button Pressed")
+    }
 
-    func setImage() {
+    
+    // MARK: Auxiliary Methods
+    
+    private func setImage() {
         let nsDirectory = FileManager.SearchPathDirectory.cachesDirectory
         let nsUserDomainMask = FileManager.SearchPathDomainMask.userDomainMask
         let paths = NSSearchPathForDirectoriesInDomains(nsDirectory, nsUserDomainMask, true)
@@ -54,32 +87,14 @@ class PopUpViewController: UIViewController {
         }
     }
     
-    func setupView() {
+    private func setupView() {
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         self.popupView.layer.cornerRadius = 5
         self.popupView.layer.shadowOpacity = 0.8
         self.popupView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
     }
     
-    @IBAction func didPressPlayVideoButton(_ sender: AnyObject) {
-        self.timeLapseBuilder = TimeLapseBuilder(photoURLs: screenshotsPaths)
-        self.timeLapseBuilder!.build(
-            progress: { (progress: Progress) in
-                NSLog("Progress: \(progress.completedUnitCount) / \(progress.totalUnitCount)")
-                
-            },
-            success: { url in
-                NSLog("Output written to \(url)")
-                self.playVideo(videoOutputURL: url as URL)
-            },
-            failure: { error in
-                NSLog("failure: \(error)")
-                
-            }
-        )
-    }
-    
-    func playVideo(videoOutputURL: URL) {
+    private func playVideo(videoOutputURL: URL) {
         let player = AVPlayer(url: videoOutputURL)
         let playerController = AVPlayerViewController()
         playerController.player = player
@@ -88,37 +103,20 @@ class PopUpViewController: UIViewController {
         }
     }
     
-    @IBAction func didPressClearButton(_ sender: AnyObject) {
-        removeAnimation()
-    }
-    
-    @IBAction func didPressSaveButton(_ sender: AnyObject) {
-        DAO.saveImageToUser(path: screenshotsPaths.last!)
-    }
-    
-    @IBAction func didPressShareButton(_ sender: AnyObject) {
-    }
-    
-    @IBAction func didPressMenuButton(_ sender: AnyObject) {
-        removeAnimation()
-    }
-    
-    
-}
-
-extension PopUpViewController {
-    func addMenuButtonRecognizer() {
-        let menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DrawingViewController.handlePressMenuButton))
-        menuTapGestureRecognizer.allowedPressTypes = [NSNumber(integerLiteral: UIPressType.menu.rawValue)]
-        self.view.addGestureRecognizer(menuTapGestureRecognizer)
-    }
-    
-    
-    func handlePressMenuButton() {
-        removeAnimation()
+    func showAnimation() {
+        self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        self.view.alpha = 0
+        
+        UIView.animate(withDuration: 0.25) {
+            self.view.alpha = 1
+            self.view.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
         
     }
     
+    
+    // MARK: Focus Handling
+  
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
         return [playButton, menuButton, clearAllButton, saveButton, shareButton]
     }
@@ -186,30 +184,5 @@ extension PopUpViewController {
         
         context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
         context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
-    }
-}
-
-extension PopUpViewController {
-    func showAnimation() {
-        self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        self.view.alpha = 0
-        
-        UIView.animate(withDuration: 0.25) {
-            self.view.alpha = 1
-            self.view.transform = CGAffineTransform(scaleX: 1, y: 1)
-        }
-        
-    }
-    
-    func removeAnimation() {
-        
-        UIView.animate(withDuration: 0.25, animations: {
-            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            self.view.alpha = 0
-        }) { (finished) in
-            if finished {
-                self.view.removeFromSuperview()
-            }
-        }
     }
 }

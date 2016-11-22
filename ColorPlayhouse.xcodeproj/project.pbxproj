@@ -571,6 +571,7 @@
 				6E9C5E9B1DE4487500A33773 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

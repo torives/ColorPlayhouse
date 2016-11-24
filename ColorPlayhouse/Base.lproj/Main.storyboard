@@ -73,17 +73,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L6Y-j3-G9y">
-                                <frame key="frameInset" minX="91" minY="197" width="1739" height="863"/>
+                                <frame key="frameInset" minX="20" minY="167" width="1880" height="893"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="100" minimumInteritemSpacing="48" id="scB-et-mtR">
                                     <size key="itemSize" width="548" height="300"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="48" minY="48" maxX="48" maxY="48"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="portfolioCell" id="NLn-U0-XWE" customClass="PortfolioCell" customModule="ColorPlayhouse" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="548" height="300"/>
+                                        <rect key="frame" x="48" y="48" width="548" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="548" height="300"/>
@@ -97,6 +97,7 @@
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="customSize" width="548" height="300"/>
                                         <connections>
                                             <outlet property="imageView" destination="aum-Ua-TFU" id="XFB-Je-aqP"/>
                                         </connections>
@@ -107,6 +108,10 @@
                                     <outlet property="delegate" destination="M8T-X8-GTI" id="aTU-3N-ZSG"/>
                                 </connections>
                             </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="My_portfolio_title" translatesAutoresizingMaskIntoConstraints="NO" id="lv6-Ux-pKi">
+                                <frame key="frameInset" minX="60" minY="64" width="492" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                     </view>
                     <connections>
@@ -394,6 +399,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="My_portfolio_title" width="492" height="95"/>
         <image name="background_mainmenu" width="1920" height="1080"/>
         <image name="blue" width="106" height="108"/>
         <image name="blue_light" width="106" height="108"/>

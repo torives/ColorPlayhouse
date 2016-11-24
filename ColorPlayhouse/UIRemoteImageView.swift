@@ -44,6 +44,7 @@ class UIRemoteImageView: UIView {
         self.imageView.contentMode = UIViewContentMode.scaleAspectFill
         
         self.activityIndicator.stopAnimating()
+        self.activityIndicator.isHidden = true
         self.imageView.isHidden = false
     }
     

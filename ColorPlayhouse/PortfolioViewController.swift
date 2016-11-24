@@ -56,6 +56,11 @@ extension PortfolioViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "portfolioCell", for: indexPath) as! PortfolioCell
         
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOpacity = 0.5
+        cell.layer.shadowOffset = CGSize.zero
+        cell.layer.shadowRadius = 20
+        
         if didFinishFetchingImages {
             cell.imageView.setImage(image: self.savedImages[indexPath.row])
         } else {

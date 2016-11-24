@@ -34,6 +34,8 @@
 		F54FF41A1DE377870020E547 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54FF4191DE377870020E547 /* PopUpViewController.swift */; };
 		F54FF41C1DE3780B0020E547 /* TimelapseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54FF41B1DE3780B0020E547 /* TimelapseBuilder.swift */; };
 		F583CE301DD6443E001B17EE /* DataAccessObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */; };
+		F5B2482F1DE70DE700F03ECE /* UIRemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B2482D1DE70DE700F03ECE /* UIRemoteImageView.swift */; };
+		F5B248371DE711DF00F03ECE /* UIRemoteImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B248361DE711DF00F03ECE /* UIRemoteImageView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		F54FF41B1DE3780B0020E547 /* TimelapseBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelapseBuilder.swift; sourceTree = "<group>"; };
 		F583CE2B1DD640A4001B17EE /* ColorPlayhouse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColorPlayhouse.entitlements; sourceTree = "<group>"; };
 		F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataAccessObject.swift; sourceTree = "<group>"; };
+		F5B2482D1DE70DE700F03ECE /* UIRemoteImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRemoteImageView.swift; sourceTree = "<group>"; };
+		F5B248361DE711DF00F03ECE /* UIRemoteImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIRemoteImageView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +192,7 @@
 		6E6DACD71DD23CE600C8ADD6 /* ColorPlayhouse */ = {
 			isa = PBXGroup;
 			children = (
+				F5B248311DE70F4A00F03ECE /* RemoteImageView */,
 				F583CE2B1DD640A4001B17EE /* ColorPlayhouse.entitlements */,
 				4F04F7231DD2776600A5DFB1 /* Common */,
 				4F04F71C1DD276EC00A5DFB1 /* MainMenuScene */,
@@ -224,6 +229,15 @@
 				6EE282791DDE256400600C95 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5B248311DE70F4A00F03ECE /* RemoteImageView */ = {
+			isa = PBXGroup;
+			children = (
+				F5B2482D1DE70DE700F03ECE /* UIRemoteImageView.swift */,
+				F5B248361DE711DF00F03ECE /* UIRemoteImageView.xib */,
+			);
+			name = RemoteImageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E6DACE01DD23CE600C8ADD6 /* Assets.xcassets in Resources */,
+				F5B248371DE711DF00F03ECE /* UIRemoteImageView.xib in Resources */,
 				6E6DACDE1DD23CE600C8ADD6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +371,7 @@
 				4FEF41F21DD625C900D185EC /* DrawingShapeLayer.swift in Sources */,
 				4FEF41EA1DD4F49600D185EC /* DrawingViewController.swift in Sources */,
 				4FEF41E51DD4E27000D185EC /* TimelapseItem.swift in Sources */,
+				F5B2482F1DE70DE700F03ECE /* UIRemoteImageView.swift in Sources */,
 				4FEF41F81DD6550900D185EC /* DrawingElement.swift in Sources */,
 				4FEF41DA1DD4DDC400D185EC /* PortfolioScreen.swift in Sources */,
 				4F04F7251DD2777200A5DFB1 /* MainRouter.swift in Sources */,

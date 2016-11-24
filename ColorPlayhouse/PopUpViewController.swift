@@ -60,7 +60,18 @@ class PopUpViewController: UIViewController {
     }
     
     @IBAction func didPressSaveButton(_ sender: AnyObject) {
-        DAO.saveImageToUser(path: screenshotsPaths.last!)
+        let defaults = UserDefaults.standard
+        var numberOfArtwork = defaults.object(forKey: "numberOfArtwork") as! Int
+        
+        DAO.saveImageToUser(image: screenshotImageView.image!) { (success) in
+            if success {
+                numberOfArtwork += 1
+                defaults.set(numberOfArtwork, forKey: "numberOfArtwork")
+            } else {
+                self.showErrorSavingAlert()
+            }
+            
+        }
     }
     
     @IBAction func didPressShareButton(_ sender: AnyObject) {
@@ -68,6 +79,7 @@ class PopUpViewController: UIViewController {
     }
     
     @IBAction func didPressMenuButton(_ sender: AnyObject) {
+       // removeAnimation()
         print("Menu Button Pressed")
     }
 
@@ -79,7 +91,7 @@ class PopUpViewController: UIViewController {
         let nsUserDomainMask = FileManager.SearchPathDomainMask.userDomainMask
         let paths = NSSearchPathForDirectoriesInDomains(nsDirectory, nsUserDomainMask, true)
         if let dirPath = paths.first {
-            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("image\(screenshotsPaths.count).png")
+            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("image\(screenshotsPaths.count-1).png")
             print(imageURL)
             let image = UIImage(contentsOfFile: imageURL.path)
             screenshotImageView.image = image
@@ -112,6 +124,18 @@ class PopUpViewController: UIViewController {
             self.view.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
         
+    }
+    
+    func removeAnimation() {
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.view.alpha = 0
+        }) { (finished) in
+            if finished {
+                self.view.removeFromSuperview()
+            }
+        }
     }
     
     
@@ -184,5 +208,17 @@ class PopUpViewController: UIViewController {
         
         context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
         context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
+    }
+}
+
+//MARK: Alert
+extension PopUpViewController {
+     func showErrorSavingAlert() {
+        let alertController = UIAlertController(title: "Error", message: "Oops! An error ocurred when saving a screenshot of your artwork.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }

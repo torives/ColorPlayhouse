@@ -11,6 +11,6 @@ import UIKit
 
 class PortfolioCell: UICollectionViewCell {
     
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var imageView: UIRemoteImageView!
     
 }

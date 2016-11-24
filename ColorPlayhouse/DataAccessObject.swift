@@ -29,11 +29,12 @@ struct DataAccessObject {
                 
                 let defaults = UserDefaults.standard
                 defaults.set(userRecord.recordID.recordName, forKey: "userID")
+                defaults.set(0, forKey: "numberOfArtwork")
             }
         }
     }
     
-    func saveImageToUser(path: String) {
+    func saveImageToUser(image: UIImage, andHandleWith handler: @escaping (Bool)->Void) {
         let asset = CKRecord(recordType: "Asset")
         
         let defaults = UserDefaults.standard
@@ -41,17 +42,31 @@ struct DataAccessObject {
         
         asset["user"] = CKReference(recordID:CKRecordID(recordName: userID), action: CKReferenceAction.deleteSelf)
         
-        let writePath = NSURL(fileURLWithPath: path)
         
-        let File : CKAsset?  = CKAsset(fileURL: writePath as URL)
-        asset["asset"] = File
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        
+        let paths = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+        if paths.count > 0 {
+            let writePath = NSURL(fileURLWithPath: paths[0]).appendingPathComponent("FinalImage.png")
+            
+            do {
+                try! UIImagePNGRepresentation(image)?.write(to: writePath!, options: Data.WritingOptions.atomic)
+            }
+            
+            let File : CKAsset?  = CKAsset(fileURL: writePath!)
+            asset["asset"] = File
+            
+        }
         
         self.publicDatabase.save(asset) {
             record, error in
             if error != nil {
                 print(error?.localizedDescription)
+                handler(false)
             } else {
                 print("successfully saved asset")
+                handler(true)
             }
         }
     }

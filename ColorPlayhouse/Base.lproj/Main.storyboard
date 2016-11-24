@@ -89,15 +89,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="548" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Fa-xb-YGy">
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aum-Ua-TFU" customClass="UIRemoteImageView" customModule="ColorPlayhouse" customModuleProvider="target">
                                                     <frame key="frameInset" width="548" height="300"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="image" destination="8Fa-xb-YGy" id="0aE-bP-Cov"/>
+                                            <outlet property="imageView" destination="aum-Ua-TFU" id="XFB-Je-aqP"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

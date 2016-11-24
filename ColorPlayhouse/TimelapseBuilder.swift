@@ -77,13 +77,14 @@ class TimeLapseBuilder: NSObject {
                 
                 let media_queue = DispatchQueue(label: "mediaInputQueue")
                 
+                var frameCount: Int64 = 0
+                var remainingPhotoURLs = [String](self.photoURLs)
+                
                 videoWriterInput.requestMediaDataWhenReady(on: media_queue, using: { () -> Void in
                     let fps: Int32 = 5
                     let frameDuration = CMTimeMake(1, fps)
                     let currentProgress = Progress(totalUnitCount: Int64(self.photoURLs.count))
                     
-                    var frameCount: Int64 = 0
-                    var remainingPhotoURLs = [String](self.photoURLs)
                     
                     while (videoWriterInput.isReadyForMoreMediaData && !remainingPhotoURLs.isEmpty) {
                         let nextPhotoURL = remainingPhotoURLs.remove(at: 0)
@@ -111,14 +112,17 @@ class TimeLapseBuilder: NSObject {
                         progress(currentProgress)
                     }
                     
-                    videoWriterInput.markAsFinished()
-                    videoWriter.finishWriting { () -> Void in
-                        if error == nil {
-                            success(videoOutputURL)
+                    if remainingPhotoURLs.isEmpty {
+                        videoWriterInput.markAsFinished()
+                        videoWriter.finishWriting { () -> Void in
+                            if error == nil {
+                                success(videoOutputURL)
+                            }
+                            
+                            self.videoWriter = nil
                         }
-                        
-                        self.videoWriter = nil
                     }
+                    
                 })
             } else {
                 error = NSError(

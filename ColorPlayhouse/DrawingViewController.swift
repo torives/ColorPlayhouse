@@ -102,20 +102,26 @@ class DrawingViewController: UIViewController {
     //MARK: Controller Button Actions
   
     @objc private func menuButtonWasPressed(){
-        
-        dismissPopUp()
-        menuButtonTap?.isEnabled = false
-        view.gestureRecognizers?.forEach({$0.isEnabled = true})
+		
+		if popupIsOpen {
+		
+			dismissPopUp()
+			
+			view.gestureRecognizers?.forEach({$0.isEnabled = true})
+			menuButtonTap?.isEnabled = false
+			popupIsOpen = false
+		}
     }
     
     @objc private func playButtonWasPressed(){
         
         timer.invalidate()
-        view.gestureRecognizers?.forEach({$0.isEnabled = false})
-        menuButtonTap?.isEnabled = true
-        
+		
+		view.gestureRecognizers?.forEach({$0.isEnabled = false})
+		menuButtonTap?.isEnabled = true
         popupIsOpen = true
-        presentPopUp()
+		
+		presentPopUp()
     }
     
     @objc private func selectButtonWasPressed(){ drawingGesture?.isEnabled = !drawingGesture!.isEnabled }
@@ -428,7 +434,6 @@ class DrawingViewController: UIViewController {
         swipeDown.direction = .down
         self.view.addGestureRecognizer(swipeDown)
     }
-    
     
     //MARK: PopUp Methods
     

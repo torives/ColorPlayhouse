@@ -37,9 +37,6 @@ class DrawingElement: UIView
         _drawingStruct = drawingStruct
         
         super.init(frame: CGRect.zero)
-        
-        // self.layer.borderColor = UIColor.purpleColor().CGColor
-        // self.layer.borderWidth = 1.0
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -79,7 +76,6 @@ class DrawingElement: UIView
         
         _shapeLayerArray.append(_currentShapeLayer)
         _currentShapeLayer = nil
-        self.updateFrame()
     }
     
     func cancelDrawing(point: CGPoint?) {
@@ -121,40 +117,7 @@ class DrawingElement: UIView
         }
     }
     //
-    
-    
-    // MARK: Element override
-    func rotate(rotation: CGFloat, centeredIn center: CGPoint) {
-        
-    }
-    
-    func scale(scale: CGFloat, centeredIn center: CGPoint)  {
-        
-    }
-    //
-    
-    
-    // MARK: UIView override
-    func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
-        
-        if(super.hitTest(point, with: event) != nil) {
-            
-            if(self.isSelected) {
-                return self
-            }
-            
-            for aLayer in _shapeLayerArray {
-                if (aLayer.isPointWithin(point: point)) {
-                    return self
-                }
-            }
-            
-        }
-        
-        return nil
-    }
-    //
-    
+	
     
     // MARK: - ******************
     // MARK: Private Methods
@@ -176,55 +139,13 @@ class DrawingElement: UIView
     }
     
     private func removeLayers() {
-        self.updateFrame()
-        
+		
         _shapeLayerArray = _shapeLayerArray.filter {
             if ($0.toBeDeleted) {
                 $0.fadeOut()
                 return false
             }
             return true
-        }
-    }
-    //
-    
-    
-    // MARK: Resizing methods
-    private func updateFrame() {
-        var newFrame: CGRect = self.boundingRect()
-        
-        if(newFrame.isNull) {
-            newFrame = CGRect.zero
-        }
-        
-        newFrame.offsetBy(dx: self.frame.origin.x, dy: self.frame.origin.y)
-        self.resize(newFrame: newFrame)
-    }
-    
-    private func boundingRect() -> CGRect {
-        var newFrame: CGRect = CGRect.null
-        for shapeLayer in _shapeLayerArray {
-            if (!shapeLayer.toBeDeleted) {
-                newFrame = newFrame.union(shapeLayer._boundingBox)
-            }
-        }
-        return newFrame
-    }
-    
-    private func resize(newFrame: CGRect) {
-        
-        if(newFrame.isNull) {
-            self.frame = CGRect.zero
-            return
-        }
-        
-        let translatePath = CGPoint(x: self.frame.origin.x - newFrame.origin.x, y: self.frame.origin.y - newFrame.origin.y)
-        
-        self.frame = newFrame
-        
-        var translation: CGAffineTransform = CGAffineTransform(translationX: translatePath.x, y: translatePath.y)
-        for aShapeLayer in _shapeLayerArray {
-            aShapeLayer.applyTransform(transform: &translation, isRotation: false)
         }
     }
     //

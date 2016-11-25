@@ -52,7 +52,7 @@ class DrawingViewController: UIViewController {
     
     private var _eraserEnabled: Bool = false
     private var _drawingStruct: DrawingStruct = DrawingStruct()
-    private weak var _currentDrawingElement: DrawingElement?
+    private weak var currentDrawingElement: DrawingElement?
     private var _elements: Array<UIView> = Array<UIView>()
     
     
@@ -263,55 +263,74 @@ class DrawingViewController: UIViewController {
     
     //MARK: - Drawing Gesture Handling
     
-    func didReceiveTouch(gesture: UIPanGestureRecognizer){
-        
-        let point = gesture.location(in: view)
-        self.pointer.frame.origin = point
-        
-        if canvas.point(inside: point, with: nil) {
-            
-            if gesture.state == .began {
-                updateDrawing(drawingStruct: _drawingStruct)
-            }
-            drawWithGesture(gesture: gesture)
-        }
-    }
-    
+//    func didReceiveTouch(gesture: UIPanGestureRecognizer){
+//        
+//        let point = gesture.location(in: view)
+//        self.pointer.frame.origin = point
+//
+//        if canvas.point(inside: point, with: nil) {
+//            
+//            if gesture.state == .began {
+//                updateDrawing(drawingStruct: _drawingStruct)
+//            }
+//            drawWithGesture(gesture: gesture)
+//        }
+//    }
+	
     func finishDrawing() {
-        if let drawingElement = _currentDrawingElement {
+        if let drawingElement = currentDrawingElement {
             if(drawingElement.frame.isEmpty) {
                 drawingElement.removeFromSuperview()
             }
         }
-        _currentDrawingElement = nil
+        currentDrawingElement = nil
     }
     
     func updateDrawing(drawingStruct: DrawingStruct) {
-        if let drawingElement = _currentDrawingElement {
+		
+		if let drawingElement = currentDrawingElement {
             drawingElement.updateDrawingStruct(drawingStruct: drawingStruct)
         }
         else {
             let drawing = DrawingElement(drawingStruct: drawingStruct)
             drawing.frame = canvas.frame
             self.canvas.addSubview(drawing)
-            _currentDrawingElement = drawing
+            currentDrawingElement = drawing
         }
     }
     
     func drawWithGesture(gesture: UIPanGestureRecognizer) {
-        
+		
+		let point = gesture.location(in: self.view)
+		
+		guard self.canvas.point(inside: point, with: nil) else {
+			return
+		}
+		
+		self.pointer.frame.origin = point
+
         switch gesture.state {
-        case .began:
-            _currentDrawingElement?.beginDrawing(point: gesture.location(in: self.view))
-            
+
+		case .began:
+			
+			if let drawingElement = currentDrawingElement {
+				drawingElement.beginDrawing(point: point)
+			}
+			else{
+				let drawing = DrawingElement(drawingStruct: DrawingStruct())
+				drawing.frame = canvas.frame
+				self.canvas.addSubview(drawing)
+				currentDrawingElement = drawing
+				currentDrawingElement?.beginDrawing(point: point)
+			}
         case .changed:
-            _currentDrawingElement?.moveDrawingPoint(point: gesture.location(in: self.view))
+            currentDrawingElement?.moveDrawingPoint(point: point)
             
         case .ended:
-            _currentDrawingElement?.endDrawing(point: gesture.location(in: self.view))
+            currentDrawingElement?.endDrawing(point: point)
             
         case .cancelled, .failed:
-            _currentDrawingElement?.cancelDrawing(point: gesture.location(in: self.view))
+            currentDrawingElement?.cancelDrawing(point: point)
             
         default:
             break
@@ -413,7 +432,7 @@ class DrawingViewController: UIViewController {
     }
     
     private func addDrawingGesture() {
-        drawingGesture = UIPanGestureRecognizer(target: self, action: #selector(didReceiveTouch(gesture:)))
+        drawingGesture = UIPanGestureRecognizer(target: self, action: #selector(drawWithGesture(gesture:)))
         drawingGesture?.isEnabled = false
         view.addGestureRecognizer(drawingGesture!)
     }

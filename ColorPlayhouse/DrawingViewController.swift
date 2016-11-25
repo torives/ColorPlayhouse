@@ -266,20 +266,6 @@ class DrawingViewController: UIViewController {
 	
 	//MARK: - Drawing Gesture Handling
 	
-	//    func didReceiveTouch(gesture: UIPanGestureRecognizer){
-	//
-	//        let point = gesture.location(in: view)
-	//        self.pointer.frame.origin = point
-	//
-	//        if canvas.point(inside: point, with: nil) {
-	//
-	//            if gesture.state == .began {
-	//                updateDrawing(drawingStruct: _drawingStruct)
-	//            }
-	//            drawWithGesture(gesture: gesture)
-	//        }
-	//    }
-	
 	func finishDrawing() {
 		if let drawingElement = currentDrawingElement {
 			if(drawingElement.frame.isEmpty) {

@@ -18,7 +18,8 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
     var didFinishFetchingImages = false
     
     @IBOutlet weak var portfolioCollection: UICollectionView!
-
+    @IBOutlet weak var noDrawings: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,6 +50,7 @@ extension PortfolioViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let defaults = UserDefaults.standard
         let numberOfArtwork = defaults.object(forKey: "numberOfArtwork") as! Int
+        if numberOfArtwork > 0 { noDrawings.isHidden = true }
         return numberOfArtwork
     }
     

@@ -29,12 +29,21 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
     
     var screenshotsPaths = [String]()
     
+    private var focusGuide = UIFocusGuide()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setImage()
         setupView()
         showAnimation()
+        
+        self.view.addLayoutGuide(self.focusGuide)
+        
+        self.focusGuide.leftAnchor.constraint(equalTo: self.playButton.leftAnchor).isActive = true
+        self.focusGuide.topAnchor.constraint(equalTo: self.menuButton.topAnchor).isActive = true
+        self.focusGuide.widthAnchor.constraint(equalTo: self.playButton.widthAnchor).isActive = true
+        self.focusGuide.heightAnchor.constraint(equalTo: self.menuButton.heightAnchor).isActive = true
     }
     
     //MARK: IBAction Methods

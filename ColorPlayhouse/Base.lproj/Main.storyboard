@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="appleTV" orientation="landscape">
-        <adaptation id="light"/>
-    </device>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="tvOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
@@ -75,6 +72,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_drawings" translatesAutoresizingMaskIntoConstraints="NO" id="7if-q8-0sr"/>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L6Y-j3-G9y">
                                 <rect key="frame" x="20" y="167" width="1880" height="893"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -116,8 +114,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="7if-q8-0sr" firstAttribute="centerX" secondItem="S3j-KO-Ene" secondAttribute="centerX" id="3kz-KK-qes"/>
+                            <constraint firstItem="7if-q8-0sr" firstAttribute="centerY" secondItem="S3j-KO-Ene" secondAttribute="centerY" id="AwI-vo-RLU"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="noDrawings" destination="7if-q8-0sr" id="NQz-Mb-2P2"/>
                         <outlet property="portfolioCollection" destination="L6Y-j3-G9y" id="uul-6W-n5K"/>
                     </connections>
                 </viewController>
@@ -451,6 +454,7 @@
         <image name="my_portfolio_background" width="1920" height="1080"/>
         <image name="my_portfolio_compelte" width="544" height="578"/>
         <image name="new_drawing_complete" width="481" height="582"/>
+        <image name="no_drawings" width="482" height="437"/>
         <image name="orange" width="106" height="108"/>
         <image name="palette" width="1345" height="205"/>
         <image name="pencil" width="404" height="82"/>

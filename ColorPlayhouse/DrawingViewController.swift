@@ -141,13 +141,15 @@ class DrawingViewController: UIViewController {
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         
         super.didUpdateFocus(in: context, with: coordinator)
-        
+		
+		guard let nextFocusedView = context.nextFocusedView else { return }
+		guard let previouslyFocusedView = context.previouslyFocusedView else { return }
+		
+		customFocus(previouslyFocused: previouslyFocusedView as! UIButton,
+		            nextFocused: nextFocusedView as! UIButton,
+		            context: context)
+		
         if toolsIsActive || paletteIsActive {
-            
-            guard let nextFocusedView = context.nextFocusedView else { return }
-            guard let previouslyFocusedView = context.previouslyFocusedView else { return }
-            
-            customFocus(previouslyFocused: previouslyFocusedView as! UIButton, nextFocused: nextFocusedView as! UIButton, context: context)
             
             if paletteColors.contains(nextFocusedView as! UIButton) {
                 selectedColor = nextFocusedView as? UIButton
@@ -172,14 +174,15 @@ class DrawingViewController: UIViewController {
         }
     }
     
-    func customFocus(previouslyFocused: UIButton, nextFocused: UIButton, context: UIFocusUpdateContext) {
+    func customFocus(previouslyFocused: UIView, nextFocused: UIView, context: UIFocusUpdateContext) {
         
         nextFocused.layer.shouldRasterize = true
         nextFocused.layer.shadowColor = UIColor.black.cgColor
         nextFocused.layer.shadowOpacity = 0.5
         nextFocused.layer.shadowRadius = 25
         nextFocused.layer.shadowOffset = CGSize(width: 0, height: 16)
-        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+		
+		UIView.animate(withDuration: 0.1, animations: { () -> Void in
             nextFocused.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
         })
         UIView.animate(withDuration: 0.1, animations: { () -> Void in
@@ -188,7 +191,6 @@ class DrawingViewController: UIViewController {
         
         context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
         context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
-        
     }
     
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         mainRouter.configureFirstSceneOn(window!)
         
-        return true
+        //FBSDKSettings.setAppID("1319590891393166")
+        //FBSDKSettings.setClientToken(FBSDKSettings.clientToken())
+
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {}
@@ -27,8 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {}
 
-    func applicationDidBecomeActive(_ application: UIApplication) {}
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        FBSDKAppEvents.activateApp()
+    }
 
     func applicationWillTerminate(_ application: UIApplication) {}
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?,  annotation: AnyObject?) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL!, sourceApplication: sourceApplication, annotation: annotation)
+    }
 }
 

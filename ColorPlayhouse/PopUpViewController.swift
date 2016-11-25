@@ -9,8 +9,10 @@
 import UIKit
 import AVFoundation
 import AVKit
+import FBSDKShareKit
+import FBSDKTVOSKit
 
-class PopUpViewController: UIViewController {
+class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDelegate {
     
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var screenshotImageView: UIImageView!
@@ -75,8 +77,40 @@ class PopUpViewController: UIViewController {
     }
     
     @IBAction func didPressShareButton(_ sender: AnyObject) {
+        loginToFacebook()
         print("Share Button Pressed")
     }
+    
+    func loginToFacebook() {
+        if (FBSDKAccessToken.current() != nil) {
+            // User is already logged in, do work such as go to next view controller.
+        }
+        else {
+            
+            let viewController = FBSDKDeviceLoginViewController()
+            viewController.publishPermissions = ["publish_actions"]
+            viewController.delegate = self
+            self.present(viewController, animated: true, completion: nil)
+
+        }
+    }
+    func deviceLoginViewControllerDidCancel(_ viewController: FBSDKDeviceLoginViewController) {
+        print("canceled")
+    }
+    
+    func deviceLoginViewControllerDidFail(_ viewController: FBSDKDeviceLoginViewController, error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    func deviceLoginViewControllerDidFinish(_ viewController: FBSDKDeviceLoginViewController) {
+        shareOnFacebook()
+    }
+    
+
+    func shareOnFacebook() {
+        
+    }
+    
     
     @IBAction func didPressMenuButton(_ sender: AnyObject) {
        // removeAnimation()

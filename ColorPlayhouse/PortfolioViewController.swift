@@ -8,8 +8,7 @@
 
 import UIKit
 
-class PortfolioViewController: UIViewController, UICollectionViewDelegate
-{
+class PortfolioViewController: UIViewController, UICollectionViewDelegate {
     var delegate: PortfolioDelegate?
     //var savedArts: [UIImage] = []
     var savedArts = [UIImage(named: "desenho1"), UIImage(named: "desenho2"), UIImage(named: "desenho3"), UIImage(named: "desenho4"), UIImage(named: "desenho5")]

@@ -31,6 +31,9 @@
 		6E9C5E551DDF95B500A33773 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C5E541DDF95B500A33773 /* PortfolioCell.swift */; };
 		6E9C5E961DE4487500A33773 /* ColorPlayhouseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C5E951DE4487500A33773 /* ColorPlayhouseUITests.swift */; };
 		6EE2827A1DDE256400600C95 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE282791DDE256400600C95 /* CloudKit.framework */; };
+		F533163E1DE7C0190052AE7B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F533163B1DE7C0190052AE7B /* FBSDKCoreKit.framework */; };
+		F533163F1DE7C0190052AE7B /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F533163C1DE7C0190052AE7B /* FBSDKShareKit.framework */; };
+		F53316401DE7C0190052AE7B /* FBSDKTVOSKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F533163D1DE7C0190052AE7B /* FBSDKTVOSKit.framework */; };
 		F54FF41A1DE377870020E547 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54FF4191DE377870020E547 /* PopUpViewController.swift */; };
 		F54FF41C1DE3780B0020E547 /* TimelapseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54FF41B1DE3780B0020E547 /* TimelapseBuilder.swift */; };
 		F583CE301DD6443E001B17EE /* DataAccessObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */; };
@@ -77,10 +80,14 @@
 		6E9C5E951DE4487500A33773 /* ColorPlayhouseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPlayhouseUITests.swift; sourceTree = "<group>"; };
 		6E9C5E971DE4487500A33773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EE282791DDE256400600C95 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		F533163B1DE7C0190052AE7B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		F533163C1DE7C0190052AE7B /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		F533163D1DE7C0190052AE7B /* FBSDKTVOSKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKTVOSKit.framework; sourceTree = "<group>"; };
 		F54FF4191DE377870020E547 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		F54FF41B1DE3780B0020E547 /* TimelapseBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelapseBuilder.swift; sourceTree = "<group>"; };
 		F583CE2B1DD640A4001B17EE /* ColorPlayhouse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColorPlayhouse.entitlements; sourceTree = "<group>"; };
 		F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataAccessObject.swift; sourceTree = "<group>"; };
+		F58F7D2B1DE7C0CF00BA03D4 /* ColorPlayhouse-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ColorPlayhouse-Bridging-Header.h"; sourceTree = "<group>"; };
 		F5B2482D1DE70DE700F03ECE /* UIRemoteImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRemoteImageView.swift; sourceTree = "<group>"; };
 		F5B248361DE711DF00F03ECE /* UIRemoteImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIRemoteImageView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,7 +97,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F53316401DE7C0190052AE7B /* FBSDKTVOSKit.framework in Frameworks */,
 				6EE2827A1DDE256400600C95 /* CloudKit.framework in Frameworks */,
+				F533163E1DE7C0190052AE7B /* FBSDKCoreKit.framework in Frameworks */,
+				F533163F1DE7C0190052AE7B /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +187,9 @@
 				6E9C5E941DE4487500A33773 /* ColorPlayhouseUITests */,
 				6E6DACD61DD23CE600C8ADD6 /* Products */,
 				F583CE2C1DD642D9001B17EE /* Frameworks */,
+				F533163B1DE7C0190052AE7B /* FBSDKCoreKit.framework */,
+				F533163C1DE7C0190052AE7B /* FBSDKShareKit.framework */,
+				F533163D1DE7C0190052AE7B /* FBSDKTVOSKit.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +215,7 @@
 				4F04F71B1DD273D000A5DFB1 /* Resources */,
 				6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */,
 				F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */,
+				F58F7D2B1DE7C0CF00BA03D4 /* ColorPlayhouse-Bridging-Header.h */,
 			);
 			path = ColorPlayhouse;
 			sourceTree = "<group>";
@@ -291,6 +305,7 @@
 					6E6DACD41DD23CE600C8ADD6 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = N363X9XN35;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -508,12 +523,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ColorPlayhouse/ColorPlayhouse.entitlements;
 				DEVELOPMENT_TEAM = N363X9XN35;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ColorPlayhouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bpy.ColorPlayhouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ColorPlayhouse/ColorPlayhouse-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -523,12 +545,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ColorPlayhouse/ColorPlayhouse.entitlements;
 				DEVELOPMENT_TEAM = N363X9XN35;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ColorPlayhouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bpy.ColorPlayhouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ColorPlayhouse/ColorPlayhouse-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -42,7 +42,9 @@ class PortfolioCell: UICollectionViewCell {
         else if context.previouslyFocusedView == self {
             coordinator.addCoordinatedAnimations ({ () -> Void in
                 self.layer.shadowOffset = CGSize.zero
-                self.layer.shadowColor = UIColor.clear.cgColor
+                self.layer.shadowOpacity = 0.2
+                self.layer.shadowColor = UIColor.black.cgColor
+                self.layer.shadowRadius = 20
                 }, completion: nil)
             
             UIView.animate(withDuration: 0.1, animations: { () -> Void in

@@ -15,7 +15,7 @@ class DrawingViewController: UIViewController {
 	
 	@IBOutlet weak var pointer: UIImageView!
 	@IBOutlet weak var palette: UIImageView!
-	@IBOutlet weak var canvas: UIImageView!
+    @IBOutlet weak var canvasView: UIView!
 	
 	@IBOutlet var drawingTools: [UIButton]!
 	@IBOutlet var paletteColors: [UIButton]!
@@ -70,6 +70,8 @@ class DrawingViewController: UIViewController {
 		toolsConstraintToTrailing.constant = -404
 		
 		configureUserInteraction()
+        
+        setupCanvas()
 	}
 	
 	
@@ -100,6 +102,19 @@ class DrawingViewController: UIViewController {
 		toolsIsActive = false
 		setNeedsFocusUpdate()
 	}
+    
+    //MARK: Interface 
+    
+    func setupCanvas() {
+        
+        canvasView.layer.cornerRadius = 20
+        canvasView.layer.shadowOpacity = 0.1
+        canvasView.layer.shadowColor = UIColor.black.cgColor
+        canvasView.layer.shadowOffset = CGSize(width: 10, height: 10)
+        canvasView.layer.shadowRadius = 0
+        canvasView.layer.shouldRasterize = true
+        
+    }
 	
 	
 	//MARK: Controller Button Actions
@@ -282,8 +297,8 @@ class DrawingViewController: UIViewController {
 		}
 		else {
 			let drawing = DrawingElement(drawingStruct: drawingStruct)
-			drawing.frame = canvas.frame
-			self.canvas.addSubview(drawing)
+			drawing.frame = canvasView.frame
+			self.canvasView.addSubview(drawing)
 			currentDrawingElement = drawing
 		}
 	}
@@ -292,7 +307,7 @@ class DrawingViewController: UIViewController {
 		
 		let point = gesture.location(in: self.view)
 		
-		guard self.canvas.point(inside: point, with: nil) else {
+		guard self.canvasView.point(inside: point, with: nil) else {
 			return
 		}
 		
@@ -307,8 +322,8 @@ class DrawingViewController: UIViewController {
 			}
 			else{
 				let drawing = DrawingElement(drawingStruct: DrawingStruct())
-				drawing.frame = canvas.frame
-				self.canvas.addSubview(drawing)
+				drawing.frame = canvasView.frame
+				self.canvasView.addSubview(drawing)
 				currentDrawingElement = drawing
 				currentDrawingElement?.beginDrawing(point: point)
 			}

@@ -21,6 +21,8 @@ class PortfolioDetailViewController: UIViewController {
     
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

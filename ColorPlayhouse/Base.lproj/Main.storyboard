@@ -100,7 +100,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="548" height="300"/>
                                         <connections>
-                                            <outlet property="imageView" destination="aum-Ua-TFU" id="XFB-Je-aqP"/>
+                                            <outlet property="imageView" destination="aum-Ua-TFU" id="0Fa-ME-b36"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -324,6 +324,46 @@
             </objects>
             <point key="canvasLocation" x="1644" y="759"/>
         </scene>
+        <!--Portfolio Detail View Controller-->
+        <scene sceneID="8f2-kI-z9e">
+            <objects>
+                <viewController id="Ho8-1G-HyO" customClass="PortfolioDetailViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bV8-Vc-XCg"/>
+                        <viewControllerLayoutGuide type="bottom" id="h0k-QO-CxD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sxq-tf-UEs">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zle-sP-hhi">
+                                <frame key="frameInset" width="1920" height="1080"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p79-LN-9k6">
+                                <frame key="frameInset" minX="81" minY="803" width="167" height="167"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" backgroundImage="detail_play"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7m-bh-CVW">
+                                <frame key="frameInset" minX="303" minY="803" width="167" height="167"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" backgroundImage="detail_share"/>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="detailImageView" destination="Zle-sP-hhi" id="DcD-Lr-aI0"/>
+                        <outlet property="play" destination="p79-LN-9k6" id="0YH-86-vI0"/>
+                        <outlet property="share" destination="q7m-bh-CVW" id="fcD-Bg-QCa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bum-31-cFp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3861" y="-543"/>
+        </scene>
         <!--Pop Up View Controller-->
         <scene sceneID="Hgf-W5-JpY">
             <objects>
@@ -423,6 +463,8 @@
         <image name="clear all" width="440" height="93"/>
         <image name="crayon" width="298" height="100"/>
         <image name="darkOrange" width="106" height="108"/>
+        <image name="detail_play" width="167" height="167"/>
+        <image name="detail_share" width="167" height="167"/>
         <image name="eraser" width="146" height="147"/>
         <image name="green" width="106" height="108"/>
         <image name="lightBlue" width="106" height="108"/>

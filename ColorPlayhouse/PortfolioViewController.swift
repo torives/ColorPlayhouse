@@ -39,6 +39,7 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
             self.portfolioCollection.reloadData()
         }
     }
+    
 }
 
 //MARK: DataSource
@@ -58,7 +59,7 @@ extension PortfolioViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "portfolioCell", for: indexPath) as! PortfolioCell
         
         cell.layer.shadowColor = UIColor.black.cgColor
-        cell.layer.shadowOpacity = 0.5
+        cell.layer.shadowOpacity = 0.4
         cell.layer.shadowOffset = CGSize.zero
         cell.layer.shadowRadius = 20
         

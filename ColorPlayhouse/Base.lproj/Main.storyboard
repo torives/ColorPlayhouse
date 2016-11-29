@@ -122,6 +122,7 @@
                     <connections>
                         <outlet property="noDrawings" destination="7if-q8-0sr" id="NQz-Mb-2P2"/>
                         <outlet property="portfolioCollection" destination="L6Y-j3-G9y" id="uul-6W-n5K"/>
+                        <segue destination="Ho8-1G-HyO" kind="show" identifier="detailSegue" id="MEr-vy-eGD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbC-Ul-NIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -341,13 +342,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p79-LN-9k6">
-                                <frame key="frameInset" minX="81" minY="803" width="167" height="167"/>
+                                <frame key="frameInset" minX="107" minY="863" width="117" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" backgroundImage="detail_play"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7m-bh-CVW">
-                                <frame key="frameInset" minX="303" minY="803" width="167" height="167"/>
+                                <frame key="frameInset" minX="266" minY="863" width="117" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" backgroundImage="detail_share"/>

@@ -37,7 +37,6 @@ class DrawingViewController: UIViewController {
 	//MARK: - Private Properties
 	
 	private let DAO = DataAccessObject.sharedInstance
-	
 	private var timer: Timer!
 	private var screenshotsPaths = [String]()
 	

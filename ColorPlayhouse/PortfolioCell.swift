@@ -13,7 +13,6 @@ class PortfolioCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIRemoteImageView!
 
-    var item:Int!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,12 +30,11 @@ class PortfolioCell: UICollectionViewCell {
                 self.layer.shadowOpacity = 0.5
                 self.layer.shadowRadius = 25
                 self.layer.shadowOffset = CGSize(width: 0, height: 16)
+                
+                UIView.animate(withDuration: 0.1, animations: { () -> Void in
+                    self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
                 }, completion: nil)
-            
-            UIView.animate(withDuration: 0.1, animations: { () -> Void in
-                self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
             })
-
         }
             
         else if context.previouslyFocusedView == self {
@@ -45,10 +43,10 @@ class PortfolioCell: UICollectionViewCell {
                 self.layer.shadowOpacity = 0.2
                 self.layer.shadowColor = UIColor.black.cgColor
                 self.layer.shadowRadius = 20
+                
+                UIView.animate(withDuration: 0.1, animations: { () -> Void in
+                    self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 }, completion: nil)
-            
-            UIView.animate(withDuration: 0.1, animations: { () -> Void in
-                self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             })
             
         }

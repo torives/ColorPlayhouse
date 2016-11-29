@@ -36,7 +36,6 @@ class DrawingViewController: UIViewController {
 	//MARK: - Private Properties
 	
 	private let DAO = DataAccessObject.sharedInstance
-	
 	private var timer: Timer!
 	private var screenshotsPaths = [String]()
 	
@@ -163,8 +162,8 @@ class DrawingViewController: UIViewController {
 		guard let nextFocusedView = context.nextFocusedView else { return }
 		guard let previouslyFocusedView = context.previouslyFocusedView else { return }
 		
-		customFocus(previouslyFocused: previouslyFocusedView as! UIButton,
-		            nextFocused: nextFocusedView as! UIButton,
+		customFocus(previouslyFocused: previouslyFocusedView,
+		            nextFocused: nextFocusedView,
 		            context: context)
 		
 		if toolsIsActive || paletteIsActive {

@@ -9,6 +9,8 @@
 import UIKit
 
 class PortfolioDetailViewController: UIViewController {
+    
+    var selectedImage: UIImage!
 
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var play: UIButton!
@@ -26,7 +28,7 @@ class PortfolioDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       detailImageView.image = selectedImage
     }
 
     override func didReceiveMemoryWarning() {

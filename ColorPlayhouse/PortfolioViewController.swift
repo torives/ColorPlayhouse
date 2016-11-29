@@ -9,9 +9,9 @@
 import UIKit
 
 class PortfolioViewController: UIViewController, UICollectionViewDelegate {
+
     var delegate: PortfolioDelegate?
-    //var savedArts: [UIImage] = []
-    var savedArts = [UIImage(named: "desenho1"), UIImage(named: "desenho2"), UIImage(named: "desenho3"), UIImage(named: "desenho4"), UIImage(named: "desenho5")]
+    var imageToPass: UIImage!
     var savedImages = [UIImage]()
     
     let DAO = DataAccessObject.sharedInstance
@@ -36,7 +36,23 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
                 self.savedImages.append(UIImage(data: imageData as! Data)!)
             }
             self.didFinishFetchingImages = true
-            self.portfolioCollection.reloadData()
+            
+            DispatchQueue.main.async {
+                self.portfolioCollection.reloadData()
+            }
+            
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        imageToPass = savedImages[indexPath.item]
+        self.performSegue(withIdentifier: "detailSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailSegue" {
+            let detail = segue.destination as! PortfolioDetailViewController
+            detail.selectedImage = imageToPass
         }
     }
     
@@ -49,10 +65,9 @@ extension PortfolioViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let defaults = UserDefaults.standard
-        let numberOfArtwork = defaults.object(forKey: "numberOfArtwork") as! Int
-        if numberOfArtwork > 0 { noDrawings.isHidden = true }
-        return numberOfArtwork
+        
+        if savedImages.count > 0 { noDrawings.isHidden = true }
+        return savedImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -65,7 +80,7 @@ extension PortfolioViewController: UICollectionViewDataSource {
 
         
         if didFinishFetchingImages {
-            cell.imageView.setImage(image: self.savedImages[indexPath.row])
+            cell.imageView.setImage(image: self.savedImages[indexPath.item])
         } else {
             cell.imageView.refresh()
         }

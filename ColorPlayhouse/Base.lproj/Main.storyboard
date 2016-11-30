@@ -427,10 +427,10 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkG-6b-rfe">
-                                        <frame key="frameInset" minX="258" minY="207" width="202" height="162"/>
+                                        <frame key="frameInset" minX="277" minY="206" width="162" height="162"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                        <state key="normal" image="play"/>
+                                        <state key="normal" backgroundImage="detail_play"/>
                                         <connections>
                                             <action selector="didPressPlayVideoButton:" destination="F6T-6E-1bt" eventType="primaryActionTriggered" id="8ri-O8-mCT"/>
                                         </connections>
@@ -480,7 +480,6 @@
         <image name="palette" width="1345" height="205"/>
         <image name="pencil" width="404" height="82"/>
         <image name="pencil_pointer" width="81" height="122"/>
-        <image name="play" width="122" height="122"/>
         <image name="purple" width="106" height="108"/>
         <image name="red" width="106" height="108"/>
         <image name="save" width="440" height="93"/>

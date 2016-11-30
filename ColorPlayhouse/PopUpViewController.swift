@@ -28,6 +28,7 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
     var timeLapseBuilder: TimeLapseBuilder?
     
     var screenshotsPaths = [String]()
+    var videoOutputURL: URL!
     
     private var focusGuide = UIFocusGuide()
     
@@ -57,6 +58,7 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
         },
             success: { url in
                 NSLog("Output written to \(url)")
+                self.videoOutputURL = url as URL!
                 self.playVideo(videoOutputURL: url as URL)
         },
             failure: { error in
@@ -71,17 +73,42 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
     }
     
     @IBAction func didPressSaveButton(_ sender: AnyObject) {
+        if videoOutputURL != nil {
+            saveAssets()
+        } else {
+            self.timeLapseBuilder = TimeLapseBuilder(photoURLs: screenshotsPaths)
+            self.timeLapseBuilder!.build(
+                progress: { (progress: Progress) in
+                    NSLog("Progress: \(progress.completedUnitCount) / \(progress.totalUnitCount)")
+                    
+                },
+                success: { url in
+                    NSLog("Output written to \(url)")
+                    self.videoOutputURL = url as URL!
+                    self.saveAssets()
+                },
+                failure: { error in
+                    NSLog("failure: \(error)")
+                    
+                }
+            )
+        }
+        
+        
+    }
+    
+    func saveAssets() {
         let defaults = UserDefaults.standard
         var numberOfArtwork = defaults.object(forKey: "numberOfArtwork") as! Int
-        
-        DAO.saveImageToUser(image: screenshotImageView.image!) { (success) in
+
+        DAO.saveAssetsToUser(image: screenshotImageView.image!, videoURL: self.videoOutputURL) { (success) in
             if success {
                 numberOfArtwork += 1
                 defaults.set(numberOfArtwork, forKey: "numberOfArtwork")
+                self.removeAnimation()
             } else {
                 self.showErrorSavingAlert()
             }
-            
         }
     }
     

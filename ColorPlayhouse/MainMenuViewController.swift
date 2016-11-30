@@ -9,8 +9,7 @@
 import UIKit
 import CloudKit
 
-class MainMenuViewController: UIViewController
-{
+class MainMenuViewController: UIViewController {
     var router: MainMenuRouter?
 
     @IBOutlet weak var newDrawingOutlet: UIButton!

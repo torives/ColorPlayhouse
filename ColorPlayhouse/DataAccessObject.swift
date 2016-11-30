@@ -74,7 +74,7 @@ struct DataAccessObject {
         }
     }
     
-    func fetchUserImages(andHandleWith handler: @escaping (([(CKAsset, CKAsset)]?)->Void)) {
+    func fetchUserImages(andHandleWith handler: @escaping (([(String, CKAsset, CKAsset)]?)->Void)) {
         let defaults = UserDefaults.standard
         let userID = defaults.object(forKey: "userID") as! String
         
@@ -84,15 +84,30 @@ struct DataAccessObject {
         
         self.publicDatabase.perform(assetsQuery, inZoneWith: nil) { (records, error) in
             if error == nil {
-                var assets = [(CKAsset, CKAsset)]()
+                var assets = [(String, CKAsset, CKAsset)]()
                 for record in records! {
-                    assets.append((record.object(forKey: "image") as! CKAsset, record.object(forKey: "video") as! CKAsset))
+                    assets.append(record.recordID.recordName, record.object(forKey: "image") as! CKAsset, record.object(forKey: "video") as! CKAsset)
                 }
                 handler(assets)
             } else {
                 print(error?.localizedDescription)
             }
         }
+        
+    }
+    
+    func deleteRecord(WithID id: String, andHandleWith handler: @escaping ((Bool)->Void)) {
+        let recordID = CKRecordID(recordName: id)
+        self.publicDatabase.delete(withRecordID: recordID) { (recordID, error) in
+            if error == nil {
+                print("success deleting record")
+                handler(true)
+            } else {
+                handler(false)
+            }
+        }
+        //let assetsQuery = CKQuery(recordType: "Asset", predicate: predicate)
+
         
     }
 }

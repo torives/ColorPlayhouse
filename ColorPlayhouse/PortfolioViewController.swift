@@ -13,6 +13,8 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
     var delegate: PortfolioDelegate?
     var imageToPass: UIImage!
     var videoDataToPass: NSData!
+    var recordIDToPass: String!
+    var recordIDs = [String]()
     var savedImages = [UIImage]()
     var videoData = [NSData]()
     
@@ -33,10 +35,13 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
     func fetchData() {
         DAO.fetchUserImages { (assets) in
             for asset in assets! {
-                let imageURL = asset.0.fileURL
-                let videoURL = asset.1.fileURL
+                let recordID = asset.0
+                let imageURL = asset.1.fileURL
+                let videoURL = asset.2.fileURL
                 let imageData = NSData(contentsOf: imageURL)
                 let videoData = NSData(contentsOf: videoURL)
+                
+                self.recordIDs.append(recordID)
                 self.savedImages.append(UIImage(data: imageData as! Data)!)
                 self.videoData.append(videoData!)
             }
@@ -52,6 +57,7 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         imageToPass = savedImages[indexPath.item]
         videoDataToPass = videoData[indexPath.item]
+        recordIDToPass = recordIDs[indexPath.item]
         self.performSegue(withIdentifier: "detailSegue", sender: self)
     }
     
@@ -60,6 +66,7 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
             let detail = segue.destination as! PortfolioDetailViewController
             detail.selectedImage = imageToPass
             detail.videoData = videoDataToPass
+            detail.recordID = recordIDToPass
         }
     }
     
@@ -73,8 +80,11 @@ extension PortfolioViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if savedImages.count > 0 { noDrawings.isHidden = true }
-        return savedImages.count
+        let defaults = UserDefaults.standard
+        let numberOfArtwork = defaults.object(forKey: "numberOfArtwork") as! Int
+        
+        if numberOfArtwork > 0 { noDrawings.isHidden = true }
+        return numberOfArtwork
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

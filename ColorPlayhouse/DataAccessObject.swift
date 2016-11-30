@@ -34,14 +34,14 @@ struct DataAccessObject {
         }
     }
     
-    func saveImageToUser(image: UIImage, andHandleWith handler: @escaping (Bool)->Void) {
+    func saveAssetsToUser(image: UIImage, videoURL: URL, andHandleWith handler: @escaping (Bool)->Void) {
         let asset = CKRecord(recordType: "Asset")
         
         let defaults = UserDefaults.standard
         let userID = defaults.object(forKey: "userID") as! String
         
         asset["user"] = CKReference(recordID:CKRecordID(recordName: userID), action: CKReferenceAction.deleteSelf)
-        
+        asset["type"] = "image" as CKRecordValue
         
         let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
         let nsUserDomainMask = FileManager.SearchPathDomainMask.userDomainMask
@@ -54,10 +54,13 @@ struct DataAccessObject {
                 try! UIImagePNGRepresentation(image)?.write(to: writePath!, options: Data.WritingOptions.atomic)
             }
             
-            let File : CKAsset?  = CKAsset(fileURL: writePath!)
-            asset["asset"] = File
+            let imageFile : CKAsset?  = CKAsset(fileURL: writePath!)
+            asset["image"] = imageFile
             
         }
+        
+        let videoFile : CKAsset?  = CKAsset(fileURL: videoURL)
+        asset["video"] = videoFile
         
         self.publicDatabase.save(asset) {
             record, error in
@@ -71,7 +74,7 @@ struct DataAccessObject {
         }
     }
     
-    func fetchUserImages(andHandleWith handler: @escaping (([CKAsset]?)->Void)) {
+    func fetchUserImages(andHandleWith handler: @escaping (([(CKAsset, CKAsset)]?)->Void)) {
         let defaults = UserDefaults.standard
         let userID = defaults.object(forKey: "userID") as! String
         
@@ -81,9 +84,9 @@ struct DataAccessObject {
         
         self.publicDatabase.perform(assetsQuery, inZoneWith: nil) { (records, error) in
             if error == nil {
-                var assets = [CKAsset]()
+                var assets = [(CKAsset, CKAsset)]()
                 for record in records! {
-                    assets.append(record.object(forKey: "asset") as! CKAsset)
+                    assets.append((record.object(forKey: "image") as! CKAsset, record.object(forKey: "video") as! CKAsset))
                 }
                 handler(assets)
             } else {

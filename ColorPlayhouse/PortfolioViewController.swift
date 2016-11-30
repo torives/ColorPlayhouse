@@ -12,7 +12,9 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
 
     var delegate: PortfolioDelegate?
     var imageToPass: UIImage!
+    var videoDataToPass: NSData!
     var savedImages = [UIImage]()
+    var videoData = [NSData]()
     
     let DAO = DataAccessObject.sharedInstance
     var didFinishFetchingImages = false
@@ -31,9 +33,12 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
     func fetchData() {
         DAO.fetchUserImages { (assets) in
             for asset in assets! {
-                let url = asset.fileURL
-                let imageData = NSData(contentsOf: url)
+                let imageURL = asset.0.fileURL
+                let videoURL = asset.1.fileURL
+                let imageData = NSData(contentsOf: imageURL)
+                let videoData = NSData(contentsOf: videoURL)
                 self.savedImages.append(UIImage(data: imageData as! Data)!)
+                self.videoData.append(videoData!)
             }
             self.didFinishFetchingImages = true
             
@@ -46,6 +51,7 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         imageToPass = savedImages[indexPath.item]
+        videoDataToPass = videoData[indexPath.item]
         self.performSegue(withIdentifier: "detailSegue", sender: self)
     }
     
@@ -53,6 +59,7 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
         if segue.identifier == "detailSegue" {
             let detail = segue.destination as! PortfolioDetailViewController
             detail.selectedImage = imageToPass
+            detail.videoData = videoDataToPass
         }
     }
     

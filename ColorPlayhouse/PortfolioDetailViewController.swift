@@ -7,17 +7,39 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class PortfolioDetailViewController: UIViewController {
     
     var selectedImage: UIImage!
+    var videoData: NSData!
 
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var play: UIButton!
     @IBOutlet weak var share: UIButton!
     
     @IBAction func playClick(_ sender: AnyObject) {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let destinationPath = NSURL(fileURLWithPath: documentsPath).appendingPathComponent("filename.mov", isDirectory: false) //This is where I messed up.
+        
+        FileManager.default.createFile(atPath: destinationPath!.path, contents: videoData as Data?, attributes:nil)
+        
+        let videoURL = destinationPath
+        
+        self.playVideo(videoOutputURL: videoURL!)
+
     }
+    
+    private func playVideo(videoOutputURL: URL) {
+        let player = AVPlayer(url: videoOutputURL)
+        let playerController = AVPlayerViewController()
+        playerController.player = player
+        present(playerController, animated: true) {
+            player.play()
+        }
+    }
+    
     @IBAction func shareClick(_ sender: AnyObject) {
     }
     

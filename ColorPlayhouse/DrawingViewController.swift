@@ -27,7 +27,7 @@ class DrawingViewController: UIViewController {
 	//MARK: - Public Properties
 	
 	override var preferredFocusEnvironments: [UIFocusEnvironment] {
-		
+
 		if paletteIsActive { return [selectedColor!] }
 		else if toolsIsActive { return [selectedTool!] }
 		else { return [] }
@@ -146,11 +146,11 @@ class DrawingViewController: UIViewController {
 		super.didUpdateFocus(in: context, with: coordinator)
 		
 		guard let nextFocusedView = context.nextFocusedView else { return }
-		guard let previouslyFocusedView = context.previouslyFocusedView else { return }
+		let previouslyFocusedView = context.previouslyFocusedView
 		
-		customFocus(previouslyFocused: previouslyFocusedView as! UIButton,
-		            nextFocused: nextFocusedView as! UIButton,
-		            context: context)
+		customFocus(previouslyFocused: previouslyFocusedView,
+		            nextFocused: nextFocusedView,
+		            coordinator: coordinator)
 		
 		if toolsIsActive || paletteIsActive {
 			
@@ -177,7 +177,7 @@ class DrawingViewController: UIViewController {
 		}
 	}
 	
-	func customFocus(previouslyFocused: UIView, nextFocused: UIView, context: UIFocusUpdateContext) {
+	func customFocus(previouslyFocused: UIView?, nextFocused: UIView, coordinator: UIFocusAnimationCoordinator) {
 		
 		nextFocused.layer.shouldRasterize = true
 		nextFocused.layer.shadowColor = UIColor.black.cgColor
@@ -185,15 +185,16 @@ class DrawingViewController: UIViewController {
 		nextFocused.layer.shadowRadius = 25
 		nextFocused.layer.shadowOffset = CGSize(width: 0, height: 16)
 		
-		UIView.animate(withDuration: 0.1, animations: { () -> Void in
+		coordinator.addCoordinatedAnimations({
+			
 			nextFocused.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-		})
-		UIView.animate(withDuration: 0.1, animations: { () -> Void in
-			previouslyFocused.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-		})
+			
+			previouslyFocused?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+			previouslyFocused?.layer.shadowOffset = CGSize.zero
+			previouslyFocused?.layer.shadowColor = UIColor.clear.cgColor
+		},
+		completion: nil)
 		
-		context.previouslyFocusedView?.layer.shadowOffset = CGSize.zero
-		context.previouslyFocusedView?.layer.shadowColor = UIColor.clear.cgColor
 	}
 	
 	
@@ -450,38 +451,38 @@ class DrawingViewController: UIViewController {
 		defer { updateDrawing(drawingStruct: _drawingStruct) }
 		
 		switch color {
-			case PenColor.blue.rawValue:
-				_drawingStruct.color = PenColor.blue.value()
-				
-			case PenColor.darkOrange.rawValue:
-				_drawingStruct.color = PenColor.darkOrange.value()
-				
-			case PenColor.green.rawValue:
-				_drawingStruct.color = PenColor.green.value()
-				
-			case PenColor.lightBlue.rawValue:
-				_drawingStruct.color = PenColor.lightBlue.value()
-				
-			case PenColor.lightGreen.rawValue:
-				_drawingStruct.color = PenColor.lightGreen.value()
-				
-			case PenColor.magenta.rawValue:
-				_drawingStruct.color = PenColor.magenta.value()
-				
-			case PenColor.orange.rawValue:
-				_drawingStruct.color = PenColor.orange.value()
-				
-			case PenColor.purple.rawValue:
-				_drawingStruct.color = PenColor.purple.value()
-				
-			case PenColor.red.rawValue:
-				_drawingStruct.color = PenColor.red.value()
-				
-			case PenColor.yellow.rawValue:
-				_drawingStruct.color = PenColor.yellow.value()
-				
-			default:
-				print("Unknown color on palette's button")
+		case PenColor.blue.rawValue:
+			_drawingStruct.color = PenColor.blue.value()
+			
+		case PenColor.darkOrange.rawValue:
+			_drawingStruct.color = PenColor.darkOrange.value()
+			
+		case PenColor.green.rawValue:
+			_drawingStruct.color = PenColor.green.value()
+			
+		case PenColor.lightBlue.rawValue:
+			_drawingStruct.color = PenColor.lightBlue.value()
+			
+		case PenColor.lightGreen.rawValue:
+			_drawingStruct.color = PenColor.lightGreen.value()
+			
+		case PenColor.magenta.rawValue:
+			_drawingStruct.color = PenColor.magenta.value()
+			
+		case PenColor.orange.rawValue:
+			_drawingStruct.color = PenColor.orange.value()
+			
+		case PenColor.purple.rawValue:
+			_drawingStruct.color = PenColor.purple.value()
+			
+		case PenColor.red.rawValue:
+			_drawingStruct.color = PenColor.red.value()
+			
+		case PenColor.yellow.rawValue:
+			_drawingStruct.color = PenColor.yellow.value()
+			
+		default:
+			print("Unknown color on palette's button")
 		}
 	}
 	
@@ -590,26 +591,26 @@ enum PenColor: String
 		
 		switch self {
 			
-			case .purple:
-				return UIColor(colorLiteralRed: 147/255, green: 39/255, blue: 143/255, alpha: 1)
-			case .magenta:
-				return UIColor(colorLiteralRed: 212/255, green: 21/255, blue: 91/255, alpha: 1)
-			case .red:
-				return UIColor(colorLiteralRed: 237/255, green: 28/255, blue: 35/255, alpha: 1)
-			case .darkOrange:
-				return UIColor(colorLiteralRed: 241/255, green: 90/255, blue: 36/255, alpha: 1)
-			case .orange:
-				return UIColor(colorLiteralRed: 251/255, green: 176/255, blue: 59/255, alpha: 1)
-			case .yellow:
-				return UIColor(colorLiteralRed: 252/255, green: 238/255, blue: 34/255, alpha: 1)
-			case .lightGreen:
-				return UIColor(colorLiteralRed: 139/255, green: 198/255, blue: 63/255, alpha: 1)
-			case .green:
-				return UIColor(colorLiteralRed: 58/255, green: 181/255, blue: 73/255, alpha: 1)
-			case .lightBlue:
-				return UIColor(colorLiteralRed: 41/255, green: 171/255, blue: 226/255, alpha: 1)
-			case .blue:
-				return UIColor(colorLiteralRed: 0/255, green: 113/255, blue: 189/255, alpha: 1)
+		case .purple:
+			return UIColor(colorLiteralRed: 147/255, green: 39/255, blue: 143/255, alpha: 1)
+		case .magenta:
+			return UIColor(colorLiteralRed: 212/255, green: 21/255, blue: 91/255, alpha: 1)
+		case .red:
+			return UIColor(colorLiteralRed: 237/255, green: 28/255, blue: 35/255, alpha: 1)
+		case .darkOrange:
+			return UIColor(colorLiteralRed: 241/255, green: 90/255, blue: 36/255, alpha: 1)
+		case .orange:
+			return UIColor(colorLiteralRed: 251/255, green: 176/255, blue: 59/255, alpha: 1)
+		case .yellow:
+			return UIColor(colorLiteralRed: 252/255, green: 238/255, blue: 34/255, alpha: 1)
+		case .lightGreen:
+			return UIColor(colorLiteralRed: 139/255, green: 198/255, blue: 63/255, alpha: 1)
+		case .green:
+			return UIColor(colorLiteralRed: 58/255, green: 181/255, blue: 73/255, alpha: 1)
+		case .lightBlue:
+			return UIColor(colorLiteralRed: 41/255, green: 171/255, blue: 226/255, alpha: 1)
+		case .blue:
+			return UIColor(colorLiteralRed: 0/255, green: 113/255, blue: 189/255, alpha: 1)
 		}
 	}
 }

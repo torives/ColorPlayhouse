@@ -81,7 +81,7 @@ class TimeLapseBuilder: NSObject {
                 var remainingPhotoURLs = [String](self.photoURLs)
                 
                 videoWriterInput.requestMediaDataWhenReady(on: media_queue, using: { () -> Void in
-                    let fps: Int32 = 10
+                    let fps: Int32 = 8
                     let frameDuration = CMTimeMake(1, fps)
                     let currentProgress = Progress(totalUnitCount: Int64(self.photoURLs.count))
                     

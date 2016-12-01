@@ -125,7 +125,8 @@ class DrawingViewController: UIViewController {
 			
 			view.gestureRecognizers?.forEach({$0.isEnabled = true})
 			popupIsOpen = false
-            timer.fire()
+    
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(printScreen), userInfo: nil, repeats: true)
         } else {
             timer.invalidate()
             self.dismiss(animated: true, completion: nil)

@@ -153,17 +153,8 @@ class DrawingViewController: UIViewController {
 	override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
 		
 		guard let nextFocusedView = context.nextFocusedView else { return }
-		let previouslyFocusedView = context.previouslyFocusedView
 		
-		customFocus(previouslyFocused: previouslyFocusedView,
-		            nextFocused: nextFocusedView,
-		            coordinator: coordinator)
-		
-		if toolsIsActive || paletteIsActive {
-			
-			if paletteColors.contains(nextFocusedView as! UIButton) {
-				selectedColor = nextFocusedView as? UIButton
-			}
+		if toolsIsActive {
 			
 			if drawingTools.contains(nextFocusedView as! UIButton) {
 				selectedTool = nextFocusedView as? UIButton
@@ -182,28 +173,13 @@ class DrawingViewController: UIViewController {
 				}
 			}
 		}
-	}
-	
-	func customFocus(previouslyFocused: UIView?, nextFocused: UIView, coordinator: UIFocusAnimationCoordinator) {
-		
-		nextFocused.layer.shouldRasterize = true
-		nextFocused.layer.shadowColor = UIColor.black.cgColor
-		nextFocused.layer.shadowOpacity = 0.5
-		nextFocused.layer.shadowRadius = 25
-		nextFocused.layer.shadowOffset = CGSize(width: 0, height: 16)
-		
-		coordinator.addCoordinatedAnimations({
+		else if paletteIsActive {
 			
-			nextFocused.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-			
-			previouslyFocused?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-			previouslyFocused?.layer.shadowOffset = CGSize.zero
-			previouslyFocused?.layer.shadowColor = UIColor.clear.cgColor
-		},
-		completion: nil)
-		
+			if paletteColors.contains(nextFocusedView as! UIButton) {
+				selectedColor = nextFocusedView as? UIButton
+			}
+		}
 	}
-	
 	
 	//MARK: Interface Gesture Handling
 	

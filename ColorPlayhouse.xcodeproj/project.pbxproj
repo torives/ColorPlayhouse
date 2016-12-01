@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F04F7221DD2775100A5DFB1 /* MainMenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F04F7211DD2775100A5DFB1 /* MainMenuRouter.swift */; };
 		4F04F7251DD2777200A5DFB1 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F04F7241DD2777200A5DFB1 /* MainRouter.swift */; };
+		4F1025321DF0B9E600878362 /* CPFocusableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1025311DF0B9E600878362 /* CPFocusableButton.swift */; };
 		4FEF41D81DD4DD9D00D185EC /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41D71DD4DD9D00D185EC /* PortfolioViewController.swift */; };
 		4FEF41DA1DD4DDC400D185EC /* PortfolioScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41D91DD4DDC400D185EC /* PortfolioScreen.swift */; };
 		4FEF41DC1DD4DE0000D185EC /* PortfolioPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41DB1DD4DE0000D185EC /* PortfolioPresenter.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		4F04F7211DD2775100A5DFB1 /* MainMenuRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuRouter.swift; sourceTree = "<group>"; };
 		4F04F7241DD2777200A5DFB1 /* MainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		4F1025311DF0B9E600878362 /* CPFocusableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFocusableButton.swift; sourceTree = "<group>"; };
 		4FEF41D71DD4DD9D00D185EC /* PortfolioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
 		4FEF41D91DD4DDC400D185EC /* PortfolioScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioScreen.swift; sourceTree = "<group>"; };
 		4FEF41DB1DD4DE0000D185EC /* PortfolioPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioPresenter.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				4FEF41EB1DD5015600D185EC /* DrawingPresenter.swift */,
 				4FEF41ED1DD501F700D185EC /* DrawingScreen.swift */,
 				4FEF41EF1DD5022400D185EC /* Canvas.swift */,
+				4F1025311DF0B9E600878362 /* CPFocusableButton.swift */,
 			);
 			name = DrawingScene;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				4FEF41D81DD4DD9D00D185EC /* PortfolioViewController.swift in Sources */,
 				4FEF41E01DD4E12500D185EC /* PortfolioItem.swift in Sources */,
 				4FEF41F61DD643A500D185EC /* Geometry.swift in Sources */,
+				4F1025321DF0B9E600878362 /* CPFocusableButton.swift in Sources */,
 				4FEF41E71DD4E60700D185EC /* Router.swift in Sources */,
 				6E9C5E551DDF95B500A33773 /* PortfolioCell.swift in Sources */,
 				4FEF41F21DD625C900D185EC /* DrawingShapeLayer.swift in Sources */,

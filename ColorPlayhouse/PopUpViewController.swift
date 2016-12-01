@@ -12,7 +12,7 @@ import AVKit
 import FBSDKShareKit
 import FBSDKTVOSKit
 
-class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDelegate {
+class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDelegate, FBSDKDeviceShareViewControllerDelegate  {
     
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var screenshotImageView: UIImageView!
@@ -69,7 +69,9 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
     }
     
     @IBAction func didPressClearButton(_ sender: AnyObject) {
-        print("Clear Button Pressed")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "DrawingVC") as! DrawingViewController
+        self.present(controller, animated: true, completion: nil)
     }
     
     @IBAction func didPressSaveButton(_ sender: AnyObject) {
@@ -135,6 +137,7 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
     }
     
     func deviceLoginViewControllerDidFail(_ viewController: FBSDKDeviceLoginViewController, error: Error) {
+        showErrorLoggingIn()
         print(error.localizedDescription)
     }
     
@@ -142,14 +145,26 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
         shareOnFacebook()
     }
     
-
     func shareOnFacebook() {
-        
+        let link = FBSDKShareLinkContent()
+        link.contentURL = NSURL(fileURLWithPath: screenshotsPaths.last!) as URL!
+        let viewController = FBSDKDeviceShareViewController(share: link)
+        viewController.delegate = self
+        self.present(viewController, animated: true, completion: nil)
     }
     
+    func deviceShareViewControllerDidComplete(_ viewController: FBSDKDeviceShareViewController, error: Error?) {
+        if let unwrappedError = error {
+            print(unwrappedError.localizedDescription)
+        }
+    }
     
     @IBAction func didPressMenuButton(_ sender: AnyObject) {
        // removeAnimation()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "MainMenuScene") as! MainMenuViewController
+        self.present(controller, animated: true, completion: nil)
+        
         print("Menu Button Pressed")
     }
 
@@ -211,6 +226,15 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
 
 //MARK: Alert
 extension PopUpViewController {
+    func showErrorLoggingIn() {
+        let alertController = UIAlertController(title: "Error", message: "Oops! An error ocurred when attempting to log into Facebook.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
      func showErrorSavingAlert() {
         let alertController = UIAlertController(title: "Error", message: "Oops! An error ocurred when saving a screenshot of your artwork.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)

@@ -122,19 +122,21 @@ class DrawingViewController: UIViewController {
 	@objc private func menuButtonWasPressed() {
 		
 		if popupIsOpen {
-			
 			dismissPopUp()
 			
 			view.gestureRecognizers?.forEach({$0.isEnabled = true})
-			menuButtonTap?.isEnabled = false
 			popupIsOpen = false
-		}
+            timer.fire()
+        } else {
+            timer.invalidate()
+            self.dismiss(animated: true, completion: nil)
+        }
 	}
 	
 	@objc private func playButtonWasPressed() {
 		
 		timer.invalidate()
-		
+
 		view.gestureRecognizers?.forEach({$0.isEnabled = false})
 		menuButtonTap?.isEnabled = true
 		popupIsOpen = true
@@ -413,7 +415,6 @@ class DrawingViewController: UIViewController {
 		
 		menuButtonTap = UITapGestureRecognizer(target: self, action: #selector(menuButtonWasPressed))
 		menuButtonTap?.allowedPressTypes = [NSNumber(value: UIPressType.menu.rawValue)]
-		menuButtonTap?.isEnabled = false
 		self.view.addGestureRecognizer(menuButtonTap!)
 		
 		let playButtonTap = UITapGestureRecognizer(target: self, action: #selector(playButtonWasPressed))

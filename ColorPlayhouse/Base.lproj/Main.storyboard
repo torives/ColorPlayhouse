@@ -132,7 +132,7 @@
         <!--Drawing View Controller-->
         <scene sceneID="Ot6-92-8Li">
             <objects>
-                <viewController id="gDo-Ad-lRw" customClass="DrawingViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DrawingVC" id="gDo-Ad-lRw" customClass="DrawingViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k8f-N9-9p5"/>
                         <viewControllerLayoutGuide type="bottom" id="NfB-g0-fV3"/>

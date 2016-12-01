@@ -30,6 +30,7 @@ class DrawingViewController: UIViewController {
 
 		if paletteIsActive { return [selectedColor!] }
 		else if toolsIsActive { return [selectedTool!] }
+		else if popupIsOpen { return childViewControllers.first!.view.subviews }
 		else { return [] }
 	}
 	
@@ -131,19 +132,8 @@ class DrawingViewController: UIViewController {
 	
 	
 	//MARK: Focus Handling
-	
-	override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
-		if toolsIsActive || paletteIsActive || popupIsOpen {
-			return true
-		}
-		else{
-			return false
-		}
-	}
-	
-	override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
 		
-		super.didUpdateFocus(in: context, with: coordinator)
+	override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
 		
 		guard let nextFocusedView = context.nextFocusedView else { return }
 		let previouslyFocusedView = context.previouslyFocusedView

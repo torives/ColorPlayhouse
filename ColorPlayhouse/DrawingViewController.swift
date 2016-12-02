@@ -113,7 +113,6 @@ class DrawingViewController: UIViewController {
         canvasView.layer.shadowOffset = CGSize(width: 10, height: 10)
         canvasView.layer.shadowRadius = 0
         canvasView.layer.shouldRasterize = true
-        
     }
 	
 	
@@ -481,26 +480,29 @@ class DrawingViewController: UIViewController {
 		self.view.addSubview(popUpVC.view)
 		
 		popUpVC.didMove(toParentViewController: self)
+		
+		paletteColors.forEach({$0.isUserInteractionEnabled = false})
+		drawingTools.forEach({$0.isUserInteractionEnabled = false})
 	}
 	
 	private func dismissPopUp() {
 		
 		let popUp = self.childViewControllers.first
 		
-		UIView.animate(withDuration: 0.25,
-		               
-		               animations: {
-						popUp?.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-						popUp?.view.alpha = 0
+		UIView.animate(withDuration: 0.25, animations: {
+			popUp?.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+			popUp?.view.alpha = 0
 		},
-		               
-		               completion: { (isFinished) in
+			completion: { (isFinished) in
 						
-						if isFinished{
-							popUp?.willMove(toParentViewController: self)
-							popUp?.view.removeFromSuperview()
-							popUp?.removeFromParentViewController()
-						}
+				if isFinished{
+					popUp?.willMove(toParentViewController: self)
+					popUp?.view.removeFromSuperview()
+					popUp?.removeFromParentViewController()
+					
+					self.paletteColors.forEach({$0.isUserInteractionEnabled = true})
+					self.drawingTools.forEach({$0.isUserInteractionEnabled = true})
+				}
 		})
 	}
 }

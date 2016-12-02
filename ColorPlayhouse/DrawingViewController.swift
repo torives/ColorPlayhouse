@@ -28,9 +28,18 @@ class DrawingViewController: UIViewController {
 	
 	override var preferredFocusEnvironments: [UIFocusEnvironment] {
 
-		if paletteIsActive { return [selectedColor!] }
-		else if toolsIsActive { return [selectedTool!] }
-		else if popupIsOpen { return childViewControllers.first!.view.subviews }
+		if paletteIsActive {
+			guard let _ = selectedColor else { return [] }
+			return [selectedColor!]
+		}
+		else if toolsIsActive {
+			guard let _ = selectedTool else { return [] }
+			return [selectedTool!]
+		}
+		else if popupIsOpen {
+			guard let _ = childViewControllers.first else { return [] }
+			return childViewControllers.first!.view.subviews
+		}
 		else { return [] }
 	}
 	
@@ -255,17 +264,15 @@ class DrawingViewController: UIViewController {
 		}
 	}
 	
-	
-	func eraserConfig() -> DrawingStruct {
-		
-		var config = DrawingStruct()
-		config.color = UIColor.white
-		config.lineWidth = 25
-		
-		return config
-	}
-	
 	func processDrawingAttempt(with gesture: UIPanGestureRecognizer) {
+		
+		let point = gesture.location(in: self.view)
+		
+		guard self.canvasView.point(inside: point, with: nil) else { return }
+		
+		let newPoint = CGPoint(x: point.x + pointer.frame.width/2 + 25, y: point.y + pointer.frame.height/2)
+		pointer.frame.origin = newPoint
+		
 		
 		if selectedTool?.accessibilityLabel == "eraser" {
 			updateDrawing(drawingStruct: eraserConfig())
@@ -277,11 +284,9 @@ class DrawingViewController: UIViewController {
 		
 		let point = gesture.location(in: self.view)
 		
-		guard self.canvasView.point(inside: point, with: nil) else {
-			return
-		}
 		
-		self.pointer.frame.origin = point
+		
+		//self.pointer.frame.origin = point
 		
 		switch gesture.state {
 			
@@ -314,7 +319,7 @@ class DrawingViewController: UIViewController {
 	func eraseWithGesture(gesture: UIPanGestureRecognizer) {
 		
 		let point = gesture.location(in: self.view)
-		self.pointer.frame.origin = point
+		//self.pointer.frame.origin = point
 		
 		switch gesture.state {
 		case .began:
@@ -332,7 +337,6 @@ class DrawingViewController: UIViewController {
 		default:
 			break
 		}
-		
 	}
 	
 	
@@ -494,6 +498,15 @@ class DrawingViewController: UIViewController {
 		default:
 			print("Unknown color on palette's button")
 		}
+	}
+	
+	private func eraserConfig() -> DrawingStruct {
+		
+		var config = DrawingStruct()
+		config.color = UIColor.white
+		config.lineWidth = 25
+		
+		return config
 	}
 	
 	//MARK: PopUp Methods

@@ -261,6 +261,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qI5-tv-0UT" userLabel="Eraser" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
                                         <rect key="frame" x="258" y="0.0" width="146" height="147"/>
+                                        <accessibility key="accessibilityConfiguration" label="eraser"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="eraser"/>
                                         <connections>
@@ -269,6 +270,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbG-QA-gy7" userLabel="Crayon" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
                                         <rect key="frame" x="106" y="186" width="298" height="100"/>
+                                        <accessibility key="accessibilityConfiguration" label="crayon"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="9la-zs-PTh"/>
                                             <constraint firstAttribute="width" constant="298" id="cD1-9a-RLB"/>
@@ -281,6 +283,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfR-ze-E5R" userLabel="Brush" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
                                         <rect key="frame" x="3" y="325" width="401" height="121"/>
+                                        <accessibility key="accessibilityConfiguration" label="brush"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="121" id="sCw-HT-4TA"/>
                                         </constraints>
@@ -292,6 +295,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fF1-wO-5Hu" userLabel="Pencil" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="485" width="404" height="82"/>
+                                        <accessibility key="accessibilityConfiguration" label="pencil"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="82" id="rQy-8C-xvQ"/>
                                         </constraints>

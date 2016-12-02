@@ -154,95 +154,79 @@ class DrawingViewController: UIViewController {
 		guard let nextFocusedView = context.nextFocusedView else { return }
 		
 		if toolsIsActive {
-			
-			if drawingTools.contains(nextFocusedView as! UIButton) {
-				selectedTool = nextFocusedView as? UIButton
-				
-				switch selectedTool?.backgroundImage(for: .normal) {
-				case #imageLiteral(resourceName: "pencil")?:
-					pointer.image = UIImage(named: "pencil_pointer")
-				case #imageLiteral(resourceName: "brush")?:
-					pointer.image = UIImage(named: "brush_pointer")
-				case #imageLiteral(resourceName: "eraser")?:
-					pointer.image = UIImage(named: "eraser_pointer")
-				case #imageLiteral(resourceName: "crayon")?:
-					pointer.image = UIImage(named: "crayon_pointer")
-				default:
-					return
-				}
-			}
+			selectedTool = drawingTools.first(where: {$0 == nextFocusedView})
+			updatePointerImage(for: selectedTool)
 		}
 		else if paletteIsActive {
-			
-			if paletteColors.contains(nextFocusedView as! UIButton) {
-				selectedColor = nextFocusedView as? UIButton
-			}
+			selectedColor = paletteColors.first(where: {$0 == nextFocusedView})
 		}
 	}
 	
 	//MARK: Interface Gesture Handling
 	
-	func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+	func respondToSwipeGesture(gesture: UISwipeGestureRecognizer) {
 		
-		if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+		defer { setNeedsFocusUpdate() }
+		
+		switch gesture.direction {
 			
-			defer { setNeedsFocusUpdate() }
-			
-			switch swipeGesture.direction {
-				
 			case UISwipeGestureRecognizerDirection.left:
 				
-				if !paletteIsActive {
+				if paletteIsActive { return }
 					
-					UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-						self.toolsConstraintToTrailing.constant = 0
-						self.view.layoutIfNeeded()
-					}, completion: nil)
-					
-					toolsIsActive = true
-				}
+				UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+					self.toolsConstraintToTrailing.constant = 0
+					self.view.layoutIfNeeded()
+				},
+				completion: nil)
 				
+				self.toolsIsActive = true
+				self.shouldEnableInteraction(on: self.drawingTools, option: true)
+			
 			case UISwipeGestureRecognizerDirection.up:
 				
-				if toolsIsActive == false {
+				if toolsIsActive { return }
 					
-					UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-						self.paletteConstraintToBottom.constant = 0
-						self.colorsConstraintToBottom.constant = 60
-						self.view.layoutIfNeeded()
-					}, completion: nil)
-					
-					paletteIsActive = true
-				}
-				
+				UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+					self.paletteConstraintToBottom.constant = 0
+					self.colorsConstraintToBottom.constant = 60
+					self.view.layoutIfNeeded()
+				},
+			   completion: nil)
+			
+				self.paletteIsActive = true
+				self.shouldEnableInteraction(on: self.paletteColors, option: true)
+			
 			case UISwipeGestureRecognizerDirection.right:
 				
-				if toolsIsActive{
+				guard toolsIsActive else { return }
 					
-					UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-						self.toolsConstraintToTrailing.constant = -430
-						self.view.layoutIfNeeded()
-					}, completion: nil)
-					
-					toolsIsActive = false
-				}
-				
+				UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+					self.toolsConstraintToTrailing.constant = -430
+					self.view.layoutIfNeeded()
+				},
+				completion: nil)
+			
+				self.toolsIsActive = false
+				self.shouldEnableInteraction(on: self.drawingTools, option: false)
+			
 			case UISwipeGestureRecognizerDirection.down:
 				
-				if paletteIsActive{
+				guard paletteIsActive else { return }
 					
-					UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-						self.paletteConstraintToBottom.constant = -205
-						self.colorsConstraintToBottom.constant = -168
-						self.view.layoutIfNeeded()
-					}, completion: nil)
+				UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
 					
-					paletteIsActive = false
-				}
-				
-			default:
-				break
-			}
+					self.paletteConstraintToBottom.constant = -205
+					self.colorsConstraintToBottom.constant = -168
+					self.view.layoutIfNeeded()
+				},
+				completion: nil)
+			
+				self.paletteIsActive = false
+				self.shouldEnableInteraction(on: self.paletteColors, option: false)
+
+			
+			default: break
 		}
 	}
 	
@@ -268,6 +252,16 @@ class DrawingViewController: UIViewController {
 			drawing.frame = canvasView.frame
 			self.canvasView.addSubview(drawing)
 			currentDrawingElement = drawing
+		}
+	}
+	
+	func receivedTouchWithGesture(gesture: UIPanGestureRecognizer) {
+		
+		if selectedTool?.accessibilityLabel == "eraser" {
+			eraseWithGesture(gesture: gesture)
+		}
+		else {
+			drawWithGesture(gesture: gesture)
 		}
 	}
 	
@@ -382,13 +376,8 @@ class DrawingViewController: UIViewController {
 	//MARK: Auxiliary Functions
 	
 	private func configureUserInteraction() {
-		setupControllerButtons()
-		addDrawingGesture()
-		addCanvasControlGestures()
-	}
-	
-	private func setupControllerButtons() {
 		
+		//Add controller buttons
 		menuButtonTap = UITapGestureRecognizer(target: self, action: #selector(menuButtonWasPressed))
 		menuButtonTap?.allowedPressTypes = [NSNumber(value: UIPressType.menu.rawValue)]
 		self.view.addGestureRecognizer(menuButtonTap!)
@@ -400,16 +389,15 @@ class DrawingViewController: UIViewController {
 		let selectButtonTap = UITapGestureRecognizer(target: self, action: #selector(selectButtonWasPressed))
 		selectButtonTap.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
 		self.view.addGestureRecognizer(selectButtonTap)
-	}
-	
-	private func addDrawingGesture() {
-		drawingGesture = UIPanGestureRecognizer(target: self, action: #selector(drawWithGesture(gesture:)))
+		
+		
+		//Add drawing gesture
+		drawingGesture = UIPanGestureRecognizer(target: self, action: #selector(receivedTouchWithGesture(gesture:)))
 		drawingGesture?.isEnabled = false
 		view.addGestureRecognizer(drawingGesture!)
-	}
-	
-	private func addCanvasControlGestures() {
 		
+		
+		//Add canvas control gestures
 		let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
 		swipeLeft.direction = .left
 		self.view.addGestureRecognizer(swipeLeft)
@@ -425,6 +413,36 @@ class DrawingViewController: UIViewController {
 		let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
 		swipeDown.direction = .down
 		self.view.addGestureRecognizer(swipeDown)
+		
+		
+		//Set default tool
+		selectedTool = drawingTools.first(where: {$0.accessibilityLabel == "pencil"})
+		updatePointerImage(for: selectedTool)
+		
+		
+		//Disable focus
+		shouldEnableInteraction(on: paletteColors, option: false)
+		shouldEnableInteraction(on: drawingTools, option: false)
+	}
+	
+	private func shouldEnableInteraction(on views: [UIView], option: Bool) {
+		views.forEach({$0.isUserInteractionEnabled = option})
+	}
+	
+	private func updatePointerImage(for tool: UIButton?) {
+		
+		switch tool?.backgroundImage(for: .normal) {
+		case #imageLiteral(resourceName: "pencil")?:
+			pointer.image = UIImage(named: "pencil_pointer")
+		case #imageLiteral(resourceName: "brush")?:
+			pointer.image = UIImage(named: "brush_pointer")
+		case #imageLiteral(resourceName: "eraser")?:
+			pointer.image = UIImage(named: "eraser_pointer")
+		case #imageLiteral(resourceName: "crayon")?:
+			pointer.image = UIImage(named: "crayon_pointer")
+		default:
+			return
+		}
 	}
 	
 	private func updateToolColor(withColor color: String) {
@@ -481,8 +499,8 @@ class DrawingViewController: UIViewController {
 		
 		popUpVC.didMove(toParentViewController: self)
 		
-		paletteColors.forEach({$0.isUserInteractionEnabled = false})
-		drawingTools.forEach({$0.isUserInteractionEnabled = false})
+		shouldEnableInteraction(on: paletteColors, option: false)
+		shouldEnableInteraction(on: drawingTools, option: false)
 	}
 	
 	private func dismissPopUp() {
@@ -500,8 +518,8 @@ class DrawingViewController: UIViewController {
 					popUp?.view.removeFromSuperview()
 					popUp?.removeFromParentViewController()
 					
-					self.paletteColors.forEach({$0.isUserInteractionEnabled = true})
-					self.drawingTools.forEach({$0.isUserInteractionEnabled = true})
+					self.shouldEnableInteraction(on: self.paletteColors, option: true)
+					self.shouldEnableInteraction(on: self.drawingTools, option: true)
 				}
 		})
 	}

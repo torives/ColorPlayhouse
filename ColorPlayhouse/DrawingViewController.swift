@@ -255,14 +255,22 @@ class DrawingViewController: UIViewController {
 		}
 	}
 	
+	
+	func eraserConfig() -> DrawingStruct {
+		
+		var config = DrawingStruct()
+		config.color = UIColor.white
+		config.lineWidth = 25
+		
+		return config
+	}
+	
 	func processDrawingAttempt(with gesture: UIPanGestureRecognizer) {
 		
 		if selectedTool?.accessibilityLabel == "eraser" {
-			eraseWithGesture(gesture: gesture)
+			updateDrawing(drawingStruct: eraserConfig())
 		}
-		else {
-			drawWithGesture(gesture: gesture)
-		}
+		drawWithGesture(gesture: gesture)
 	}
 	
 	func drawWithGesture(gesture: UIPanGestureRecognizer) {
@@ -305,25 +313,26 @@ class DrawingViewController: UIViewController {
 	
 	func eraseWithGesture(gesture: UIPanGestureRecognizer) {
 		
-		for case let drawingElement as DrawingElement in _elements {
+		let point = gesture.location(in: self.view)
+		self.pointer.frame.origin = point
+		
+		switch gesture.state {
+		case .began:
+			currentDrawingElement?.beginErasing(point: point)
 			
-			switch gesture.state {
-			case .began:
-				drawingElement.beginErasing(point: gesture.location(in: self.view))
-				
-			case .changed:
-				drawingElement.moveErasingPoint(point: gesture.location(in: self.view))
-				
-			case .ended:
-				drawingElement.endErasing(point: gesture.location(in: self.view))
-				
-			case .cancelled , .failed:
-				drawingElement.cancelErasing(point: gesture.location(in: self.view))
-				
-			default:
-				break
-			}
+		case .changed:
+			currentDrawingElement?.moveErasingPoint(point: point)
+			
+		case .ended:
+			currentDrawingElement?.endErasing(point: point)
+			
+		case .cancelled , .failed:
+			currentDrawingElement?.cancelErasing(point: point)
+			
+		default:
+			break
 		}
+		
 	}
 	
 	
@@ -559,7 +568,7 @@ struct DrawingStruct
 	
 	init() {
 		// Dummy values
-		lineWidth = 1.0
+		lineWidth = 5.0
 		lower = 0.01
 		upper = LineThickness.Thin.rawValue
 		ff = 0.2

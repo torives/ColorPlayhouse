@@ -267,26 +267,22 @@ class DrawingViewController: UIViewController {
 	func processDrawingAttempt(with gesture: UIPanGestureRecognizer) {
 		
 		let point = gesture.location(in: self.view)
-		
 		guard self.canvasView.point(inside: point, with: nil) else { return }
 		
+		//	FIX-ME:
+		//	Treta para alinhar o ponteiro com o inicio da linha do desenho.
+		//	Ajustar a posição do ponteiro é necessária porque o algoritmo 
+		//	só começa a desenhar de fato após 5 pontos terem sido contabilizados.
 		let newPoint = CGPoint(x: point.x + pointer.frame.width/2 + 25, y: point.y + pointer.frame.height/2)
 		pointer.frame.origin = newPoint
-		
 		
 		if selectedTool?.accessibilityLabel == "eraser" {
 			updateDrawing(drawingStruct: eraserConfig())
 		}
-		drawWithGesture(gesture: gesture)
+		draw(with: gesture, at: point)
 	}
 	
-	func drawWithGesture(gesture: UIPanGestureRecognizer) {
-		
-		let point = gesture.location(in: self.view)
-		
-		
-		
-		//self.pointer.frame.origin = point
+	func draw(with gesture: UIPanGestureRecognizer, at point: CGPoint) {
 		
 		switch gesture.state {
 			
@@ -296,7 +292,8 @@ class DrawingViewController: UIViewController {
 				drawingElement.beginDrawing(point: point)
 			}
 			else{
-				let drawing = DrawingElement(drawingStruct: DrawingStruct())
+				
+				let drawing = DrawingElement(drawingStruct: _drawingStruct)
 				drawing.frame = canvasView.frame
 				self.canvasView.addSubview(drawing)
 				currentDrawingElement = drawing
@@ -307,19 +304,18 @@ class DrawingViewController: UIViewController {
 			
 		case .ended:
 			currentDrawingElement?.endDrawing(point: point)
+			currentDrawingElement = nil
 			
 		case .cancelled, .failed:
 			currentDrawingElement?.cancelDrawing(point: point)
+			currentDrawingElement = nil
 			
 		default:
 			break
 		}
 	}
 	
-	func eraseWithGesture(gesture: UIPanGestureRecognizer) {
-		
-		let point = gesture.location(in: self.view)
-		//self.pointer.frame.origin = point
+	/*func erase(with gesture: UIPanGestureRecognizer, at point: CGPoint) {
 		
 		switch gesture.state {
 		case .began:
@@ -337,7 +333,7 @@ class DrawingViewController: UIViewController {
 		default:
 			break
 		}
-	}
+	}*/
 	
 	
 	//MARK: Timelapse Functions
@@ -500,6 +496,7 @@ class DrawingViewController: UIViewController {
 		}
 	}
 	
+	//FIX-ME: POG
 	private func eraserConfig() -> DrawingStruct {
 		
 		var config = DrawingStruct()

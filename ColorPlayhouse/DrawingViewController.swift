@@ -415,9 +415,11 @@ class DrawingViewController: UIViewController {
 		self.view.addGestureRecognizer(swipeDown)
 		
 		
-		//Set default tool
+		//Set defaults
 		selectedTool = drawingTools.first(where: {$0.accessibilityLabel == "pencil"})
 		updatePointerImage(for: selectedTool)
+		
+		selectedColor = paletteColors.first(where: {$0.accessibilityLabel == "blue"})
 		
 		
 		//Disable focus

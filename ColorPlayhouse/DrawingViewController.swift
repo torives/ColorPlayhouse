@@ -164,7 +164,7 @@ class DrawingViewController: UIViewController {
 	
 	//MARK: Interface Gesture Handling
 	
-	func respondToSwipeGesture(gesture: UISwipeGestureRecognizer) {
+	func controlCanvas(with gesture: UISwipeGestureRecognizer) {
 		
 		defer { setNeedsFocusUpdate() }
 		
@@ -255,7 +255,7 @@ class DrawingViewController: UIViewController {
 		}
 	}
 	
-	func receivedTouchWithGesture(gesture: UIPanGestureRecognizer) {
+	func processDrawingAttempt(with gesture: UIPanGestureRecognizer) {
 		
 		if selectedTool?.accessibilityLabel == "eraser" {
 			eraseWithGesture(gesture: gesture)
@@ -392,25 +392,25 @@ class DrawingViewController: UIViewController {
 		
 		
 		//Add drawing gesture
-		drawingGesture = UIPanGestureRecognizer(target: self, action: #selector(receivedTouchWithGesture(gesture:)))
+		drawingGesture = UIPanGestureRecognizer(target: self, action: #selector(processDrawingAttempt(with:)))
 		drawingGesture?.isEnabled = false
 		view.addGestureRecognizer(drawingGesture!)
 		
 		
 		//Add canvas control gestures
-		let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
+		let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(controlCanvas(with:)))
 		swipeLeft.direction = .left
 		self.view.addGestureRecognizer(swipeLeft)
 		
-		let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
+		let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(controlCanvas(with:)))
 		swipeRight.direction = .right
 		self.view.addGestureRecognizer(swipeRight)
 		
-		let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
+		let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(controlCanvas(with:)))
 		swipeUp.direction = .up
 		self.view.addGestureRecognizer(swipeUp)
 		
-		let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
+		let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(controlCanvas(with:)))
 		swipeDown.direction = .down
 		self.view.addGestureRecognizer(swipeDown)
 		

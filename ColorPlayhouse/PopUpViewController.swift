@@ -42,9 +42,9 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
         self.view.addLayoutGuide(self.focusGuide)
         
         self.focusGuide.leftAnchor.constraint(equalTo: self.playButton.leftAnchor).isActive = true
-        self.focusGuide.topAnchor.constraint(equalTo: self.menuButton.topAnchor).isActive = true
+        self.focusGuide.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         self.focusGuide.widthAnchor.constraint(equalTo: self.playButton.widthAnchor).isActive = true
-        self.focusGuide.heightAnchor.constraint(equalTo: self.menuButton.heightAnchor).isActive = true
+        self.focusGuide.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
     }
     
     //MARK: IBAction Methods

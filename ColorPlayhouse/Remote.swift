@@ -15,28 +15,25 @@ class Remote {
     var handler: RemoteHandler
     
     init(handler: RemoteHandler) {
-        self.handler = handler
+		
+		self.handler = handler
         controller = Controller()
-        pointerMotionController = PointerMotion(controller: controller,
+		controller.device = GCController.controllers().first!
+		
+		pointerMotionController = PointerMotion(controller: controller,
                                                 screenBounds: UIScreen.main.bounds.bounds3D)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.controllerDidConnect(notification:)), name: NSNotification.Name.GCControllerDidConnect, object: nil)
+	
+		Timer.scheduledTimer(withTimeInterval: 1/50, repeats: true, block: { (_) in
+			self.pointerMotionController.actualize()
+			self.handler.remoteCiclicBehavior()
+			
+		})
+		
+		controller.device?.motion?.valueChangedHandler = { (motion : GCMotion) -> () in
+			self.pointerMotionController.actualize()
+			self.handler.remoteDidMove()
+			
+		}
     }
-    
-    
-    @objc func controllerDidConnect(notification : NSNotification) {
-        controller.device = GCController.controllers().first!
-        Timer.scheduledTimer(withTimeInterval: 1/50, repeats: true, block: { (_) in
-            self.pointerMotionController.actualize()
-            self.handler.remoteCiclicBehavior()
-            
-        })
-        
-        controller.device?.motion?.valueChangedHandler = { (motion : GCMotion) -> () in
-            self.pointerMotionController.actualize()
-            self.handler.remoteDidMove()
-            
-        }
-    }
-
 }

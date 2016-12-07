@@ -56,13 +56,15 @@ class DrawingViewController: UIViewController {
 	private var selectedColor: UIButton?
 	private var selectedTool: UIButton?
 	
-	private var drawingGesture: UIPanGestureRecognizer?
-	private var remote: Remote!
+	private var drawingGesture: UILongPressGestureRecognizer?
+	fileprivate var remote: Remote!
+	fileprivate var canIDraw = false
+	
 	private var menuButtonTap: UITapGestureRecognizer?
 	
 	private var _eraserEnabled: Bool = false
 	private var _drawingStruct: DrawingStruct = DrawingStruct()
-	private weak var currentDrawingElement: DrawingElement?
+	fileprivate weak var currentDrawingElement: DrawingElement?
 	private var _elements: Array<UIView> = Array<UIView>()
 	
 	
@@ -155,8 +157,6 @@ class DrawingViewController: UIViewController {
 		
 		presentPopUp()
 	}
-	
-	@objc private func selectButtonWasPressed() { drawingGesture?.isEnabled = !drawingGesture!.isEnabled }
 	
 	
 	//MARK: Focus Handling
@@ -267,22 +267,55 @@ class DrawingViewController: UIViewController {
 		}
 	}
 	
-	func processDrawingAttempt(with gesture: UIPanGestureRecognizer) {
+	func processDrawingAttempt(with gesture: UILongPressGestureRecognizer) {
 		
-		let point = gesture.location(in: self.view)
-		guard self.canvasView.point(inside: point, with: nil) else { return }
+		let point = remote.pointerMotionController.previousPosition.CGPointXY
 		
-		//	FIX-ME:
-		//	Treta para alinhar o ponteiro com o inicio da linha do desenho.
-		//	Ajustar a posição do ponteiro é necessária porque o algoritmo 
-		//	só começa a desenhar de fato após 5 pontos terem sido contabilizados.
-		let newPoint = CGPoint(x: point.x + pointer.frame.width/2 + 25, y: point.y + pointer.frame.height/2)
-		pointer.frame.origin = newPoint
+		switch gesture.state {
 		
-		if selectedTool?.accessibilityLabel == "eraser" {
-			updateDrawing(drawingStruct: eraserConfig())
+		case .began:
+			
+			canIDraw = true
+			
+			let drawing = DrawingElement(drawingStruct: _drawingStruct)
+			drawing.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: canvasView.frame.size)
+			self.canvasView.addSubview(drawing)
+			currentDrawingElement = drawing
+			
+			currentDrawingElement?.beginDrawing(point: point)
+			
+		case .ended:
+			
+			canIDraw = false
+			
+			currentDrawingElement?.endDrawing(point: point)
+			currentDrawingElement = nil
+		
+		case .cancelled, .failed:
+			
+			canIDraw = false
+			
+			currentDrawingElement?.cancelDrawing(point: point)
+			currentDrawingElement = nil
+			
+		default:
+			break
 		}
-		draw(with: gesture, at: point)
+//		
+//		let point = gesture.location(in: self.view)
+//		guard self.canvasView.point(inside: point, with: nil) else { return }
+//		
+//		//	FIX-ME:
+//		//	Treta para alinhar o ponteiro com o inicio da linha do desenho.
+//		//	Ajustar a posição do ponteiro é necessária porque o algoritmo 
+//		//	só começa a desenhar de fato após 5 pontos terem sido contabilizados.
+//		let newPoint = CGPoint(x: point.x + pointer.frame.width/2 + 25, y: point.y + pointer.frame.height/2)
+//		pointer.frame.origin = newPoint
+//		
+//		if selectedTool?.accessibilityLabel == "eraser" {
+//			updateDrawing(drawingStruct: eraserConfig())
+//		}
+//		draw(with: gesture, at: point)
 	}
 	
 	func draw(with gesture: UIPanGestureRecognizer, at point: CGPoint) {
@@ -290,6 +323,10 @@ class DrawingViewController: UIViewController {
 		switch gesture.state {
 			
 		case .began:
+			
+			if selectedTool?.accessibilityLabel == "eraser" {
+				updateDrawing(drawingStruct: eraserConfig())
+			}
 			
 			if let drawingElement = currentDrawingElement {
 				drawingElement.beginDrawing(point: point)
@@ -398,14 +435,8 @@ class DrawingViewController: UIViewController {
 		playButtonTap.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue)]
 		self.view.addGestureRecognizer(playButtonTap)
 		
-		let selectButtonTap = UITapGestureRecognizer(target: self, action: #selector(selectButtonWasPressed))
-		selectButtonTap.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
-		self.view.addGestureRecognizer(selectButtonTap)
-		
-		
 		//Add drawing gesture
-		drawingGesture = UIPanGestureRecognizer(target: self, action: #selector(processDrawingAttempt(with:)))
-		drawingGesture?.isEnabled = false
+		drawingGesture = UILongPressGestureRecognizer(target: self, action: #selector(processDrawingAttempt(with:)))
 		view.addGestureRecognizer(drawingGesture!)
 		
 		
@@ -499,6 +530,23 @@ class DrawingViewController: UIViewController {
 		}
 	}
 	
+	fileprivate func adjustPointerPositionFor(newPoint: CGPoint) {
+		
+		var deltaX = pointer.frame.width/2 + 25
+		var deltaY = pointer.frame.height/2
+		
+		if newPoint.x == canvasView.frame.maxX || newPoint.x == canvasView.frame.minX {
+			deltaX = 0
+		}
+		
+		if newPoint.y == canvasView.frame.maxY || newPoint.y == canvasView.frame.minY {
+			deltaY = 0
+		}
+		
+		let newPoint = CGPoint(x: newPoint.x + deltaX, y: newPoint.y + deltaY)
+		pointer.frame.origin = newPoint
+	}
+	
 	//FIX-ME: POG
 	private func eraserConfig() -> DrawingStruct {
 		
@@ -553,12 +601,26 @@ extension DrawingViewController: RemoteHandler
 {
 	func remoteDidMove() {
 		
+		guard canIDraw else { return }
+		
+		let point = remote.pointerMotionController.previousPosition.CGPointXY
+		guard canvasView.point(inside: point, with: nil) else { return }
+		
+		currentDrawingElement?.moveDrawingPoint(point: point)
 	}
 	
 	func remoteCiclicBehavior() {
 		
+		//	FIX-ME:
+		//	Treta para alinhar o ponteiro com o inicio da linha do desenho.
+		//	Ajustar a posição do ponteiro é necessária porque o algoritmo
+		//	só começa a desenhar de fato após 5 pontos terem sido contabilizados.
+		
+		let point = remote.pointerMotionController.previousPosition.CGPointXY
+		guard canvasView.point(inside: point, with: nil) else { return }
+		
+		adjustPointerPositionFor(newPoint: point)
 	}
-	
 }
 
 

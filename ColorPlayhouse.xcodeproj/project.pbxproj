@@ -33,6 +33,10 @@
 		6E9C5E551DDF95B500A33773 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C5E541DDF95B500A33773 /* PortfolioCell.swift */; };
 		6E9C5E961DE4487500A33773 /* ColorPlayhouseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C5E951DE4487500A33773 /* ColorPlayhouseUITests.swift */; };
 		6EE2827A1DDE256400600C95 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE282791DDE256400600C95 /* CloudKit.framework */; };
+		6EED23B21DF89EDD00207DF8 /* Signika-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6EED23AE1DF89EDD00207DF8 /* Signika-Bold.otf */; };
+		6EED23B31DF89EDD00207DF8 /* Signika-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6EED23AF1DF89EDD00207DF8 /* Signika-Light.otf */; };
+		6EED23B41DF89EDD00207DF8 /* Signika-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6EED23B01DF89EDD00207DF8 /* Signika-Regular.otf */; };
+		6EED23B51DF89EDD00207DF8 /* Signika-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6EED23B11DF89EDD00207DF8 /* Signika-Semibold.otf */; };
 		F5224CF21DF8928D0047A030 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5224CF11DF8928D0047A030 /* TutorialPageViewController.swift */; };
 		F533163E1DE7C0190052AE7B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F533163B1DE7C0190052AE7B /* FBSDKCoreKit.framework */; };
 		F533163F1DE7C0190052AE7B /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F533163C1DE7C0190052AE7B /* FBSDKShareKit.framework */; };
@@ -85,6 +89,10 @@
 		6E9C5E951DE4487500A33773 /* ColorPlayhouseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPlayhouseUITests.swift; sourceTree = "<group>"; };
 		6E9C5E971DE4487500A33773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EE282791DDE256400600C95 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		6EED23AE1DF89EDD00207DF8 /* Signika-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Bold.otf"; sourceTree = "<group>"; };
+		6EED23AF1DF89EDD00207DF8 /* Signika-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Light.otf"; sourceTree = "<group>"; };
+		6EED23B01DF89EDD00207DF8 /* Signika-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Regular.otf"; sourceTree = "<group>"; };
+		6EED23B11DF89EDD00207DF8 /* Signika-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Semibold.otf"; sourceTree = "<group>"; };
 		F5224CF11DF8928D0047A030 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		F533163B1DE7C0190052AE7B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F533163C1DE7C0190052AE7B /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -125,6 +133,10 @@
 				6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */,
 				6E6DACDF1DD23CE600C8ADD6 /* Assets.xcassets */,
 				6E6DACE11DD23CE600C8ADD6 /* Info.plist */,
+				6EED23AE1DF89EDD00207DF8 /* Signika-Bold.otf */,
+				6EED23AF1DF89EDD00207DF8 /* Signika-Light.otf */,
+				6EED23B01DF89EDD00207DF8 /* Signika-Regular.otf */,
+				6EED23B11DF89EDD00207DF8 /* Signika-Semibold.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -356,8 +368,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E6DACE01DD23CE600C8ADD6 /* Assets.xcassets in Resources */,
+				6EED23B41DF89EDD00207DF8 /* Signika-Regular.otf in Resources */,
+				6EED23B51DF89EDD00207DF8 /* Signika-Semibold.otf in Resources */,
+				6EED23B31DF89EDD00207DF8 /* Signika-Light.otf in Resources */,
 				F5B248371DE711DF00F03ECE /* UIRemoteImageView.xib in Resources */,
 				6E6DACDE1DD23CE600C8ADD6 /* Main.storyboard in Resources */,
+				6EED23B21DF89EDD00207DF8 /* Signika-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,12 +11,7 @@ import UIKit
 class MainRouter {
     
     var menuScreen: MainMenuViewController?
-    
-    func configureFirstSceneOn(_ window: UIWindow){
-        
-        let menuVC = window.rootViewController as! MainMenuViewController
-        menuScreen = menuVC
-    }
+
 }
 
 extension MainRouter: MainMenuRouter {

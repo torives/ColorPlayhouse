@@ -17,14 +17,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        mainRouter.configureFirstSceneOn(window!)
-        
-        //FBSDKSettings.setAppID("1319590891393166")
-        //FBSDKSettings.setClientToken(FBSDKSettings.clientToken())
+        let initialViewController = getInitialVC()
+
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
 
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
+    func getInitialVC() -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+        if !UserDefaults.standard.bool(forKey: "HasLaunchedOnce") {
+            UserDefaults.standard.synchronize()
+            
+            UserDefaults.standard.set(true, forKey: "HasLaunchedOnce")
+
+            return storyboard.instantiateViewController(withIdentifier: "TutorialPageVC") as! TutorialPageViewController
+        }
+        
+        return storyboard.instantiateViewController(withIdentifier: "MainMenuScene") as! MainMenuViewController
+
+    }
     func applicationWillResignActive(_ application: UIApplication) {}
 
     func applicationDidEnterBackground(_ application: UIApplication) {}

@@ -19,9 +19,6 @@
 		4FEF41E51DD4E27000D185EC /* TimelapseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41E41DD4E27000D185EC /* TimelapseItem.swift */; };
 		4FEF41E71DD4E60700D185EC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41E61DD4E60700D185EC /* Router.swift */; };
 		4FEF41EA1DD4F49600D185EC /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41E91DD4F49600D185EC /* DrawingViewController.swift */; };
-		4FEF41EC1DD5015600D185EC /* DrawingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41EB1DD5015600D185EC /* DrawingPresenter.swift */; };
-		4FEF41EE1DD501F700D185EC /* DrawingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41ED1DD501F700D185EC /* DrawingScreen.swift */; };
-		4FEF41F01DD5022400D185EC /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41EF1DD5022400D185EC /* Canvas.swift */; };
 		4FEF41F21DD625C900D185EC /* DrawingShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41F11DD625C900D185EC /* DrawingShapeLayer.swift */; };
 		4FEF41F61DD643A500D185EC /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41F51DD643A500D185EC /* Geometry.swift */; };
 		4FEF41F81DD6550900D185EC /* DrawingElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41F71DD6550900D185EC /* DrawingElement.swift */; };
@@ -66,9 +63,6 @@
 		4FEF41E41DD4E27000D185EC /* TimelapseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelapseItem.swift; sourceTree = "<group>"; };
 		4FEF41E61DD4E60700D185EC /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		4FEF41E91DD4F49600D185EC /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
-		4FEF41EB1DD5015600D185EC /* DrawingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingPresenter.swift; sourceTree = "<group>"; };
-		4FEF41ED1DD501F700D185EC /* DrawingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingScreen.swift; sourceTree = "<group>"; };
-		4FEF41EF1DD5022400D185EC /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		4FEF41F11DD625C900D185EC /* DrawingShapeLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingShapeLayer.swift; sourceTree = "<group>"; };
 		4FEF41F51DD643A500D185EC /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		4FEF41F71DD6550900D185EC /* DrawingElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingElement.swift; sourceTree = "<group>"; };
@@ -139,6 +133,7 @@
 		4F04F7231DD2776600A5DFB1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4F1025311DF0B9E600878362 /* CPFocusableButton.swift */,
 				F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */,
 				4F04F7241DD2777200A5DFB1 /* MainRouter.swift */,
 				4FEF41E61DD4E60700D185EC /* Router.swift */,
@@ -178,10 +173,6 @@
 				4FEF41F71DD6550900D185EC /* DrawingElement.swift */,
 				4FEF41F11DD625C900D185EC /* DrawingShapeLayer.swift */,
 				4FEF41E91DD4F49600D185EC /* DrawingViewController.swift */,
-				4FEF41EB1DD5015600D185EC /* DrawingPresenter.swift */,
-				4FEF41ED1DD501F700D185EC /* DrawingScreen.swift */,
-				4FEF41EF1DD5022400D185EC /* Canvas.swift */,
-				4F1025311DF0B9E600878362 /* CPFocusableButton.swift */,
 			);
 			name = DrawingScene;
 			sourceTree = "<group>";
@@ -376,10 +367,9 @@
 				6E6DACDB1DD23CE600C8ADD6 /* MainMenuViewController.swift in Sources */,
 				6E6DACD91DD23CE600C8ADD6 /* AppDelegate.swift in Sources */,
 				F54FF41A1DE377870020E547 /* PopUpViewController.swift in Sources */,
-				4FEF41F01DD5022400D185EC /* Canvas.swift in Sources */,
-				4FEF41EC1DD5015600D185EC /* DrawingPresenter.swift in Sources */,
+				4FE2D7E71DF88FD3002BFD7E /* MExtensions.swift in Sources */,
+				4FE2D7E81DF88FD3002BFD7E /* MOperators.swift in Sources */,
 				4FEF41DC1DD4DE0000D185EC /* PortfolioPresenter.swift in Sources */,
-				4FEF41EE1DD501F700D185EC /* DrawingScreen.swift in Sources */,
 				4FEF41DE1DD4DE3400D185EC /* PortfolioDelegate.swift in Sources */,
 				4F04F7221DD2775100A5DFB1 /* MainMenuRouter.swift in Sources */,
 				4FEF41D81DD4DD9D00D185EC /* PortfolioViewController.swift in Sources */,

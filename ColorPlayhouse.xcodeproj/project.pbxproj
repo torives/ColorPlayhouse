@@ -10,6 +10,16 @@
 		4F04F7221DD2775100A5DFB1 /* MainMenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F04F7211DD2775100A5DFB1 /* MainMenuRouter.swift */; };
 		4F04F7251DD2777200A5DFB1 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F04F7241DD2777200A5DFB1 /* MainRouter.swift */; };
 		4F1025321DF0B9E600878362 /* CPFocusableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1025311DF0B9E600878362 /* CPFocusableButton.swift */; };
+		4FE2D7DB1DF88EA9002BFD7E /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D7D91DF88EA9002BFD7E /* Remote.swift */; };
+		4FE2D7DC1DF88EA9002BFD7E /* RemoteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D7DA1DF88EA9002BFD7E /* RemoteHandler.swift */; };
+		4FE2D7E01DF88FB7002BFD7E /* PointerMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D7DF1DF88FB7002BFD7E /* PointerMotion.swift */; };
+		4FE2D7E51DF88FD3002BFD7E /* Vector3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D7E11DF88FD3002BFD7E /* Vector3D.swift */; };
+		4FE2D7E61DF88FD3002BFD7E /* Bounds3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D7E21DF88FD3002BFD7E /* Bounds3D.swift */; };
+		4FE2D7E71DF88FD3002BFD7E /* MExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D7E31DF88FD3002BFD7E /* MExtensions.swift */; };
+		4FE2D7E81DF88FD3002BFD7E /* MOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D7E41DF88FD3002BFD7E /* MOperators.swift */; };
+		4FE2D7ED1DF88FFC002BFD7E /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D7EA1DF88FFC002BFD7E /* Controller.swift */; };
+		4FE2D7EE1DF88FFC002BFD7E /* VPExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D7EB1DF88FFC002BFD7E /* VPExtensions.swift */; };
+		4FE2D7EF1DF88FFC002BFD7E /* VPFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D7EC1DF88FFC002BFD7E /* VPFunctions.swift */; };
 		4FEF41D81DD4DD9D00D185EC /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41D71DD4DD9D00D185EC /* PortfolioViewController.swift */; };
 		4FEF41DA1DD4DDC400D185EC /* PortfolioScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41D91DD4DDC400D185EC /* PortfolioScreen.swift */; };
 		4FEF41DC1DD4DE0000D185EC /* PortfolioPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41DB1DD4DE0000D185EC /* PortfolioPresenter.swift */; };
@@ -54,6 +64,16 @@
 		4F04F7211DD2775100A5DFB1 /* MainMenuRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuRouter.swift; sourceTree = "<group>"; };
 		4F04F7241DD2777200A5DFB1 /* MainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		4F1025311DF0B9E600878362 /* CPFocusableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFocusableButton.swift; sourceTree = "<group>"; };
+		4FE2D7D91DF88EA9002BFD7E /* Remote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
+		4FE2D7DA1DF88EA9002BFD7E /* RemoteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteHandler.swift; sourceTree = "<group>"; };
+		4FE2D7DF1DF88FB7002BFD7E /* PointerMotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointerMotion.swift; sourceTree = "<group>"; };
+		4FE2D7E11DF88FD3002BFD7E /* Vector3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3D.swift; sourceTree = "<group>"; };
+		4FE2D7E21DF88FD3002BFD7E /* Bounds3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bounds3D.swift; sourceTree = "<group>"; };
+		4FE2D7E31DF88FD3002BFD7E /* MExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MExtensions.swift; sourceTree = "<group>"; };
+		4FE2D7E41DF88FD3002BFD7E /* MOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOperators.swift; sourceTree = "<group>"; };
+		4FE2D7EA1DF88FFC002BFD7E /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		4FE2D7EB1DF88FFC002BFD7E /* VPExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPExtensions.swift; sourceTree = "<group>"; };
+		4FE2D7EC1DF88FFC002BFD7E /* VPFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPFunctions.swift; sourceTree = "<group>"; };
 		4FEF41D71DD4DD9D00D185EC /* PortfolioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
 		4FEF41D91DD4DDC400D185EC /* PortfolioScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioScreen.swift; sourceTree = "<group>"; };
 		4FEF41DB1DD4DE0000D185EC /* PortfolioPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioPresenter.swift; sourceTree = "<group>"; };
@@ -142,6 +162,57 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		4FE2D7DD1DF88EB6002BFD7E /* Input Devices */ = {
+			isa = PBXGroup;
+			children = (
+				4FE2D7D91DF88EA9002BFD7E /* Remote.swift */,
+				4FE2D7DA1DF88EA9002BFD7E /* RemoteHandler.swift */,
+			);
+			name = "Input Devices";
+			sourceTree = "<group>";
+		};
+		4FE2D7DE1DF88F7B002BFD7E /* Input Handling */ = {
+			isa = PBXGroup;
+			children = (
+				4FE2D7DD1DF88EB6002BFD7E /* Input Devices */,
+				4FE2D7F01DF89002002BFD7E /* View Parser */,
+				4FE2D7E91DF88FDA002BFD7E /* Model */,
+				4FE2D7DF1DF88FB7002BFD7E /* PointerMotion.swift */,
+			);
+			name = "Input Handling";
+			sourceTree = "<group>";
+		};
+		4FE2D7E91DF88FDA002BFD7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4FE2D7E11DF88FD3002BFD7E /* Vector3D.swift */,
+				4FE2D7E21DF88FD3002BFD7E /* Bounds3D.swift */,
+				4FE2D7E31DF88FD3002BFD7E /* MExtensions.swift */,
+				4FE2D7E41DF88FD3002BFD7E /* MOperators.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4FE2D7F01DF89002002BFD7E /* View Parser */ = {
+			isa = PBXGroup;
+			children = (
+				4FE2D7EA1DF88FFC002BFD7E /* Controller.swift */,
+				4FE2D7EB1DF88FFC002BFD7E /* VPExtensions.swift */,
+				4FE2D7EC1DF88FFC002BFD7E /* VPFunctions.swift */,
+			);
+			name = "View Parser";
+			sourceTree = "<group>";
+		};
+		4FE2D7F11DF89038002BFD7E /* Screen Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				4FEF41F51DD643A500D185EC /* Geometry.swift */,
+				4FEF41F71DD6550900D185EC /* DrawingElement.swift */,
+				4FEF41F11DD625C900D185EC /* DrawingShapeLayer.swift */,
+			);
+			name = "Screen Drawing";
+			sourceTree = "<group>";
+		};
 		4FEF41D61DD4DD6900D185EC /* PorfolioScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,9 +240,8 @@
 		4FEF41E81DD4F45500D185EC /* DrawingScene */ = {
 			isa = PBXGroup;
 			children = (
-				4FEF41F51DD643A500D185EC /* Geometry.swift */,
-				4FEF41F71DD6550900D185EC /* DrawingElement.swift */,
-				4FEF41F11DD625C900D185EC /* DrawingShapeLayer.swift */,
+				4FE2D7F11DF89038002BFD7E /* Screen Drawing */,
+				4FE2D7DE1DF88F7B002BFD7E /* Input Handling */,
 				4FEF41E91DD4F49600D185EC /* DrawingViewController.swift */,
 			);
 			name = DrawingScene;
@@ -363,8 +433,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FE2D7EE1DF88FFC002BFD7E /* VPExtensions.swift in Sources */,
+				4FE2D7E01DF88FB7002BFD7E /* PointerMotion.swift in Sources */,
+				4FE2D7E61DF88FD3002BFD7E /* Bounds3D.swift in Sources */,
+				4FE2D7EF1DF88FFC002BFD7E /* VPFunctions.swift in Sources */,
 				4FEF41E31DD4E26000D185EC /* ImageItem.swift in Sources */,
 				6E6DACDB1DD23CE600C8ADD6 /* MainMenuViewController.swift in Sources */,
+				4FE2D7E51DF88FD3002BFD7E /* Vector3D.swift in Sources */,
+				4FE2D7DB1DF88EA9002BFD7E /* Remote.swift in Sources */,
 				6E6DACD91DD23CE600C8ADD6 /* AppDelegate.swift in Sources */,
 				F54FF41A1DE377870020E547 /* PopUpViewController.swift in Sources */,
 				4FE2D7E71DF88FD3002BFD7E /* MExtensions.swift in Sources */,
@@ -373,11 +449,13 @@
 				4FEF41DE1DD4DE3400D185EC /* PortfolioDelegate.swift in Sources */,
 				4F04F7221DD2775100A5DFB1 /* MainMenuRouter.swift in Sources */,
 				4FEF41D81DD4DD9D00D185EC /* PortfolioViewController.swift in Sources */,
+				4FE2D7DC1DF88EA9002BFD7E /* RemoteHandler.swift in Sources */,
 				4FEF41E01DD4E12500D185EC /* PortfolioItem.swift in Sources */,
 				4FEF41F61DD643A500D185EC /* Geometry.swift in Sources */,
 				4F1025321DF0B9E600878362 /* CPFocusableButton.swift in Sources */,
 				4FEF41E71DD4E60700D185EC /* Router.swift in Sources */,
 				6E9C5E551DDF95B500A33773 /* PortfolioCell.swift in Sources */,
+				4FE2D7ED1DF88FFC002BFD7E /* Controller.swift in Sources */,
 				4FEF41F21DD625C900D185EC /* DrawingShapeLayer.swift in Sources */,
 				4FEF41EA1DD4F49600D185EC /* DrawingViewController.swift in Sources */,
 				4FEF41E51DD4E27000D185EC /* TimelapseItem.swift in Sources */,

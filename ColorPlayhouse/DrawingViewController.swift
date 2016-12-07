@@ -57,6 +57,7 @@ class DrawingViewController: UIViewController {
 	private var selectedTool: UIButton?
 	
 	private var drawingGesture: UIPanGestureRecognizer?
+	private var remote: Remote!
 	private var menuButtonTap: UITapGestureRecognizer?
 	
 	private var _eraserEnabled: Bool = false
@@ -70,6 +71,8 @@ class DrawingViewController: UIViewController {
 	override func viewDidLoad() {
 		
 		timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(printScreen), userInfo: nil, repeats: true)
+		
+		remote = Remote(handler: self)
 		
 		selectedColor = paletteColors[0]
 		selectedTool = drawingTools[0]
@@ -544,6 +547,18 @@ class DrawingViewController: UIViewController {
 				}
 		})
 	}
+}
+
+extension DrawingViewController: RemoteHandler
+{
+	func remoteDidMove() {
+		
+	}
+	
+	func remoteCiclicBehavior() {
+		
+	}
+	
 }
 
 

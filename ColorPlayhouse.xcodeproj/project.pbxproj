@@ -38,6 +38,7 @@
 		6EED23B41DF89EDD00207DF8 /* Signika-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6EED23B01DF89EDD00207DF8 /* Signika-Regular.otf */; };
 		6EED23B51DF89EDD00207DF8 /* Signika-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6EED23B11DF89EDD00207DF8 /* Signika-Semibold.otf */; };
 		F5224CF21DF8928D0047A030 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5224CF11DF8928D0047A030 /* TutorialPageViewController.swift */; };
+		F5224CF61DF8C1720047A030 /* LastTutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5224CF51DF8C1720047A030 /* LastTutorialPageViewController.swift */; };
 		F533163E1DE7C0190052AE7B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F533163B1DE7C0190052AE7B /* FBSDKCoreKit.framework */; };
 		F533163F1DE7C0190052AE7B /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F533163C1DE7C0190052AE7B /* FBSDKShareKit.framework */; };
 		F53316401DE7C0190052AE7B /* FBSDKTVOSKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F533163D1DE7C0190052AE7B /* FBSDKTVOSKit.framework */; };
@@ -94,6 +95,7 @@
 		6EED23B01DF89EDD00207DF8 /* Signika-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Regular.otf"; sourceTree = "<group>"; };
 		6EED23B11DF89EDD00207DF8 /* Signika-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Semibold.otf"; sourceTree = "<group>"; };
 		F5224CF11DF8928D0047A030 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
+		F5224CF51DF8C1720047A030 /* LastTutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastTutorialPageViewController.swift; sourceTree = "<group>"; };
 		F533163B1DE7C0190052AE7B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F533163C1DE7C0190052AE7B /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		F533163D1DE7C0190052AE7B /* FBSDKTVOSKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKTVOSKit.framework; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				4F04F71B1DD273D000A5DFB1 /* Resources */,
 				6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */,
 				F5224CF11DF8928D0047A030 /* TutorialPageViewController.swift */,
+				F5224CF51DF8C1720047A030 /* LastTutorialPageViewController.swift */,
 			);
 			path = ColorPlayhouse;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				4FEF41E31DD4E26000D185EC /* ImageItem.swift in Sources */,
 				6E6DACDB1DD23CE600C8ADD6 /* MainMenuViewController.swift in Sources */,
 				6E6DACD91DD23CE600C8ADD6 /* AppDelegate.swift in Sources */,
+				F5224CF61DF8C1720047A030 /* LastTutorialPageViewController.swift in Sources */,
 				F54FF41A1DE377870020E547 /* PopUpViewController.swift in Sources */,
 				4FEF41F01DD5022400D185EC /* Canvas.swift in Sources */,
 				4FEF41EC1DD5015600D185EC /* DrawingPresenter.swift in Sources */,

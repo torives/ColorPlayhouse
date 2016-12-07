@@ -634,10 +634,10 @@
             </objects>
             <point key="canvasLocation" x="-3758" y="1515"/>
         </scene>
-        <!--View Controller-->
+        <!--Last Tutorial Page View Controller-->
         <scene sceneID="Ssa-DF-048">
             <objects>
-                <viewController storyboardIdentifier="page4" id="9H7-Kj-7K7" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="page4" id="9H7-Kj-7K7" customClass="LastTutorialPageViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WPk-E8-Nz6"/>
                         <viewControllerLayoutGuide type="bottom" id="a4Q-01-8YV"/>
@@ -676,17 +676,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jh7-sR-uw3" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
-                                <frame key="frameInset" minX="1633" minY="974" width="267" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Go!"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="7kZ-bU-7TY"/>
-                                </connections>
-                            </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showMainMenuVC" id="1ed-it-HE8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrH-Fk-8KU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

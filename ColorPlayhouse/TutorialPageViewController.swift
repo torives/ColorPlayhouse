@@ -20,6 +20,7 @@ class TutorialPageViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         self.view.backgroundColor = UIColor(red: 242.0/255, green: 249.0/255, blue: 255.0/255, alpha: 1.0)
         dataSource = self
@@ -62,6 +63,14 @@ extension TutorialPageViewController {
 //MARK: UIPageViewControllerDataSource
 
 extension TutorialPageViewController: UIPageViewControllerDataSource {
+    
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return orderedViewControllers.count
+    }
+    
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        return 0
+    }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {

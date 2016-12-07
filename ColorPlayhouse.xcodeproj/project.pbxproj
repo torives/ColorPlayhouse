@@ -235,9 +235,8 @@
 				4FEF41E81DD4F45500D185EC /* DrawingScene */,
 				F54FF4181DE377700020E547 /* PopUp Scene */,
 				4F04F71B1DD273D000A5DFB1 /* Resources */,
+				F5224CF71DF8D19A0047A030 /* TutorialScene */,
 				6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */,
-				F5224CF11DF8928D0047A030 /* TutorialPageViewController.swift */,
-				F5224CF51DF8C1720047A030 /* LastTutorialPageViewController.swift */,
 			);
 			path = ColorPlayhouse;
 			sourceTree = "<group>";
@@ -249,6 +248,15 @@
 				6E9C5E971DE4487500A33773 /* Info.plist */,
 			);
 			path = ColorPlayhouseUITests;
+			sourceTree = "<group>";
+		};
+		F5224CF71DF8D19A0047A030 /* TutorialScene */ = {
+			isa = PBXGroup;
+			children = (
+				F5224CF11DF8928D0047A030 /* TutorialPageViewController.swift */,
+				F5224CF51DF8C1720047A030 /* LastTutorialPageViewController.swift */,
+			);
+			name = TutorialScene;
 			sourceTree = "<group>";
 		};
 		F54FF4181DE377700020E547 /* PopUp Scene */ = {

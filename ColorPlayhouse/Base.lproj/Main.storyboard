@@ -422,11 +422,11 @@
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" backgroundImage="detail_share"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJE-QK-WaH">
-                                <frame key="frameInset" minX="425" minY="863" width="216" height="117"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJE-QK-WaH">
+                                <frame key="frameInset" minX="443" minY="863" width="117" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" backgroundImage="delete"/>
                                 <connections>
                                     <action selector="deleteClick:" destination="Ho8-1G-HyO" eventType="primaryActionTriggered" id="SeV-O4-deI"/>
                                 </connections>
@@ -706,6 +706,7 @@
         <image name="colorsselected" width="910" height="139"/>
         <image name="crayon" width="298" height="100"/>
         <image name="darkOrange" width="106" height="108"/>
+        <image name="delete" width="167" height="167"/>
         <image name="detail_play" width="167" height="167"/>
         <image name="detail_share" width="167" height="167"/>
         <image name="draw" width="198" height="283"/>

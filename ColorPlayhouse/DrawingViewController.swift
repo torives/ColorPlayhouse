@@ -301,21 +301,6 @@ class DrawingViewController: UIViewController {
 		default:
 			break
 		}
-//		
-//		let point = gesture.location(in: self.view)
-//		guard self.canvasView.point(inside: point, with: nil) else { return }
-//		
-//		//	FIX-ME:
-//		//	Treta para alinhar o ponteiro com o inicio da linha do desenho.
-//		//	Ajustar a posição do ponteiro é necessária porque o algoritmo 
-//		//	só começa a desenhar de fato após 5 pontos terem sido contabilizados.
-//		let newPoint = CGPoint(x: point.x + pointer.frame.width/2 + 25, y: point.y + pointer.frame.height/2)
-//		pointer.frame.origin = newPoint
-//		
-//		if selectedTool?.accessibilityLabel == "eraser" {
-//			updateDrawing(drawingStruct: eraserConfig())
-//		}
-//		draw(with: gesture, at: point)
 	}
 	
 	func draw(with gesture: UIPanGestureRecognizer, at point: CGPoint) {

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11761" systemVersion="16B2555" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
     <dependencies>
         <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -268,7 +268,7 @@
                                             <action selector="toolClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="Wv2-RX-7Tz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbG-QA-gy7" userLabel="Crayon" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbG-QA-gy7" userLabel="Crayon" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
                                         <rect key="frame" x="106" y="186" width="298" height="100"/>
                                         <accessibility key="accessibilityConfiguration" label="crayon"/>
                                         <constraints>
@@ -281,7 +281,7 @@
                                             <action selector="toolClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="xSl-dY-zRQ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfR-ze-E5R" userLabel="Brush" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfR-ze-E5R" userLabel="Brush" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
                                         <rect key="frame" x="3" y="325" width="401" height="121"/>
                                         <accessibility key="accessibilityConfiguration" label="brush"/>
                                         <constraints>
@@ -356,7 +356,7 @@
         <!--Portfolio Detail View Controller-->
         <scene sceneID="8f2-kI-z9e">
             <objects>
-                <viewController id="Ho8-1G-HyO" customClass="PortfolioDetailViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PortfolioDetailVC" id="Ho8-1G-HyO" customClass="PortfolioDetailViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bV8-Vc-XCg"/>
                         <viewControllerLayoutGuide type="bottom" id="h0k-QO-CxD"/>
@@ -384,7 +384,7 @@
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" backgroundImage="detail_share"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJE-QK-WaH">
+                            <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJE-QK-WaH">
                                 <rect key="frame" x="425" y="863" width="216" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>

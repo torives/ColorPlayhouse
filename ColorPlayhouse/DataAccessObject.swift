@@ -43,7 +43,7 @@ struct DataAccessObject {
         asset["user"] = CKReference(recordID:CKRecordID(recordName: userID), action: CKReferenceAction.deleteSelf)
         asset["type"] = "image" as CKRecordValue
         
-        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.cachesDirectory
         let nsUserDomainMask = FileManager.SearchPathDomainMask.userDomainMask
         
         let paths = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)

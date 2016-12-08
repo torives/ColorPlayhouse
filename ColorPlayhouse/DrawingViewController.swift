@@ -63,6 +63,7 @@ class DrawingViewController: UIViewController {
 	private var menuButtonTap: UITapGestureRecognizer?
 	
 	private var _eraserEnabled: Bool = false
+	private var _lastToolConfiguration: DrawingStruct?
 	private var _drawingStruct: DrawingStruct = DrawingStruct()
 	fileprivate weak var currentDrawingElement: DrawingElement?
 	private var _elements: Array<UIView> = Array<UIView>()
@@ -99,19 +100,20 @@ class DrawingViewController: UIViewController {
 			self.view.layoutIfNeeded()
 		}, completion: nil)
 		
-		if let buttonColor = sender.accessibilityLabel { updateToolColor(withColor: buttonColor) }
-		else { print("Palette button's color not configured properly") }
+		updateDrawing(withColor: selectedColor!.accessibilityLabel!)
 		
 		paletteIsActive = false
 		setNeedsFocusUpdate()
 	}
 	
-	@IBAction func toolClick(_ sender: AnyObject) {
+	@IBAction func toolClick(_ sender: UIButton) {
 		
 		UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
 			self.toolsConstraintToTrailing.constant = -430
 			self.view.layoutIfNeeded()
 		}, completion: nil)
+		
+		updateDrawing(withTool: selectedTool!)
 		
 		toolsIsActive = false
 		setNeedsFocusUpdate()
@@ -219,6 +221,8 @@ class DrawingViewController: UIViewController {
 				},
 				completion: nil)
 			
+				updateDrawing(withTool: selectedTool!)
+				
 				self.toolsIsActive = false
 				self.shouldEnableInteraction(on: self.drawingTools, option: false)
 			
@@ -233,6 +237,8 @@ class DrawingViewController: UIViewController {
 					self.view.layoutIfNeeded()
 				},
 				completion: nil)
+				
+				updateDrawing(withColor: selectedColor!.accessibilityLabel!)
 			
 				self.paletteIsActive = false
 				self.shouldEnableInteraction(on: self.paletteColors, option: false)
@@ -276,90 +282,23 @@ class DrawingViewController: UIViewController {
 		case .began:
 			
 			canIDraw = true
-			
-			let drawing = DrawingElement(drawingStruct: _drawingStruct)
-			drawing.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: canvasView.frame.size)
-			self.canvasView.addSubview(drawing)
-			currentDrawingElement = drawing
-			
 			currentDrawingElement?.beginDrawing(point: point)
 			
 		case .ended:
 			
 			canIDraw = false
-			
 			currentDrawingElement?.endDrawing(point: point)
-			currentDrawingElement = nil
 		
 		case .cancelled, .failed:
 			
 			canIDraw = false
-			
 			currentDrawingElement?.cancelDrawing(point: point)
-			currentDrawingElement = nil
 			
 		default:
 			break
 		}
 	}
-	
-	func draw(with gesture: UIPanGestureRecognizer, at point: CGPoint) {
-		
-		switch gesture.state {
-			
-		case .began:
-			
-			if selectedTool?.accessibilityLabel == "eraser" {
-				updateDrawing(drawingStruct: eraserConfig())
-			}
-			
-			if let drawingElement = currentDrawingElement {
-				drawingElement.beginDrawing(point: point)
-			}
-			else{
-				
-				let drawing = DrawingElement(drawingStruct: _drawingStruct)
-				drawing.frame = canvasView.frame
-				self.canvasView.addSubview(drawing)
-				currentDrawingElement = drawing
-				currentDrawingElement?.beginDrawing(point: point)
-			}
-		case .changed:
-			currentDrawingElement?.moveDrawingPoint(point: point)
-			
-		case .ended:
-			currentDrawingElement?.endDrawing(point: point)
-			currentDrawingElement = nil
-			
-		case .cancelled, .failed:
-			currentDrawingElement?.cancelDrawing(point: point)
-			currentDrawingElement = nil
-			
-		default:
-			break
-		}
-	}
-	
-	/*func erase(with gesture: UIPanGestureRecognizer, at point: CGPoint) {
-		
-		switch gesture.state {
-		case .began:
-			currentDrawingElement?.beginErasing(point: point)
-			
-		case .changed:
-			currentDrawingElement?.moveErasingPoint(point: point)
-			
-		case .ended:
-			currentDrawingElement?.endErasing(point: point)
-			
-		case .cancelled , .failed:
-			currentDrawingElement?.cancelErasing(point: point)
-			
-		default:
-			break
-		}
-	}*/
-	
+
 	
 	//MARK: Timelapse Functions
 	
@@ -444,10 +383,14 @@ class DrawingViewController: UIViewController {
 		
 		
 		//Set defaults
-		selectedTool = drawingTools.first(where: {$0.accessibilityLabel == "pencil"})
-		updatePointerImage(for: selectedTool)
+		let element = DrawingElement(drawingStruct: DrawingStruct())
+		currentDrawingElement = element
+		self.canvasView.addSubview(currentDrawingElement!)
 		
+		selectedTool = drawingTools.first(where: {$0.accessibilityLabel == "pencil"})
 		selectedColor = paletteColors.first(where: {$0.accessibilityLabel == "blue"})
+		updateDrawing(withColor: selectedColor!.accessibilityLabel!)
+		updateDrawing(withTool: selectedTool!)
 		
 		
 		//Disable focus
@@ -455,27 +398,23 @@ class DrawingViewController: UIViewController {
 		shouldEnableInteraction(on: drawingTools, option: false)
 	}
 	
-	private func shouldEnableInteraction(on views: [UIView], option: Bool) {
-		views.forEach({$0.isUserInteractionEnabled = option})
-	}
-	
-	private func updatePointerImage(for tool: UIButton?) {
+	private func updateDrawing(withTool tool: UIButton) {
 		
-		switch tool?.backgroundImage(for: .normal) {
-		case #imageLiteral(resourceName: "pencil")?:
-			pointer.image = UIImage(named: "pencil_pointer")
-		case #imageLiteral(resourceName: "brush")?:
-			pointer.image = UIImage(named: "brush_pointer")
-		case #imageLiteral(resourceName: "eraser")?:
-			pointer.image = UIImage(named: "eraser_pointer")
-		case #imageLiteral(resourceName: "crayon")?:
-			pointer.image = UIImage(named: "crayon_pointer")
-		default:
-			return
+		if tool.accessibilityLabel == "eraser" {
+			_lastToolConfiguration = _drawingStruct
+			//updateDrawing(drawingStruct: eraserConfig())
+			_drawingStruct = eraserConfig()
+			updateDrawing(drawingStruct: _drawingStruct)
+		}
+		else {
+			if let _ = _lastToolConfiguration {
+				_drawingStruct = _lastToolConfiguration!
+				updateDrawing(drawingStruct: _drawingStruct)
+			}
 		}
 	}
 	
-	private func updateToolColor(withColor color: String) {
+	private func updateDrawing(withColor color: String) {
 		
 		defer { updateDrawing(drawingStruct: _drawingStruct) }
 		
@@ -515,6 +454,26 @@ class DrawingViewController: UIViewController {
 		}
 	}
 	
+	private func shouldEnableInteraction(on views: [UIView], option: Bool) {
+		views.forEach({$0.isUserInteractionEnabled = option})
+	}
+	
+	private func updatePointerImage(for tool: UIButton?) {
+		
+		switch tool?.backgroundImage(for: .normal) {
+		case #imageLiteral(resourceName: "pencil")?:
+			pointer.image = UIImage(named: "pencil_pointer")
+		case #imageLiteral(resourceName: "brush")?:
+			pointer.image = UIImage(named: "brush_pointer")
+		case #imageLiteral(resourceName: "eraser")?:
+			pointer.image = UIImage(named: "eraser_pointer")
+		case #imageLiteral(resourceName: "crayon")?:
+			pointer.image = UIImage(named: "crayon_pointer")
+		default:
+			return
+		}
+	}
+	
 	fileprivate func adjustPointerPositionFor(newPoint: CGPoint) {
 		
 		var deltaX = pointer.frame.width/2 + 25
@@ -537,7 +496,7 @@ class DrawingViewController: UIViewController {
 		
 		var config = DrawingStruct()
 		config.color = UIColor.white
-		config.lineWidth = 25
+		config.lineWidth = 35
 		
 		return config
 	}

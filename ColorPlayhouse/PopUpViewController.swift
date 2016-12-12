@@ -109,9 +109,14 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
                 numberOfArtwork += 1
 				print(numberOfArtwork)
                 defaults.set(numberOfArtwork, forKey: "numberOfArtwork")
-                self.removeAnimation()
+				
+				DispatchQueue.main.async {
+					self.removeAnimation()
+				}
             } else {
-                self.showErrorSavingAlert()
+				DispatchQueue.main.async {
+					self.showErrorSavingAlert()
+				}
             }
         }
     }

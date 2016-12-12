@@ -40,6 +40,12 @@
 		6E9C5E551DDF95B500A33773 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C5E541DDF95B500A33773 /* PortfolioCell.swift */; };
 		6E9C5E961DE4487500A33773 /* ColorPlayhouseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C5E951DE4487500A33773 /* ColorPlayhouseUITests.swift */; };
 		6EE2827A1DDE256400600C95 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE282791DDE256400600C95 /* CloudKit.framework */; };
+		6EED23B21DF89EDD00207DF8 /* Signika-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6EED23AE1DF89EDD00207DF8 /* Signika-Bold.otf */; };
+		6EED23B31DF89EDD00207DF8 /* Signika-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6EED23AF1DF89EDD00207DF8 /* Signika-Light.otf */; };
+		6EED23B41DF89EDD00207DF8 /* Signika-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6EED23B01DF89EDD00207DF8 /* Signika-Regular.otf */; };
+		6EED23B51DF89EDD00207DF8 /* Signika-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6EED23B11DF89EDD00207DF8 /* Signika-Semibold.otf */; };
+		F5224CF21DF8928D0047A030 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5224CF11DF8928D0047A030 /* TutorialPageViewController.swift */; };
+		F5224CF61DF8C1720047A030 /* LastTutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5224CF51DF8C1720047A030 /* LastTutorialPageViewController.swift */; };
 		F533163E1DE7C0190052AE7B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F533163B1DE7C0190052AE7B /* FBSDKCoreKit.framework */; };
 		F533163F1DE7C0190052AE7B /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F533163C1DE7C0190052AE7B /* FBSDKShareKit.framework */; };
 		F53316401DE7C0190052AE7B /* FBSDKTVOSKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F533163D1DE7C0190052AE7B /* FBSDKTVOSKit.framework */; };
@@ -98,6 +104,12 @@
 		6E9C5E951DE4487500A33773 /* ColorPlayhouseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPlayhouseUITests.swift; sourceTree = "<group>"; };
 		6E9C5E971DE4487500A33773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EE282791DDE256400600C95 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		6EED23AE1DF89EDD00207DF8 /* Signika-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Bold.otf"; sourceTree = "<group>"; };
+		6EED23AF1DF89EDD00207DF8 /* Signika-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Light.otf"; sourceTree = "<group>"; };
+		6EED23B01DF89EDD00207DF8 /* Signika-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Regular.otf"; sourceTree = "<group>"; };
+		6EED23B11DF89EDD00207DF8 /* Signika-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Semibold.otf"; sourceTree = "<group>"; };
+		F5224CF11DF8928D0047A030 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
+		F5224CF51DF8C1720047A030 /* LastTutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastTutorialPageViewController.swift; sourceTree = "<group>"; };
 		F533163B1DE7C0190052AE7B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F533163C1DE7C0190052AE7B /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		F533163D1DE7C0190052AE7B /* FBSDKTVOSKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKTVOSKit.framework; sourceTree = "<group>"; };
@@ -137,6 +149,10 @@
 				6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */,
 				6E6DACDF1DD23CE600C8ADD6 /* Assets.xcassets */,
 				6E6DACE11DD23CE600C8ADD6 /* Info.plist */,
+				6EED23AE1DF89EDD00207DF8 /* Signika-Bold.otf */,
+				6EED23AF1DF89EDD00207DF8 /* Signika-Light.otf */,
+				6EED23B01DF89EDD00207DF8 /* Signika-Regular.otf */,
+				6EED23B11DF89EDD00207DF8 /* Signika-Semibold.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -280,6 +296,7 @@
 				4FEF41E81DD4F45500D185EC /* DrawingScene */,
 				F54FF4181DE377700020E547 /* PopUp Scene */,
 				4F04F71B1DD273D000A5DFB1 /* Resources */,
+				F5224CF71DF8D19A0047A030 /* TutorialScene */,
 				6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */,
 			);
 			path = ColorPlayhouse;
@@ -292,6 +309,15 @@
 				6E9C5E971DE4487500A33773 /* Info.plist */,
 			);
 			path = ColorPlayhouseUITests;
+			sourceTree = "<group>";
+		};
+		F5224CF71DF8D19A0047A030 /* TutorialScene */ = {
+			isa = PBXGroup;
+			children = (
+				F5224CF11DF8928D0047A030 /* TutorialPageViewController.swift */,
+				F5224CF51DF8C1720047A030 /* LastTutorialPageViewController.swift */,
+			);
+			name = TutorialScene;
 			sourceTree = "<group>";
 		};
 		F54FF4181DE377700020E547 /* PopUp Scene */ = {
@@ -414,8 +440,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E6DACE01DD23CE600C8ADD6 /* Assets.xcassets in Resources */,
+				6EED23B41DF89EDD00207DF8 /* Signika-Regular.otf in Resources */,
+				6EED23B51DF89EDD00207DF8 /* Signika-Semibold.otf in Resources */,
+				6EED23B31DF89EDD00207DF8 /* Signika-Light.otf in Resources */,
 				F5B248371DE711DF00F03ECE /* UIRemoteImageView.xib in Resources */,
 				6E6DACDE1DD23CE600C8ADD6 /* Main.storyboard in Resources */,
+				6EED23B21DF89EDD00207DF8 /* Signika-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +472,7 @@
 				4FE2D7E51DF88FD3002BFD7E /* Vector3D.swift in Sources */,
 				4FE2D7DB1DF88EA9002BFD7E /* Remote.swift in Sources */,
 				6E6DACD91DD23CE600C8ADD6 /* AppDelegate.swift in Sources */,
+				F5224CF61DF8C1720047A030 /* LastTutorialPageViewController.swift in Sources */,
 				F54FF41A1DE377870020E547 /* PopUpViewController.swift in Sources */,
 				4FE2D7E71DF88FD3002BFD7E /* MExtensions.swift in Sources */,
 				4FE2D7E81DF88FD3002BFD7E /* MOperators.swift in Sources */,
@@ -453,6 +484,7 @@
 				4FEF41E01DD4E12500D185EC /* PortfolioItem.swift in Sources */,
 				4FEF41F61DD643A500D185EC /* Geometry.swift in Sources */,
 				4F1025321DF0B9E600878362 /* CPFocusableButton.swift in Sources */,
+				F5224CF21DF8928D0047A030 /* TutorialPageViewController.swift in Sources */,
 				4FEF41E71DD4E60700D185EC /* Router.swift in Sources */,
 				6E9C5E551DDF95B500A33773 /* PortfolioCell.swift in Sources */,
 				4FE2D7ED1DF88FFC002BFD7E /* Controller.swift in Sources */,

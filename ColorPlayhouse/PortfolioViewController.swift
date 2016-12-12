@@ -10,7 +10,6 @@ import UIKit
 
 class PortfolioViewController: UIViewController, UICollectionViewDelegate {
 
-    var delegate: PortfolioDelegate?
     var imageToPass: UIImage!
     var videoDataToPass: NSData!
     var recordIDToPass: String!
@@ -104,11 +103,4 @@ extension PortfolioViewController: UICollectionViewDataSource {
         
         return cell
     }
-}
-
-extension PortfolioViewController: PortfolioScreen
-{
-    func showItems(_ items: [PortfolioItem]){}
-    func showTimelapse(_ item: TimelapseItem){}
-    func showImage(_ image: ImageItem){}
 }

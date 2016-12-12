@@ -21,9 +21,6 @@
 		4FE2D7EE1DF88FFC002BFD7E /* VPExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D7EB1DF88FFC002BFD7E /* VPExtensions.swift */; };
 		4FE2D7EF1DF88FFC002BFD7E /* VPFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D7EC1DF88FFC002BFD7E /* VPFunctions.swift */; };
 		4FEF41D81DD4DD9D00D185EC /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41D71DD4DD9D00D185EC /* PortfolioViewController.swift */; };
-		4FEF41DA1DD4DDC400D185EC /* PortfolioScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41D91DD4DDC400D185EC /* PortfolioScreen.swift */; };
-		4FEF41DC1DD4DE0000D185EC /* PortfolioPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41DB1DD4DE0000D185EC /* PortfolioPresenter.swift */; };
-		4FEF41DE1DD4DE3400D185EC /* PortfolioDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41DD1DD4DE3400D185EC /* PortfolioDelegate.swift */; };
 		4FEF41E01DD4E12500D185EC /* PortfolioItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41DF1DD4E12500D185EC /* PortfolioItem.swift */; };
 		4FEF41E31DD4E26000D185EC /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41E21DD4E26000D185EC /* ImageItem.swift */; };
 		4FEF41E51DD4E27000D185EC /* TimelapseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41E41DD4E27000D185EC /* TimelapseItem.swift */; };
@@ -81,9 +78,6 @@
 		4FE2D7EB1DF88FFC002BFD7E /* VPExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPExtensions.swift; sourceTree = "<group>"; };
 		4FE2D7EC1DF88FFC002BFD7E /* VPFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPFunctions.swift; sourceTree = "<group>"; };
 		4FEF41D71DD4DD9D00D185EC /* PortfolioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
-		4FEF41D91DD4DDC400D185EC /* PortfolioScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioScreen.swift; sourceTree = "<group>"; };
-		4FEF41DB1DD4DE0000D185EC /* PortfolioPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioPresenter.swift; sourceTree = "<group>"; };
-		4FEF41DD1DD4DE3400D185EC /* PortfolioDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioDelegate.swift; sourceTree = "<group>"; };
 		4FEF41DF1DD4E12500D185EC /* PortfolioItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioItem.swift; sourceTree = "<group>"; };
 		4FEF41E21DD4E26000D185EC /* ImageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
 		4FEF41E41DD4E27000D185EC /* TimelapseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelapseItem.swift; sourceTree = "<group>"; };
@@ -241,9 +235,6 @@
 			children = (
 				4FEF41E11DD4E1C600D185EC /* Models */,
 				4FEF41D71DD4DD9D00D185EC /* PortfolioViewController.swift */,
-				4FEF41D91DD4DDC400D185EC /* PortfolioScreen.swift */,
-				4FEF41DB1DD4DE0000D185EC /* PortfolioPresenter.swift */,
-				4FEF41DD1DD4DE3400D185EC /* PortfolioDelegate.swift */,
 				6E9C5E541DDF95B500A33773 /* PortfolioCell.swift */,
 				6E121BEB1DEC73E400BCA1E7 /* PortfolioDetailViewController.swift */,
 			);
@@ -484,8 +475,6 @@
 				F54FF41A1DE377870020E547 /* PopUpViewController.swift in Sources */,
 				4FE2D7E71DF88FD3002BFD7E /* MExtensions.swift in Sources */,
 				4FE2D7E81DF88FD3002BFD7E /* MOperators.swift in Sources */,
-				4FEF41DC1DD4DE0000D185EC /* PortfolioPresenter.swift in Sources */,
-				4FEF41DE1DD4DE3400D185EC /* PortfolioDelegate.swift in Sources */,
 				4F04F7221DD2775100A5DFB1 /* MainMenuRouter.swift in Sources */,
 				4FEF41D81DD4DD9D00D185EC /* PortfolioViewController.swift in Sources */,
 				4FE2D7DC1DF88EA9002BFD7E /* RemoteHandler.swift in Sources */,
@@ -501,7 +490,6 @@
 				4FEF41E51DD4E27000D185EC /* TimelapseItem.swift in Sources */,
 				F5B2482F1DE70DE700F03ECE /* UIRemoteImageView.swift in Sources */,
 				4FEF41F81DD6550900D185EC /* DrawingElement.swift in Sources */,
-				4FEF41DA1DD4DDC400D185EC /* PortfolioScreen.swift in Sources */,
 				4F04F7251DD2777200A5DFB1 /* MainRouter.swift in Sources */,
 				F54FF41C1DE3780B0020E547 /* TimelapseBuilder.swift in Sources */,
 				F583CE301DD6443E001B17EE /* DataAccessObject.swift in Sources */,

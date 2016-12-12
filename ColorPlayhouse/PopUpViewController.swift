@@ -105,7 +105,9 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
 
         DAO.saveAssetsToUser(image: screenshotImageView.image!, videoURL: self.videoOutputURL) { (success) in
             if success {
+				print(numberOfArtwork)
                 numberOfArtwork += 1
+				print(numberOfArtwork)
                 defaults.set(numberOfArtwork, forKey: "numberOfArtwork")
                 self.removeAnimation()
             } else {

@@ -26,10 +26,14 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        fetchData()
+		
         portfolioCollection.dataSource = self
         portfolioCollection.delegate = self
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		fetchData()
+	}
     
     func fetchData() {
         DAO.fetchUserImages { (assets) in
@@ -82,7 +86,9 @@ extension PortfolioViewController: UICollectionViewDataSource {
         let numberOfArtwork = defaults.object(forKey: "numberOfArtwork") as! Int
         
         if numberOfArtwork > 0 { noDrawings.isHidden = true }
-        return numberOfArtwork
+		else{ noDrawings.isHidden = false }
+		
+		return numberOfArtwork
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

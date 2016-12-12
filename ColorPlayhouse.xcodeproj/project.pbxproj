@@ -146,13 +146,9 @@
 		4F04F71B1DD273D000A5DFB1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */,
+				4F84F0341DFF21FD00A8FEAD /* Fonts */,
 				6E6DACDF1DD23CE600C8ADD6 /* Assets.xcassets */,
 				6E6DACE11DD23CE600C8ADD6 /* Info.plist */,
-				6EED23AE1DF89EDD00207DF8 /* Signika-Bold.otf */,
-				6EED23AF1DF89EDD00207DF8 /* Signika-Light.otf */,
-				6EED23B01DF89EDD00207DF8 /* Signika-Regular.otf */,
-				6EED23B11DF89EDD00207DF8 /* Signika-Semibold.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -176,6 +172,17 @@
 				F54FF41B1DE3780B0020E547 /* TimelapseBuilder.swift */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		4F84F0341DFF21FD00A8FEAD /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6EED23AE1DF89EDD00207DF8 /* Signika-Bold.otf */,
+				6EED23AF1DF89EDD00207DF8 /* Signika-Light.otf */,
+				6EED23B01DF89EDD00207DF8 /* Signika-Regular.otf */,
+				6EED23B11DF89EDD00207DF8 /* Signika-Semibold.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		4FE2D7DD1DF88EB6002BFD7E /* Input Devices */ = {
@@ -297,6 +304,7 @@
 				F54FF4181DE377700020E547 /* PopUp Scene */,
 				4F04F71B1DD273D000A5DFB1 /* Resources */,
 				F5224CF71DF8D19A0047A030 /* TutorialScene */,
+				6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */,
 				6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */,
 			);
 			path = ColorPlayhouse;

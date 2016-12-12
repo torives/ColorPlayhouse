@@ -49,7 +49,6 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
             DispatchQueue.main.async {
                 self.portfolioCollection.reloadData()
             }
-            
         }
     }
     
@@ -68,12 +67,12 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
             detail.recordID = recordIDToPass
         }
     }
-    
 }
 
 //MARK: DataSource
 extension PortfolioViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+	
+	func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     

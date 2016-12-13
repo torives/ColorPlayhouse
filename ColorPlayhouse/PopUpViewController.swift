@@ -31,6 +31,9 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
     var videoOutputURL: URL!
     
     private var focusGuide = UIFocusGuide()
+	private var indicator: UIActivityIndicatorView?
+	private var cover: UIView?
+	
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +78,9 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
     }
     
     @IBAction func didPressSaveButton(_ sender: AnyObject) {
+		
+		startActivityIndicator()
+		
         if videoOutputURL != nil {
             saveAssets()
         } else {
@@ -91,12 +97,10 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
                 },
                 failure: { error in
                     NSLog("failure: \(error)")
-                    
+                    stopActivityIndicator()
                 }
             )
         }
-        
-        
     }
     
     func saveAssets() {
@@ -111,10 +115,12 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
                 defaults.set(numberOfArtwork, forKey: "numberOfArtwork")
 				
 				DispatchQueue.main.async {
+					self.stopActivityIndicator()
 					self.removeAnimation()
 				}
             } else {
 				DispatchQueue.main.async {
+					self.stopActivityIndicator()
 					self.showErrorSavingAlert()
 				}
             }
@@ -177,6 +183,37 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
 
     
     // MARK: Auxiliary Methods
+	
+	private func startActivityIndicator() {
+		
+		let width = 300
+		let height = 300
+		
+		indicator = UIActivityIndicatorView()
+		indicator?.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: width, height: height))
+		indicator?.center = CGPoint(x:UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
+		indicator?.activityIndicatorViewStyle = .whiteLarge
+		indicator?.color = UIColor.darkGray
+		indicator?.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+		indicator?.hidesWhenStopped = true
+		
+		cover = UIView(frame: UIScreen.main.bounds)
+		cover?.alpha = 0
+		
+		view.addSubview(cover!)
+		view.addSubview(indicator!)
+		
+		indicator?.startAnimating()
+	}
+	
+	private func stopActivityIndicator() {
+		
+		indicator?.stopAnimating()
+		indicator?.removeFromSuperview()
+		cover?.removeFromSuperview()
+		indicator = nil
+		cover = nil
+	}
     
     private func setImage() {
         let nsDirectory = FileManager.SearchPathDirectory.cachesDirectory

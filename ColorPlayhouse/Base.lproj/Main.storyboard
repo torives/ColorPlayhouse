@@ -417,13 +417,13 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7m-bh-CVW" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
-                                <frame key="frameInset" minX="266" minY="863" width="117" height="117"/>
+                                <rect key="frame" x="266" y="863" width="117" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" backgroundImage="detail_share"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJE-QK-WaH" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
-                                <frame key="frameInset" minX="266" minY="863" width="117" height="117"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJE-QK-WaH" userLabel="Delete" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                <rect key="frame" x="266" y="863" width="117" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" backgroundImage="delete"/>
@@ -464,8 +464,17 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </imageView>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIf-qA-4zU" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                        <rect key="frame" x="749" y="413" width="440" height="93"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="share"/>
+                                        <connections>
+                                            <action selector="didPressShareButton:" destination="F6T-6E-1bt" eventType="primaryActionTriggered" id="zTw-Wz-uss"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hg8-0h-XXj" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
-                                        <frame key="frameInset" minX="727" minY="241" width="440" height="93"/>
+                                        <rect key="frame" x="749" y="413" width="440" height="93"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="clear all"/>
@@ -473,17 +482,8 @@
                                             <action selector="didPressClearButton:" destination="F6T-6E-1bt" eventType="primaryActionTriggered" id="IqL-11-ndh"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIf-qA-4zU" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
-                                        <frame key="frameInset" minX="667" minY="395" width="520" height="133"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                        <state key="normal" image="share"/>
-                                        <connections>
-                                            <action selector="didPressShareButton:" destination="F6T-6E-1bt" eventType="primaryActionTriggered" id="zTw-Wz-uss"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KkA-X0-X62" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
-                                        <frame key="frameInset" minX="727" minY="374" width="440" height="93"/>
+                                        <rect key="frame" x="749" y="241" width="440" height="93"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="save"/>
@@ -492,7 +492,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KSQ-gt-iQi">
-                                        <frame key="frameInset" minX="57" minY="68" width="603" height="438"/>
+                                        <rect key="frame" x="57" y="71" width="611" height="435"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkG-6b-rfe" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
@@ -505,7 +505,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCJ-3f-4c4" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
-                                        <frame key="frameInset" minX="727" minY="98" width="440" height="93"/>
+                                        <rect key="frame" x="749" y="71" width="440" height="93"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                         <state key="normal" backgroundImage="menu"/>

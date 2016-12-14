@@ -57,7 +57,13 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        imageToPass = savedImages[indexPath.item]
+		
+		guard	savedImages.indices.contains(indexPath.item),
+				videoData.indices.contains(indexPath.item),
+				recordIDs.indices.contains(indexPath.item)
+		else { return }
+		
+		imageToPass = savedImages[indexPath.item]
         videoDataToPass = videoData[indexPath.item]
         recordIDToPass = recordIDs[indexPath.item]
         self.performSegue(withIdentifier: "detailSegue", sender: self)

@@ -391,7 +391,7 @@
 					};
 					6E9C5E921DE4487500A33773 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 7S5BW22U4Y;
+						DevelopmentTeam = N363X9XN35;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 6E6DACD41DD23CE600C8ADD6;
 					};
@@ -646,7 +646,7 @@
 		6E9C5E9A1DE4487500A33773 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 7S5BW22U4Y;
+				DEVELOPMENT_TEAM = N363X9XN35;
 				INFOPLIST_FILE = ColorPlayhouseUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.priscila.ColorPlayhouseUITests;
@@ -659,7 +659,7 @@
 		6E9C5E9B1DE4487500A33773 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 7S5BW22U4Y;
+				DEVELOPMENT_TEAM = N363X9XN35;
 				INFOPLIST_FILE = ColorPlayhouseUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.priscila.ColorPlayhouseUITests;

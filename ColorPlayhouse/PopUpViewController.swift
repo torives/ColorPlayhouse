@@ -39,7 +39,6 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
         super.viewDidLoad()
         
         setImage()
-        setupView()
         showAnimation()
         
         self.view.addLayoutGuide(self.focusGuide)
@@ -226,13 +225,6 @@ class PopUpViewController: UIViewController, FBSDKDeviceLoginViewControllerDeleg
             screenshotImageView.image = image
             // Do whatever you want with the image
         }
-    }
-    
-    private func setupView() {
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        self.popupView.layer.cornerRadius = 5
-        self.popupView.layer.shadowOpacity = 0.8
-        self.popupView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
     }
     
     private func playVideo(videoOutputURL: URL) {

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M8T-X8-GTI">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Portfolio View Controller-->
+        <scene sceneID="47B-kf-tFa">
+            <objects>
+                <viewController storyboardIdentifier="UIViewController-M8T-X8-GTI" id="M8T-X8-GTI" customClass="PortfolioViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QdL-jt-NYe"/>
+                        <viewControllerLayoutGuide type="bottom" id="f9N-9g-CXo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S3j-KO-Ene">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="my_portfolio_background" translatesAutoresizingMaskIntoConstraints="NO" id="QxC-Y7-GTo">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_drawings" translatesAutoresizingMaskIntoConstraints="NO" id="7if-q8-0sr">
+                                <rect key="frame" x="719" y="322" width="482" height="437"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L6Y-j3-G9y">
+                                <rect key="frame" x="20" y="167" width="1880" height="893"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="100" minimumInteritemSpacing="48" id="scB-et-mtR">
+                                    <size key="itemSize" width="548" height="300"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="48" minY="48" maxX="48" maxY="48"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="portfolioCell" id="NLn-U0-XWE" customClass="PortfolioCell" customModule="ColorPlayhouse" customModuleProvider="target">
+                                        <rect key="frame" x="48" y="48" width="548" height="300"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="548" height="300"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aum-Ua-TFU" customClass="UIRemoteImageView" customModule="ColorPlayhouse" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="548" height="300"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="customSize" width="548" height="300"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="aum-Ua-TFU" id="0Fa-ME-b36"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="M8T-X8-GTI" id="sMh-pz-fDf"/>
+                                    <outlet property="delegate" destination="M8T-X8-GTI" id="aTU-3N-ZSG"/>
+                                </connections>
+                            </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="My_portfolio_title" translatesAutoresizingMaskIntoConstraints="NO" id="lv6-Ux-pKi">
+                                <rect key="frame" x="60" y="64" width="492" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="7if-q8-0sr" firstAttribute="centerX" secondItem="S3j-KO-Ene" secondAttribute="centerX" id="3kz-KK-qes"/>
+                            <constraint firstItem="7if-q8-0sr" firstAttribute="centerY" secondItem="S3j-KO-Ene" secondAttribute="centerY" id="AwI-vo-RLU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="noDrawings" destination="7if-q8-0sr" id="NQz-Mb-2P2"/>
+                        <outlet property="portfolioCollection" destination="L6Y-j3-G9y" id="uul-6W-n5K"/>
+                        <segue destination="Ho8-1G-HyO" kind="show" identifier="detailSegue" id="MEr-vy-eGD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kbC-Ul-NIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1644" y="-543"/>
+        </scene>
+        <!--Portfolio Detail View Controller-->
+        <scene sceneID="8f2-kI-z9e">
+            <objects>
+                <viewController storyboardIdentifier="PortfolioDetailVC" id="Ho8-1G-HyO" customClass="PortfolioDetailViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bV8-Vc-XCg"/>
+                        <viewControllerLayoutGuide type="bottom" id="h0k-QO-CxD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sxq-tf-UEs">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zle-sP-hhi">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p79-LN-9k6" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                <rect key="frame" x="107" y="863" width="117" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" backgroundImage="detail_play"/>
+                                <connections>
+                                    <action selector="playClick:" destination="Ho8-1G-HyO" eventType="primaryActionTriggered" id="iFl-TV-7EX"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7m-bh-CVW" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                <rect key="frame" x="266" y="863" width="117" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" backgroundImage="detail_share"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJE-QK-WaH" userLabel="Delete" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                <rect key="frame" x="266" y="863" width="117" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" backgroundImage="delete"/>
+                                <connections>
+                                    <action selector="deleteClick:" destination="Ho8-1G-HyO" eventType="primaryActionTriggered" id="SeV-O4-deI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="detailImageView" destination="Zle-sP-hhi" id="DcD-Lr-aI0"/>
+                        <outlet property="play" destination="p79-LN-9k6" id="0YH-86-vI0"/>
+                        <outlet property="share" destination="q7m-bh-CVW" id="fcD-Bg-QCa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bum-31-cFp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4324" y="-544"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="My_portfolio_title" width="492" height="95"/>
+        <image name="delete" width="167" height="167"/>
+        <image name="detail_play" width="167" height="167"/>
+        <image name="detail_share" width="167" height="167"/>
+        <image name="my_portfolio_background" width="1920" height="1080"/>
+        <image name="no_drawings" width="482" height="437"/>
+    </resources>
+</document>

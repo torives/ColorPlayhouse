@@ -505,7 +505,7 @@ class DrawingViewController: UIViewController {
 	
 	private func presentPopUp() {
 		
-		let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
+		let popUpVC = UIStoryboard(name: "Drawing", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
 		popUpVC.screenshotsPaths = self.screenshotsPaths
 		
 		self.addChildViewController(popUpVC)

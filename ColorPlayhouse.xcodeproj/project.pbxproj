@@ -26,10 +26,13 @@
 		4FEF41F21DD625C900D185EC /* DrawingShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41F11DD625C900D185EC /* DrawingShapeLayer.swift */; };
 		4FEF41F61DD643A500D185EC /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41F51DD643A500D185EC /* Geometry.swift */; };
 		4FEF41F81DD6550900D185EC /* DrawingElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41F71DD6550900D185EC /* DrawingElement.swift */; };
+		4FFAAD891E1D242F00D3013E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */; };
+		4FFAAD8A1E1D243100D3013E /* Drawing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F5B51E41E1D22B2008042FB /* Drawing.storyboard */; };
+		4FFAAD8B1E1D243300D3013E /* Portfolio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F5B51DF1E1D1EFF008042FB /* Portfolio.storyboard */; };
+		4FFAAD8C1E1D243500D3013E /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F5B51E71E1D22C1008042FB /* Tutorial.storyboard */; };
 		6E121BEC1DEC73E400BCA1E7 /* PortfolioDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E121BEB1DEC73E400BCA1E7 /* PortfolioDetailViewController.swift */; };
 		6E6DACD91DD23CE600C8ADD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */; };
 		6E6DACDB1DD23CE600C8ADD6 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DACDA1DD23CE600C8ADD6 /* MainMenuViewController.swift */; };
-		6E6DACDE1DD23CE600C8ADD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */; };
 		6E6DACE01DD23CE600C8ADD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DACDF1DD23CE600C8ADD6 /* Assets.xcassets */; };
 		6E9C5E551DDF95B500A33773 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C5E541DDF95B500A33773 /* PortfolioCell.swift */; };
 		6E9C5E961DE4487500A33773 /* ColorPlayhouseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C5E951DE4487500A33773 /* ColorPlayhouseUITests.swift */; };
@@ -64,6 +67,9 @@
 		4F04F7211DD2775100A5DFB1 /* MainMenuRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuRouter.swift; sourceTree = "<group>"; };
 		4F04F7241DD2777200A5DFB1 /* MainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		4F1025311DF0B9E600878362 /* CPFocusableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFocusableButton.swift; sourceTree = "<group>"; };
+		4F5B51E01E1D1EFF008042FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Portfolio.storyboard; sourceTree = "<group>"; };
+		4F5B51E51E1D22B2008042FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Drawing.storyboard; sourceTree = "<group>"; };
+		4F5B51E81E1D22C1008042FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tutorial.storyboard; sourceTree = "<group>"; };
 		4FE2D7D91DF88EA9002BFD7E /* Remote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
 		4FE2D7DA1DF88EA9002BFD7E /* RemoteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteHandler.swift; sourceTree = "<group>"; };
 		4FE2D7DF1DF88FB7002BFD7E /* PointerMotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointerMotion.swift; sourceTree = "<group>"; };
@@ -279,6 +285,9 @@
 				F5224CF71DF8D19A0047A030 /* TutorialScene */,
 				4F04F71B1DD273D000A5DFB1 /* Resources */,
 				6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */,
+				4F5B51E41E1D22B2008042FB /* Drawing.storyboard */,
+				4F5B51DF1E1D1EFF008042FB /* Portfolio.storyboard */,
+				4F5B51E71E1D22C1008042FB /* Tutorial.storyboard */,
 				6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */,
 			);
 			path = ColorPlayhouse;
@@ -421,12 +430,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FFAAD891E1D242F00D3013E /* Main.storyboard in Resources */,
+				4FFAAD8C1E1D243500D3013E /* Tutorial.storyboard in Resources */,
+				4FFAAD8B1E1D243300D3013E /* Portfolio.storyboard in Resources */,
+				4FFAAD8A1E1D243100D3013E /* Drawing.storyboard in Resources */,
 				6E6DACE01DD23CE600C8ADD6 /* Assets.xcassets in Resources */,
 				6EED23B41DF89EDD00207DF8 /* Signika-Regular.otf in Resources */,
 				6EED23B51DF89EDD00207DF8 /* Signika-Semibold.otf in Resources */,
 				6EED23B31DF89EDD00207DF8 /* Signika-Light.otf in Resources */,
 				F5B248371DE711DF00F03ECE /* UIRemoteImageView.xib in Resources */,
-				6E6DACDE1DD23CE600C8ADD6 /* Main.storyboard in Resources */,
 				6EED23B21DF89EDD00207DF8 /* Signika-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +508,30 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4F5B51DF1E1D1EFF008042FB /* Portfolio.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F5B51E01E1D1EFF008042FB /* Base */,
+			);
+			name = Portfolio.storyboard;
+			sourceTree = "<group>";
+		};
+		4F5B51E41E1D22B2008042FB /* Drawing.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F5B51E51E1D22B2008042FB /* Base */,
+			);
+			name = Drawing.storyboard;
+			sourceTree = "<group>";
+		};
+		4F5B51E71E1D22C1008042FB /* Tutorial.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F5B51E81E1D22C1008042FB /* Base */,
+			);
+			name = Tutorial.storyboard;
+			sourceTree = "<group>";
+		};
 		6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

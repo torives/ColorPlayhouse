@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gDo-Ad-lRw">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Drawing View Controller-->
+        <scene sceneID="Ot6-92-8Li">
+            <objects>
+                <viewController storyboardIdentifier="DrawingVC" id="gDo-Ad-lRw" customClass="DrawingViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k8f-N9-9p5"/>
+                        <viewControllerLayoutGuide type="bottom" id="NfB-g0-fV3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Glg-Xt-bza">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wood_background" translatesAutoresizingMaskIntoConstraints="NO" id="fV1-7E-3SS">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jOz-uz-c0h" userLabel="CanvasView">
+                                <rect key="frame" x="85" y="60" width="1750" height="960"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="palette" translatesAutoresizingMaskIntoConstraints="NO" id="ZHG-JN-ExL">
+                                <rect key="frame" x="288" y="875" width="1345" height="205"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="205" id="31N-19-ZN8"/>
+                                    <constraint firstAttribute="width" constant="1345" id="hEQ-gv-ztd"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="QOM-I8-LJP">
+                                <rect key="frame" x="349" y="912" width="1222" height="108"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFr-aK-RYG" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="106" height="108"/>
+                                        <accessibility key="accessibilityConfiguration" label="purple"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="purple"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="h60-lD-yD5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPX-Q2-9NI" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                        <rect key="frame" x="124" y="0.0" width="106" height="108"/>
+                                        <accessibility key="accessibilityConfiguration" label="magenta"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="magenta"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="FNm-lL-tMv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBs-bJ-ibp" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                        <rect key="frame" x="248" y="0.0" width="106" height="108"/>
+                                        <accessibility key="accessibilityConfiguration" label="red"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="red"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="Lhf-Gl-RN2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujS-tP-0a2" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                        <rect key="frame" x="372" y="0.0" width="106" height="108"/>
+                                        <accessibility key="accessibilityConfiguration" label="darkOrange"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="darkOrange"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="BHw-iG-tm9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o26-fh-aWP" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                        <rect key="frame" x="496" y="0.0" width="106" height="108"/>
+                                        <accessibility key="accessibilityConfiguration" label="orange"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="orange"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="LRA-Dr-TpY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sz-N8-n6C" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                        <rect key="frame" x="620" y="0.0" width="106" height="108"/>
+                                        <accessibility key="accessibilityConfiguration" label="yellow"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="yellow"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="1lU-oH-V63"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOd-ZQ-0F0" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                        <rect key="frame" x="744" y="0.0" width="106" height="108"/>
+                                        <accessibility key="accessibilityConfiguration" label="lightGreen"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="lightGreen"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="7FS-Hf-EHF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cN-es-hES" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                        <rect key="frame" x="868" y="0.0" width="106" height="108"/>
+                                        <accessibility key="accessibilityConfiguration" label="green"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="green"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="xwC-Ha-4Dw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xy-El-7ST" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                        <rect key="frame" x="992" y="0.0" width="106" height="108"/>
+                                        <accessibility key="accessibilityConfiguration" label="lightBlue"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="lightBlue"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="lzV-5X-S1H"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBa-cA-o9Q" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                        <rect key="frame" x="1116" y="0.0" width="106" height="108"/>
+                                        <accessibility key="accessibilityConfiguration" label="blue"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="blue"/>
+                                        <connections>
+                                            <action selector="colorClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="JwJ-VG-PP5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="pkM-de-aEB">
+                                <rect key="frame" x="1516" y="205" width="404" height="567"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qI5-tv-0UT" userLabel="Eraser" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                        <rect key="frame" x="258" y="0.0" width="146" height="147"/>
+                                        <accessibility key="accessibilityConfiguration" label="eraser"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="eraser"/>
+                                        <connections>
+                                            <action selector="toolClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="Wv2-RX-7Tz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbG-QA-gy7" userLabel="Crayon" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                        <rect key="frame" x="106" y="186" width="298" height="100"/>
+                                        <accessibility key="accessibilityConfiguration" label="crayon"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="9la-zs-PTh"/>
+                                            <constraint firstAttribute="width" constant="298" id="cD1-9a-RLB"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="crayon"/>
+                                        <connections>
+                                            <action selector="toolClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="xSl-dY-zRQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfR-ze-E5R" userLabel="Brush" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                        <rect key="frame" x="3" y="325" width="401" height="121"/>
+                                        <accessibility key="accessibilityConfiguration" label="brush"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="121" id="sCw-HT-4TA"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="brush"/>
+                                        <connections>
+                                            <action selector="toolClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="JRJ-Py-oih"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fF1-wO-5Hu" userLabel="Pencil" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="485" width="404" height="82"/>
+                                        <accessibility key="accessibilityConfiguration" label="pencil"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="82" id="rQy-8C-xvQ"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" backgroundImage="pencil"/>
+                                        <connections>
+                                            <action selector="toolClick:" destination="gDo-Ad-lRw" eventType="primaryActionTriggered" id="y3y-8W-pAC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pencil_pointer" translatesAutoresizingMaskIntoConstraints="NO" id="S9k-IV-Nmh">
+                                <rect key="frame" x="396" y="205" width="81" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="fV1-7E-3SS" secondAttribute="centerX" id="0W5-yo-TIE"/>
+                            <constraint firstItem="pkM-de-aEB" firstAttribute="top" secondItem="k8f-N9-9p5" secondAttribute="bottom" constant="205" id="5XU-gK-Wwt"/>
+                            <constraint firstItem="NfB-g0-fV3" firstAttribute="top" secondItem="QOM-I8-LJP" secondAttribute="bottom" constant="60" id="6MV-iI-EHu"/>
+                            <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="Glg-Xt-bza" secondAttribute="centerX" id="6lm-xA-eAJ"/>
+                            <constraint firstAttribute="trailing" secondItem="pkM-de-aEB" secondAttribute="trailing" id="AIV-4z-BVF"/>
+                            <constraint firstAttribute="trailing" secondItem="fV1-7E-3SS" secondAttribute="trailing" id="AQ5-kB-UVb"/>
+                            <constraint firstItem="ZHG-JN-ExL" firstAttribute="centerX" secondItem="QOM-I8-LJP" secondAttribute="centerX" id="DSH-Pw-sdW"/>
+                            <constraint firstItem="fV1-7E-3SS" firstAttribute="top" secondItem="Glg-Xt-bza" secondAttribute="top" id="E7t-Sk-eEY"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="ZHG-JN-ExL" secondAttribute="bottom" id="IRF-fa-bbS"/>
+                            <constraint firstItem="NfB-g0-fV3" firstAttribute="top" secondItem="fV1-7E-3SS" secondAttribute="bottom" id="RFi-QW-8im"/>
+                            <constraint firstItem="fV1-7E-3SS" firstAttribute="leading" secondItem="Glg-Xt-bza" secondAttribute="leading" id="cNo-Rg-nab"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="canvasView" destination="jOz-uz-c0h" id="htK-wS-A9D"/>
+                        <outlet property="colorsConstraintToBottom" destination="6MV-iI-EHu" id="Bst-eA-7Ye"/>
+                        <outlet property="palette" destination="ZHG-JN-ExL" id="mK6-Gr-Z5j"/>
+                        <outlet property="paletteConstraintToBottom" destination="IRF-fa-bbS" id="226-sN-4C5"/>
+                        <outlet property="pointer" destination="S9k-IV-Nmh" id="zYx-ff-qE9"/>
+                        <outlet property="toolsConstraintToTrailing" destination="AIV-4z-BVF" id="IbS-CD-mrJ"/>
+                        <outletCollection property="drawingTools" destination="qI5-tv-0UT" collectionClass="NSMutableArray" id="oHn-le-CQm"/>
+                        <outletCollection property="drawingTools" destination="XbG-QA-gy7" collectionClass="NSMutableArray" id="F9l-0Z-gQJ"/>
+                        <outletCollection property="drawingTools" destination="hfR-ze-E5R" collectionClass="NSMutableArray" id="mfY-pg-j5Z"/>
+                        <outletCollection property="drawingTools" destination="fF1-wO-5Hu" collectionClass="NSMutableArray" id="Jlr-EV-NJl"/>
+                        <outletCollection property="paletteColors" destination="fFr-aK-RYG" collectionClass="NSMutableArray" id="r6i-kb-1BX"/>
+                        <outletCollection property="paletteColors" destination="rPX-Q2-9NI" collectionClass="NSMutableArray" id="dmB-hG-L5o"/>
+                        <outletCollection property="paletteColors" destination="ZBs-bJ-ibp" collectionClass="NSMutableArray" id="k8g-oO-Nox"/>
+                        <outletCollection property="paletteColors" destination="ujS-tP-0a2" collectionClass="NSMutableArray" id="Yn2-t4-vFl"/>
+                        <outletCollection property="paletteColors" destination="o26-fh-aWP" collectionClass="NSMutableArray" id="7pj-YG-KbE"/>
+                        <outletCollection property="paletteColors" destination="5sz-N8-n6C" collectionClass="NSMutableArray" id="CHZ-GP-2Tb"/>
+                        <outletCollection property="paletteColors" destination="LOd-ZQ-0F0" collectionClass="NSMutableArray" id="bc7-ys-FBM"/>
+                        <outletCollection property="paletteColors" destination="0cN-es-hES" collectionClass="NSMutableArray" id="pbh-YN-2D6"/>
+                        <outletCollection property="paletteColors" destination="7xy-El-7ST" collectionClass="NSMutableArray" id="Kaj-JP-9HS"/>
+                        <outletCollection property="paletteColors" destination="IBa-cA-o9Q" collectionClass="NSMutableArray" id="Wp0-l9-Hdd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R6W-0Y-V87" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1644" y="759"/>
+        </scene>
+        <!--Pop Up View Controller-->
+        <scene sceneID="Hgf-W5-JpY">
+            <objects>
+                <viewController storyboardIdentifier="popUpVC" id="F6T-6E-1bt" customClass="PopUpViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="USg-Nx-NxV"/>
+                        <viewControllerLayoutGuide type="bottom" id="vWv-4L-Joa"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="I6g-Lo-820">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONT-4Y-Kpm">
+                                <rect key="frame" x="330" y="253" width="1260" height="575"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="74" translatesAutoresizingMaskIntoConstraints="NO" id="KmP-GU-YKp" userLabel="Containter Stack">
+                                        <rect key="frame" x="68" y="70" width="1124" height="435"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMj-Fp-Rgp" userLabel="Timelapse Preview">
+                                                <rect key="frame" x="0.0" y="0.0" width="610" height="435"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KSQ-gt-iQi">
+                                                        <rect key="frame" x="0.0" y="0.0" width="610" height="435"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkG-6b-rfe" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                                        <rect key="frame" x="250" y="162" width="111" height="110"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                        <state key="normal" backgroundImage="detail_play"/>
+                                                        <connections>
+                                                            <action selector="didPressPlayVideoButton:" destination="F6T-6E-1bt" eventType="primaryActionTriggered" id="8ri-O8-mCT"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1uh-0w-P4Y" userLabel="Buttons Stack">
+                                                <rect key="frame" x="684" y="0.0" width="440" height="435"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCJ-3f-4c4" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="440" height="93"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="93" id="MIn-LU-l7N"/>
+                                                        </constraints>
+                                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                        <state key="normal" backgroundImage="menu"/>
+                                                        <connections>
+                                                            <action selector="didPressMenuButton:" destination="F6T-6E-1bt" eventType="primaryActionTriggered" id="xhN-H9-S3m"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KkA-X0-X62" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="114" width="440" height="93"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="93" id="of2-dp-oUp"/>
+                                                        </constraints>
+                                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                        <state key="normal" backgroundImage="save"/>
+                                                        <connections>
+                                                            <action selector="didPressSaveButton:" destination="F6T-6E-1bt" eventType="primaryActionTriggered" id="bdy-hW-eua"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIf-qA-4zU" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="228" width="440" height="93"/>
+                                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                        <state key="normal" backgroundImage="share"/>
+                                                        <connections>
+                                                            <action selector="didPressShareButton:" destination="F6T-6E-1bt" eventType="primaryActionTriggered" id="zTw-Wz-uss"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hg8-0h-XXj" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="342" width="440" height="93"/>
+                                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                        <state key="normal" backgroundImage="clear all"/>
+                                                        <connections>
+                                                            <action selector="didPressClearButton:" destination="F6T-6E-1bt" eventType="primaryActionTriggered" id="IqL-11-ndh"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="KkA-X0-X62" firstAttribute="top" secondItem="wCJ-3f-4c4" secondAttribute="bottom" constant="21" id="MCe-53-Qko"/>
+                                                    <constraint firstItem="rIf-qA-4zU" firstAttribute="top" secondItem="KkA-X0-X62" secondAttribute="bottom" constant="21" id="vpS-w8-8wM"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94933921098709106" green="0.80142241716384888" blue="0.18559598922729492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="575" id="CjF-DP-0a2"/>
+                                    <constraint firstAttribute="width" constant="1260" id="STq-ka-gV5"/>
+                                    <constraint firstItem="KmP-GU-YKp" firstAttribute="centerX" secondItem="ONT-4Y-Kpm" secondAttribute="centerX" id="ZNS-GY-pPR"/>
+                                    <constraint firstItem="KmP-GU-YKp" firstAttribute="top" secondItem="ONT-4Y-Kpm" secondAttribute="top" constant="70" id="bso-7Y-Tug"/>
+                                    <constraint firstItem="KmP-GU-YKp" firstAttribute="leading" secondItem="ONT-4Y-Kpm" secondAttribute="leading" constant="68" id="hif-86-kUr"/>
+                                    <constraint firstItem="KmP-GU-YKp" firstAttribute="centerY" secondItem="ONT-4Y-Kpm" secondAttribute="centerY" id="sQL-vh-1eX"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.60080222315436238" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ONT-4Y-Kpm" firstAttribute="centerX" secondItem="I6g-Lo-820" secondAttribute="centerX" id="6xN-cu-Tsl"/>
+                            <constraint firstItem="ONT-4Y-Kpm" firstAttribute="centerY" secondItem="I6g-Lo-820" secondAttribute="centerY" id="ScC-Zv-nti"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="clearAllButton" destination="hg8-0h-XXj" id="Ke6-WW-iJ2"/>
+                        <outlet property="menuButton" destination="wCJ-3f-4c4" id="Sfo-Ww-ffR"/>
+                        <outlet property="playButton" destination="XkG-6b-rfe" id="R19-Dw-rSW"/>
+                        <outlet property="popupView" destination="ONT-4Y-Kpm" id="ggj-5X-JFS"/>
+                        <outlet property="saveButton" destination="KkA-X0-X62" id="r0K-xJ-mgw"/>
+                        <outlet property="screenshotImageView" destination="KSQ-gt-iQi" id="RGe-7y-uTx"/>
+                        <outlet property="shareButton" destination="rIf-qA-4zU" id="uDZ-hP-ZmL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gBg-R3-fvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3861" y="759"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="blue" width="106" height="108"/>
+        <image name="brush" width="401" height="121"/>
+        <image name="clear all" width="440" height="93"/>
+        <image name="crayon" width="298" height="100"/>
+        <image name="darkOrange" width="106" height="108"/>
+        <image name="detail_play" width="167" height="167"/>
+        <image name="eraser" width="146" height="147"/>
+        <image name="green" width="106" height="108"/>
+        <image name="lightBlue" width="106" height="108"/>
+        <image name="lightGreen" width="106" height="108"/>
+        <image name="magenta" width="106" height="108"/>
+        <image name="menu" width="440" height="93"/>
+        <image name="orange" width="106" height="108"/>
+        <image name="palette" width="1345" height="205"/>
+        <image name="pencil" width="404" height="82"/>
+        <image name="pencil_pointer" width="81" height="122"/>
+        <image name="purple" width="106" height="108"/>
+        <image name="red" width="106" height="108"/>
+        <image name="save" width="440" height="93"/>
+        <image name="share" width="440" height="93"/>
+        <image name="wood_background" width="1920" height="1080"/>
+        <image name="yellow" width="106" height="108"/>
+    </resources>
+</document>

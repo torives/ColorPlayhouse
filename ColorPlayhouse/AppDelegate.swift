@@ -17,25 +17,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let initialViewController = getInitialVC()
-
-        self.window?.rootViewController = initialViewController
-        self.window?.makeKeyAndVisible()
+//        let initialViewController = getInitialVC()
+//
+//        self.window?.rootViewController = initialViewController
+//        self.window?.makeKeyAndVisible()
 
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
     func getInitialVC() -> UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
         if !UserDefaults.standard.bool(forKey: "HasLaunchedOnce") {
             UserDefaults.standard.synchronize()
             
             UserDefaults.standard.set(true, forKey: "HasLaunchedOnce")
 
+			let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
             return storyboard.instantiateViewController(withIdentifier: "TutorialPageVC") as! TutorialPageViewController
         }
-        
+		
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: "MainMenuScene") as! MainMenuViewController
 
     }

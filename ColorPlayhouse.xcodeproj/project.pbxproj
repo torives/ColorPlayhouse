@@ -152,6 +152,7 @@
 			children = (
 				6E6DACDA1DD23CE600C8ADD6 /* MainMenuViewController.swift */,
 				4F04F7211DD2775100A5DFB1 /* MainMenuRouter.swift */,
+				6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */,
 			);
 			name = MainMenuScene;
 			sourceTree = "<group>";
@@ -233,6 +234,7 @@
 		4FEF41D61DD4DD6900D185EC /* PorfolioScene */ = {
 			isa = PBXGroup;
 			children = (
+				4F5B51DF1E1D1EFF008042FB /* Portfolio.storyboard */,
 				F5B248311DE70F4A00F03ECE /* RemoteImageView */,
 				4FEF41D71DD4DD9D00D185EC /* PortfolioViewController.swift */,
 				6E9C5E541DDF95B500A33773 /* PortfolioCell.swift */,
@@ -247,6 +249,8 @@
 				4FE2D7F11DF89038002BFD7E /* Screen Drawing */,
 				4FE2D7DE1DF88F7B002BFD7E /* Input Handling */,
 				4FEF41E91DD4F49600D185EC /* DrawingViewController.swift */,
+				4F5B51E41E1D22B2008042FB /* Drawing.storyboard */,
+				F54FF4181DE377700020E547 /* PopUp */,
 			);
 			name = DrawingScene;
 			sourceTree = "<group>";
@@ -281,13 +285,8 @@
 				4F04F71C1DD276EC00A5DFB1 /* MainMenuScene */,
 				4FEF41D61DD4DD6900D185EC /* PorfolioScene */,
 				4FEF41E81DD4F45500D185EC /* DrawingScene */,
-				F54FF4181DE377700020E547 /* PopUp Scene */,
 				F5224CF71DF8D19A0047A030 /* TutorialScene */,
 				4F04F71B1DD273D000A5DFB1 /* Resources */,
-				6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */,
-				4F5B51E41E1D22B2008042FB /* Drawing.storyboard */,
-				4F5B51DF1E1D1EFF008042FB /* Portfolio.storyboard */,
-				4F5B51E71E1D22C1008042FB /* Tutorial.storyboard */,
 				6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */,
 			);
 			path = ColorPlayhouse;
@@ -305,18 +304,19 @@
 		F5224CF71DF8D19A0047A030 /* TutorialScene */ = {
 			isa = PBXGroup;
 			children = (
+				4F5B51E71E1D22C1008042FB /* Tutorial.storyboard */,
 				F5224CF11DF8928D0047A030 /* TutorialPageViewController.swift */,
 				F5224CF51DF8C1720047A030 /* LastTutorialPageViewController.swift */,
 			);
 			name = TutorialScene;
 			sourceTree = "<group>";
 		};
-		F54FF4181DE377700020E547 /* PopUp Scene */ = {
+		F54FF4181DE377700020E547 /* PopUp */ = {
 			isa = PBXGroup;
 			children = (
 				F54FF4191DE377870020E547 /* PopUpViewController.swift */,
 			);
-			name = "PopUp Scene";
+			name = PopUp;
 			sourceTree = "<group>";
 		};
 		F583CE2C1DD642D9001B17EE /* Frameworks */ = {

@@ -266,14 +266,11 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1uh-0w-P4Y" userLabel="Buttons Stack">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="11" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1uh-0w-P4Y" userLabel="Buttons Stack">
                                                 <rect key="frame" x="684" y="0.0" width="440" height="435"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCJ-3f-4c4" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="440" height="93"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="93" id="MIn-LU-l7N"/>
-                                                        </constraints>
                                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                         <state key="normal" backgroundImage="menu"/>
                                                         <connections>
@@ -282,9 +279,6 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KkA-X0-X62" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="114" width="440" height="93"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="93" id="of2-dp-oUp"/>
-                                                        </constraints>
                                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                         <state key="normal" backgroundImage="save"/>
                                                         <connections>
@@ -308,10 +302,6 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="KkA-X0-X62" firstAttribute="top" secondItem="wCJ-3f-4c4" secondAttribute="bottom" constant="21" id="MCe-53-Qko"/>
-                                                    <constraint firstItem="rIf-qA-4zU" firstAttribute="top" secondItem="KkA-X0-X62" secondAttribute="bottom" constant="21" id="vpS-w8-8wM"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>

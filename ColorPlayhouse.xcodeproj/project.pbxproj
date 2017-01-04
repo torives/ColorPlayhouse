@@ -140,9 +140,9 @@
 		4F04F71B1DD273D000A5DFB1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4F84F0341DFF21FD00A8FEAD /* Fonts */,
 				6E6DACDF1DD23CE600C8ADD6 /* Assets.xcassets */,
 				6E6DACE11DD23CE600C8ADD6 /* Info.plist */,
+				4F84F0341DFF21FD00A8FEAD /* Fonts */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -150,9 +150,9 @@
 		4F04F71C1DD276EC00A5DFB1 /* MainMenuScene */ = {
 			isa = PBXGroup;
 			children = (
+				6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */,
 				6E6DACDA1DD23CE600C8ADD6 /* MainMenuViewController.swift */,
 				4F04F7211DD2775100A5DFB1 /* MainMenuRouter.swift */,
-				6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */,
 			);
 			name = MainMenuScene;
 			sourceTree = "<group>";
@@ -235,10 +235,10 @@
 			isa = PBXGroup;
 			children = (
 				4F5B51DF1E1D1EFF008042FB /* Portfolio.storyboard */,
-				F5B248311DE70F4A00F03ECE /* RemoteImageView */,
 				4FEF41D71DD4DD9D00D185EC /* PortfolioViewController.swift */,
 				6E9C5E541DDF95B500A33773 /* PortfolioCell.swift */,
 				6E121BEB1DEC73E400BCA1E7 /* PortfolioDetailViewController.swift */,
+				F5B248311DE70F4A00F03ECE /* RemoteImageView */,
 			);
 			name = PorfolioScene;
 			sourceTree = "<group>";
@@ -246,10 +246,10 @@
 		4FEF41E81DD4F45500D185EC /* DrawingScene */ = {
 			isa = PBXGroup;
 			children = (
+				4F5B51E41E1D22B2008042FB /* Drawing.storyboard */,
+				4FEF41E91DD4F49600D185EC /* DrawingViewController.swift */,
 				4FE2D7F11DF89038002BFD7E /* Screen Drawing */,
 				4FE2D7DE1DF88F7B002BFD7E /* Input Handling */,
-				4FEF41E91DD4F49600D185EC /* DrawingViewController.swift */,
-				4F5B51E41E1D22B2008042FB /* Drawing.storyboard */,
 				F54FF4181DE377700020E547 /* PopUp */,
 			);
 			name = DrawingScene;
@@ -262,9 +262,6 @@
 				6E9C5E941DE4487500A33773 /* ColorPlayhouseUITests */,
 				6E6DACD61DD23CE600C8ADD6 /* Products */,
 				F583CE2C1DD642D9001B17EE /* Frameworks */,
-				F533163B1DE7C0190052AE7B /* FBSDKCoreKit.framework */,
-				F533163C1DE7C0190052AE7B /* FBSDKShareKit.framework */,
-				F533163D1DE7C0190052AE7B /* FBSDKTVOSKit.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -322,6 +319,9 @@
 		F583CE2C1DD642D9001B17EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F533163B1DE7C0190052AE7B /* FBSDKCoreKit.framework */,
+				F533163C1DE7C0190052AE7B /* FBSDKShareKit.framework */,
+				F533163D1DE7C0190052AE7B /* FBSDKTVOSKit.framework */,
 				6EE282791DDE256400600C95 /* CloudKit.framework */,
 			);
 			name = Frameworks;

@@ -12,7 +12,7 @@
         <!--Portfolio View Controller-->
         <scene sceneID="47B-kf-tFa">
             <objects>
-                <viewController storyboardIdentifier="UIViewController-M8T-X8-GTI" id="M8T-X8-GTI" customClass="PortfolioViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PortfolioViewController" id="M8T-X8-GTI" customClass="PortfolioViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QdL-jt-NYe"/>
                         <viewControllerLayoutGuide type="bottom" id="f9N-9g-CXo"/>
@@ -87,7 +87,7 @@
         <!--Portfolio Detail View Controller-->
         <scene sceneID="8f2-kI-z9e">
             <objects>
-                <viewController storyboardIdentifier="PortfolioDetailVC" id="Ho8-1G-HyO" customClass="PortfolioDetailViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PortfolioDetailViewController" id="Ho8-1G-HyO" customClass="PortfolioDetailViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bV8-Vc-XCg"/>
                         <viewControllerLayoutGuide type="bottom" id="h0k-QO-CxD"/>

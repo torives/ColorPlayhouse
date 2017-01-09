@@ -224,21 +224,10 @@
                             </label>
                         </subviews>
                     </view>
-                    <connections>
-                        <segue destination="sXK-aH-7Ex" kind="show" identifier="showMainMenuVC" id="1ed-it-HE8"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrH-Fk-8KU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1680" y="3014"/>
-        </scene>
-        <!--MainMenuScene-->
-        <scene sceneID="gWH-Ch-sjM">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="MainMenuScene" storyboardName="Main" referencedIdentifier="MainMenuScene" id="sXK-aH-7Ex" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="95e-kO-3h8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1009" y="3015"/>
         </scene>
     </scenes>
     <resources>

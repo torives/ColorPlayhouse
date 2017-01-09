@@ -8,10 +8,10 @@
 
 import Foundation
 
-protocol MainMenuSceneEventHandler
+protocol MainMenuEventHandler
 {
-	func presentDrawingScene()
-	func presentPortfolioScene()
+	func newDrawingButtonPressed()
+	func myPortfolioButtonPressed()
 }
 
 final class MainMenuPresenter
@@ -23,13 +23,13 @@ final class MainMenuPresenter
 	}
 }
 
-extension MainMenuPresenter: MainMenuSceneEventHandler{
+extension MainMenuPresenter: MainMenuEventHandler{
 	
-	func presentDrawingScene() {
+	func newDrawingButtonPressed() {
 		router.presentDrawingScene()
 	}
 	
-	func presentPortfolioScene() {
+	func myPortfolioButtonPressed() {
 		router.presentPortfolioScene()
 	}
 }

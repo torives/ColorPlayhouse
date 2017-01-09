@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Drawing View Controller-->
+        <!--Drawing Canvas View Controller-->
         <scene sceneID="Ot6-92-8Li">
             <objects>
-                <viewController storyboardIdentifier="DrawingVC" id="gDo-Ad-lRw" customClass="DrawingViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DrawingCanvasViewController" id="gDo-Ad-lRw" customClass="DrawingCanvasViewController" customModule="ColorPlayhouse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k8f-N9-9p5"/>
                         <viewControllerLayoutGuide type="bottom" id="NfB-g0-fV3"/>
@@ -278,15 +278,15 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KkA-X0-X62" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="114" width="440" height="93"/>
+                                                        <rect key="frame" x="0.0" y="171" width="440" height="93"/>
                                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                         <state key="normal" backgroundImage="save"/>
                                                         <connections>
                                                             <action selector="didPressSaveButton:" destination="F6T-6E-1bt" eventType="primaryActionTriggered" id="bdy-hW-eua"/>
                                                         </connections>
                                                     </button>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIf-qA-4zU" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="228" width="440" height="93"/>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIf-qA-4zU" customClass="CPFocusableButton" customModule="ColorPlayhouse" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="336" width="440" height="0.0"/>
                                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                         <state key="normal" backgroundImage="share"/>
                                                         <connections>

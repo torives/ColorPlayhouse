@@ -11,7 +11,7 @@ import CloudKit
 
 class MainMenuViewController: UIViewController {
 	
-	var eventHandler: MainMenuSceneEventHandler?
+	var eventHandler: MainMenuEventHandler?
 
     @IBOutlet weak var newDrawingOutlet: UIButton!
     @IBOutlet weak var myPortfolioOutlet: UIButton!
@@ -25,7 +25,15 @@ class MainMenuViewController: UIViewController {
         authenticateUser()
     }
 
-    func authenticateUser() {
+	@IBAction func newDrawingButtonPressed(_ sender: Any) {
+		eventHandler?.newDrawingButtonPressed()
+	}
+	
+	@IBAction func myPortfolioButtonPressed(_ sender: Any) {
+		eventHandler?.myPortfolioButtonPressed()
+	}
+	
+	func authenticateUser() {
         CKContainer.default().accountStatus { (accountStatus, error) in
             if accountStatus == .noAccount {
                 self.presentCloudKitAlertController()

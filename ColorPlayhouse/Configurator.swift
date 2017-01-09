@@ -14,7 +14,7 @@ struct Configurator
 	func installRootViewControllerInto(window: UIWindow) {
 		
 		let menuRouter = MainMenuRouter()
-		menuRouter.presentMenuInterfaceFrom(window: window)
+		menuRouter.presentMenuSceneFrom(window: window)
 	}
 }
 

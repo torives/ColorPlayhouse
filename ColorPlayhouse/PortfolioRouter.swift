@@ -24,7 +24,7 @@ final class PortfolioRouter
 		viewController.present(portfolioViewController, animated: true, completion: nil)
 	}
 	
-	func presentPortfolioDetailScene(){
+	func presentPortfolioDetail(){
 		
 	}
 	

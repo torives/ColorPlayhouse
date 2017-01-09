@@ -17,7 +17,7 @@ final class PortfolioPresenter {
 	
 	//	This reference could cause a problem
 	var interface: PortfolioInterface
-	let router: PortfolioRouter
+	fileprivate let router: PortfolioRouter
 	
 	init(viewController: PortfolioInterface, router: PortfolioRouter) {
 	

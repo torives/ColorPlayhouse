@@ -16,7 +16,7 @@ protocol MainMenuEventHandler
 
 final class MainMenuPresenter
 {
-	let router: MainMenuRouter
+	fileprivate let router: MainMenuRouter
 	
 	init(router: MainMenuRouter) {
 		self.router = router
@@ -26,7 +26,7 @@ final class MainMenuPresenter
 extension MainMenuPresenter: MainMenuEventHandler{
 	
 	func newDrawingButtonPressed() {
-		router.presentDrawingScene()
+		router.presentDrawingCanvasScene()
 	}
 	
 	func myPortfolioButtonPressed() {

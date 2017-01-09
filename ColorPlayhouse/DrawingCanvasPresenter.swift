@@ -14,7 +14,7 @@ protocol DrawingCanvasEventHandler {}
 
 final class DrawingCanvasPresenter
 {
-	let router: DrawingCanvasRouter
+	fileprivate let router: DrawingCanvasRouter
 	
 	init(router: DrawingCanvasRouter) {
 		self.router = router

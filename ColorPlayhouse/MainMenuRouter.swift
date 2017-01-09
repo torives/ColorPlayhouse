@@ -14,7 +14,7 @@ final class MainMenuRouter
 	//	This reference must be kept in order to present the child view controllers
 	private weak var mainMenuViewController: MainMenuViewController?
 	
-	func presentMenuInterfaceFrom(window: UIWindow) {
+	func presentMenuSceneFrom(window: UIWindow) {
 		
 		let menuViewController = mainMenuViewControllerFromStoryboard()
 		let menuPresenter = MainMenuPresenter(router: self)
@@ -24,7 +24,7 @@ final class MainMenuRouter
 		window.rootViewController = menuViewController
 	}
 	
-	func presentDrawingScene() {
+	func presentDrawingCanvasScene() {
 		
 		let drawingRouter = DrawingCanvasRouter()
 		

@@ -15,7 +15,7 @@ final class DrawingCanvasRouter
 	
 	func presentDrawingScene(from viewController: UIViewController) {
 		
-		let drawingCanvasViewController = DrawingCanvasViewControllerFromStoryboard()
+		let drawingCanvasViewController = drawingCanvasViewControllerFromStoryboard()
 		let drawingPresenter = DrawingCanvasPresenter(router: self)
 		
 		self.drawingCanvasViewController = drawingCanvasViewController
@@ -24,10 +24,10 @@ final class DrawingCanvasRouter
 		viewController.present(drawingCanvasViewController, animated: true, completion: nil)
 	}
 	
-	func presentDrawingPopUpMenu() {}
+	func presentDrawingCanvasPopUpMenu() {}
 	
 	
-	private func DrawingCanvasViewControllerFromStoryboard() -> DrawingCanvasViewController {
+	private func drawingCanvasViewControllerFromStoryboard() -> DrawingCanvasViewController {
 		
 		let storyboard = UIStoryboard(name: "Drawing", bundle: Bundle.main)
 		let viewController = storyboard.instantiateViewController(withIdentifier: "DrawingCanvasViewController") as! DrawingCanvasViewController

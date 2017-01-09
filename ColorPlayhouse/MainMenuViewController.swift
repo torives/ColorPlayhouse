@@ -10,7 +10,8 @@ import UIKit
 import CloudKit
 
 class MainMenuViewController: UIViewController {
-    var router: MainMenuRouter?
+	
+	var eventHandler: MainMenuSceneEventHandler?
 
     @IBOutlet weak var newDrawingOutlet: UIButton!
     @IBOutlet weak var myPortfolioOutlet: UIButton!
@@ -43,12 +44,13 @@ class MainMenuViewController: UIViewController {
     }
 }
 
+//	TODO: Remove this forever
 //MARK:- Segue Handling
-extension MainMenuViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        router?.passDataToNextScene(segue)
-    }
-}
+//extension MainMenuViewController {
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        router?.passDataToNextScene(segue)
+//    }
+//}
 
 
 //MARK:- Alert Controller

@@ -10,6 +10,8 @@ import UIKit
 
 class PortfolioViewController: UIViewController, UICollectionViewDelegate {
 
+	var eventHandler: PortfolioEventHandler?
+	
     var imageToPass: UIImage!
     var videoDataToPass: NSData!
     var recordIDToPass: String!

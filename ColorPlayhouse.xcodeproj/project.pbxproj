@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F04F7221DD2775100A5DFB1 /* MainMenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F04F7211DD2775100A5DFB1 /* MainMenuRouter.swift */; };
-		4F04F7251DD2777200A5DFB1 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F04F7241DD2777200A5DFB1 /* MainRouter.swift */; };
+		4F04F7251DD2777200A5DFB1 /* MainMenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F04F7241DD2777200A5DFB1 /* MainMenuRouter.swift */; };
 		4F1025321DF0B9E600878362 /* CPFocusableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1025311DF0B9E600878362 /* CPFocusableButton.swift */; };
+		4F4FF81A1E23FD7200D14C1B /* MainMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FF8191E23FD7200D14C1B /* MainMenuPresenter.swift */; };
+		4F4FF81C1E24006300D14C1B /* DrawingCanvasRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FF81B1E24006300D14C1B /* DrawingCanvasRouter.swift */; };
+		4F4FF81E1E2401F200D14C1B /* DrawingCanvasPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FF81D1E2401F200D14C1B /* DrawingCanvasPresenter.swift */; };
+		4F4FF8201E24035900D14C1B /* PortfolioRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FF81F1E24035900D14C1B /* PortfolioRouter.swift */; };
+		4F4FF8221E2403E700D14C1B /* PortfolioPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FF8211E2403E700D14C1B /* PortfolioPresenter.swift */; };
 		4FE2D7DB1DF88EA9002BFD7E /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D7D91DF88EA9002BFD7E /* Remote.swift */; };
 		4FE2D7DC1DF88EA9002BFD7E /* RemoteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D7DA1DF88EA9002BFD7E /* RemoteHandler.swift */; };
 		4FE2D7E01DF88FB7002BFD7E /* PointerMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D7DF1DF88FB7002BFD7E /* PointerMotion.swift */; };
@@ -22,7 +26,7 @@
 		4FE2D7EF1DF88FFC002BFD7E /* VPFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D7EC1DF88FFC002BFD7E /* VPFunctions.swift */; };
 		4FEF41D81DD4DD9D00D185EC /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41D71DD4DD9D00D185EC /* PortfolioViewController.swift */; };
 		4FEF41E71DD4E60700D185EC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41E61DD4E60700D185EC /* Router.swift */; };
-		4FEF41EA1DD4F49600D185EC /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41E91DD4F49600D185EC /* DrawingViewController.swift */; };
+		4FEF41EA1DD4F49600D185EC /* DrawingCanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41E91DD4F49600D185EC /* DrawingCanvasViewController.swift */; };
 		4FEF41F21DD625C900D185EC /* DrawingShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41F11DD625C900D185EC /* DrawingShapeLayer.swift */; };
 		4FEF41F61DD643A500D185EC /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41F51DD643A500D185EC /* Geometry.swift */; };
 		4FEF41F81DD6550900D185EC /* DrawingElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF41F71DD6550900D185EC /* DrawingElement.swift */; };
@@ -30,6 +34,7 @@
 		4FFAAD8A1E1D243100D3013E /* Drawing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F5B51E41E1D22B2008042FB /* Drawing.storyboard */; };
 		4FFAAD8B1E1D243300D3013E /* Portfolio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F5B51DF1E1D1EFF008042FB /* Portfolio.storyboard */; };
 		4FFAAD8C1E1D243500D3013E /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F5B51E71E1D22C1008042FB /* Tutorial.storyboard */; };
+		4FFAAD8E1E1D7DB700D3013E /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFAAD8D1E1D7DB700D3013E /* Configurator.swift */; };
 		6E121BEC1DEC73E400BCA1E7 /* PortfolioDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E121BEB1DEC73E400BCA1E7 /* PortfolioDetailViewController.swift */; };
 		6E6DACD91DD23CE600C8ADD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */; };
 		6E6DACDB1DD23CE600C8ADD6 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DACDA1DD23CE600C8ADD6 /* MainMenuViewController.swift */; };
@@ -64,9 +69,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4F04F7211DD2775100A5DFB1 /* MainMenuRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuRouter.swift; sourceTree = "<group>"; };
-		4F04F7241DD2777200A5DFB1 /* MainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		4F04F7241DD2777200A5DFB1 /* MainMenuRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuRouter.swift; sourceTree = "<group>"; };
 		4F1025311DF0B9E600878362 /* CPFocusableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFocusableButton.swift; sourceTree = "<group>"; };
+		4F4FF8191E23FD7200D14C1B /* MainMenuPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuPresenter.swift; sourceTree = "<group>"; };
+		4F4FF81B1E24006300D14C1B /* DrawingCanvasRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingCanvasRouter.swift; sourceTree = "<group>"; };
+		4F4FF81D1E2401F200D14C1B /* DrawingCanvasPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingCanvasPresenter.swift; sourceTree = "<group>"; };
+		4F4FF81F1E24035900D14C1B /* PortfolioRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioRouter.swift; sourceTree = "<group>"; };
+		4F4FF8211E2403E700D14C1B /* PortfolioPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioPresenter.swift; sourceTree = "<group>"; };
 		4F5B51E01E1D1EFF008042FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Portfolio.storyboard; sourceTree = "<group>"; };
 		4F5B51E51E1D22B2008042FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Drawing.storyboard; sourceTree = "<group>"; };
 		4F5B51E81E1D22C1008042FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tutorial.storyboard; sourceTree = "<group>"; };
@@ -82,10 +91,11 @@
 		4FE2D7EC1DF88FFC002BFD7E /* VPFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPFunctions.swift; sourceTree = "<group>"; };
 		4FEF41D71DD4DD9D00D185EC /* PortfolioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
 		4FEF41E61DD4E60700D185EC /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		4FEF41E91DD4F49600D185EC /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
+		4FEF41E91DD4F49600D185EC /* DrawingCanvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DrawingCanvasViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4FEF41F11DD625C900D185EC /* DrawingShapeLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingShapeLayer.swift; sourceTree = "<group>"; };
 		4FEF41F51DD643A500D185EC /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		4FEF41F71DD6550900D185EC /* DrawingElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingElement.swift; sourceTree = "<group>"; };
+		4FFAAD8D1E1D7DB700D3013E /* Configurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Configurator.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6E121BEB1DEC73E400BCA1E7 /* PortfolioDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioDetailViewController.swift; sourceTree = "<group>"; };
 		6E6DACD51DD23CE600C8ADD6 /* ColorPlayhouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPlayhouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,7 +117,7 @@
 		F533163B1DE7C0190052AE7B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F533163C1DE7C0190052AE7B /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		F533163D1DE7C0190052AE7B /* FBSDKTVOSKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKTVOSKit.framework; sourceTree = "<group>"; };
-		F54FF4191DE377870020E547 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		F54FF4191DE377870020E547 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PopUpViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F54FF41B1DE3780B0020E547 /* TimelapseBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelapseBuilder.swift; sourceTree = "<group>"; };
 		F583CE2B1DD640A4001B17EE /* ColorPlayhouse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColorPlayhouse.entitlements; sourceTree = "<group>"; };
 		F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataAccessObject.swift; sourceTree = "<group>"; };
@@ -147,14 +157,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		4F04F71C1DD276EC00A5DFB1 /* MainMenuScene */ = {
+		4F04F71C1DD276EC00A5DFB1 /* Main Menu */ = {
 			isa = PBXGroup;
 			children = (
 				6E6DACDC1DD23CE600C8ADD6 /* Main.storyboard */,
+				4F04F7241DD2777200A5DFB1 /* MainMenuRouter.swift */,
 				6E6DACDA1DD23CE600C8ADD6 /* MainMenuViewController.swift */,
-				4F04F7211DD2775100A5DFB1 /* MainMenuRouter.swift */,
+				4F4FF8191E23FD7200D14C1B /* MainMenuPresenter.swift */,
 			);
-			name = MainMenuScene;
+			name = "Main Menu";
 			sourceTree = "<group>";
 		};
 		4F04F7231DD2776600A5DFB1 /* Common */ = {
@@ -162,9 +173,9 @@
 			children = (
 				4F1025311DF0B9E600878362 /* CPFocusableButton.swift */,
 				F583CE2F1DD6443E001B17EE /* DataAccessObject.swift */,
-				4F04F7241DD2777200A5DFB1 /* MainRouter.swift */,
 				4FEF41E61DD4E60700D185EC /* Router.swift */,
 				F54FF41B1DE3780B0020E547 /* TimelapseBuilder.swift */,
+				4FFAAD8D1E1D7DB700D3013E /* Configurator.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -231,28 +242,32 @@
 			name = "Screen Drawing";
 			sourceTree = "<group>";
 		};
-		4FEF41D61DD4DD6900D185EC /* PorfolioScene */ = {
+		4FEF41D61DD4DD6900D185EC /* Porfolio */ = {
 			isa = PBXGroup;
 			children = (
 				4F5B51DF1E1D1EFF008042FB /* Portfolio.storyboard */,
+				4F4FF81F1E24035900D14C1B /* PortfolioRouter.swift */,
+				4F4FF8211E2403E700D14C1B /* PortfolioPresenter.swift */,
 				4FEF41D71DD4DD9D00D185EC /* PortfolioViewController.swift */,
 				6E9C5E541DDF95B500A33773 /* PortfolioCell.swift */,
 				6E121BEB1DEC73E400BCA1E7 /* PortfolioDetailViewController.swift */,
 				F5B248311DE70F4A00F03ECE /* RemoteImageView */,
 			);
-			name = PorfolioScene;
+			name = Porfolio;
 			sourceTree = "<group>";
 		};
-		4FEF41E81DD4F45500D185EC /* DrawingScene */ = {
+		4FEF41E81DD4F45500D185EC /* Drawing Canvas */ = {
 			isa = PBXGroup;
 			children = (
 				4F5B51E41E1D22B2008042FB /* Drawing.storyboard */,
-				4FEF41E91DD4F49600D185EC /* DrawingViewController.swift */,
+				4FEF41E91DD4F49600D185EC /* DrawingCanvasViewController.swift */,
+				4F4FF81B1E24006300D14C1B /* DrawingCanvasRouter.swift */,
+				4F4FF81D1E2401F200D14C1B /* DrawingCanvasPresenter.swift */,
 				4FE2D7F11DF89038002BFD7E /* Screen Drawing */,
 				4FE2D7DE1DF88F7B002BFD7E /* Input Handling */,
 				F54FF4181DE377700020E547 /* PopUp */,
 			);
-			name = DrawingScene;
+			name = "Drawing Canvas";
 			sourceTree = "<group>";
 		};
 		6E6DACCC1DD23CE600C8ADD6 = {
@@ -279,10 +294,10 @@
 			children = (
 				F583CE2B1DD640A4001B17EE /* ColorPlayhouse.entitlements */,
 				4F04F7231DD2776600A5DFB1 /* Common */,
-				4F04F71C1DD276EC00A5DFB1 /* MainMenuScene */,
-				4FEF41D61DD4DD6900D185EC /* PorfolioScene */,
-				4FEF41E81DD4F45500D185EC /* DrawingScene */,
-				F5224CF71DF8D19A0047A030 /* TutorialScene */,
+				4F04F71C1DD276EC00A5DFB1 /* Main Menu */,
+				4FEF41E81DD4F45500D185EC /* Drawing Canvas */,
+				4FEF41D61DD4DD6900D185EC /* Porfolio */,
+				F5224CF71DF8D19A0047A030 /* Tutorial */,
 				4F04F71B1DD273D000A5DFB1 /* Resources */,
 				6E6DACD81DD23CE600C8ADD6 /* AppDelegate.swift */,
 			);
@@ -298,14 +313,14 @@
 			path = ColorPlayhouseUITests;
 			sourceTree = "<group>";
 		};
-		F5224CF71DF8D19A0047A030 /* TutorialScene */ = {
+		F5224CF71DF8D19A0047A030 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
 				4F5B51E71E1D22C1008042FB /* Tutorial.storyboard */,
 				F5224CF11DF8928D0047A030 /* TutorialPageViewController.swift */,
 				F5224CF51DF8C1720047A030 /* LastTutorialPageViewController.swift */,
 			);
-			name = TutorialScene;
+			name = Tutorial;
 			sourceTree = "<group>";
 		};
 		F54FF4181DE377700020E547 /* PopUp */ = {
@@ -463,13 +478,13 @@
 				4FE2D7EF1DF88FFC002BFD7E /* VPFunctions.swift in Sources */,
 				6E6DACDB1DD23CE600C8ADD6 /* MainMenuViewController.swift in Sources */,
 				4FE2D7E51DF88FD3002BFD7E /* Vector3D.swift in Sources */,
+				4F4FF8201E24035900D14C1B /* PortfolioRouter.swift in Sources */,
 				4FE2D7DB1DF88EA9002BFD7E /* Remote.swift in Sources */,
 				6E6DACD91DD23CE600C8ADD6 /* AppDelegate.swift in Sources */,
 				F5224CF61DF8C1720047A030 /* LastTutorialPageViewController.swift in Sources */,
 				F54FF41A1DE377870020E547 /* PopUpViewController.swift in Sources */,
 				4FE2D7E71DF88FD3002BFD7E /* MExtensions.swift in Sources */,
 				4FE2D7E81DF88FD3002BFD7E /* MOperators.swift in Sources */,
-				4F04F7221DD2775100A5DFB1 /* MainMenuRouter.swift in Sources */,
 				4FEF41D81DD4DD9D00D185EC /* PortfolioViewController.swift in Sources */,
 				4FE2D7DC1DF88EA9002BFD7E /* RemoteHandler.swift in Sources */,
 				4FEF41F61DD643A500D185EC /* Geometry.swift in Sources */,
@@ -479,12 +494,17 @@
 				6E9C5E551DDF95B500A33773 /* PortfolioCell.swift in Sources */,
 				4FE2D7ED1DF88FFC002BFD7E /* Controller.swift in Sources */,
 				4FEF41F21DD625C900D185EC /* DrawingShapeLayer.swift in Sources */,
-				4FEF41EA1DD4F49600D185EC /* DrawingViewController.swift in Sources */,
+				4FEF41EA1DD4F49600D185EC /* DrawingCanvasViewController.swift in Sources */,
 				F5B2482F1DE70DE700F03ECE /* UIRemoteImageView.swift in Sources */,
+				4F4FF81E1E2401F200D14C1B /* DrawingCanvasPresenter.swift in Sources */,
 				4FEF41F81DD6550900D185EC /* DrawingElement.swift in Sources */,
-				4F04F7251DD2777200A5DFB1 /* MainRouter.swift in Sources */,
+				4F04F7251DD2777200A5DFB1 /* MainMenuRouter.swift in Sources */,
 				F54FF41C1DE3780B0020E547 /* TimelapseBuilder.swift in Sources */,
+				4F4FF81A1E23FD7200D14C1B /* MainMenuPresenter.swift in Sources */,
 				F583CE301DD6443E001B17EE /* DataAccessObject.swift in Sources */,
+				4FFAAD8E1E1D7DB700D3013E /* Configurator.swift in Sources */,
+				4F4FF8221E2403E700D14C1B /* PortfolioPresenter.swift in Sources */,
+				4F4FF81C1E24006300D14C1B /* DrawingCanvasRouter.swift in Sources */,
 				6E121BEC1DEC73E400BCA1E7 /* PortfolioDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

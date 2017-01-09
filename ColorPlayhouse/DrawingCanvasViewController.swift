@@ -1,5 +1,5 @@
 //
-//  DrawingViewController.swift
+//  DrawingCanvasViewController.swift
 //  ColorPlayhouse
 //
 //  Created by Victor Yves Crispim on 11/5/16.
@@ -8,7 +8,9 @@
 
 import UIKit
 
-class DrawingViewController: UIViewController {
+class DrawingCanvasViewController: UIViewController {
+	
+	var eventHandler: DrawingCanvasEventHandler?
 	
 	//MARK: - Properties
 	//MARK: Outlets
@@ -541,7 +543,7 @@ class DrawingViewController: UIViewController {
 	}
 }
 
-extension DrawingViewController: RemoteHandler
+extension DrawingCanvasViewController: RemoteHandler
 {
 	func remoteDidMove() {
 		

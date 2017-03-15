@@ -19,7 +19,7 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
     var savedImages = [UIImage]()
     var videoData = [NSData]()
     
-    let DAO = DataAccessObject.sharedInstance
+	//let DAO = DataAccessObject.sharedInstance
     var didFinishFetchingImages = false
     
     @IBOutlet weak var portfolioCollection: UICollectionView!
@@ -38,24 +38,24 @@ class PortfolioViewController: UIViewController, UICollectionViewDelegate {
 	}
     
     func fetchData() {
-        DAO.fetchUserImages { (assets) in
-            for asset in assets! {
-                let recordID = asset.0
-                let imageURL = asset.1.fileURL
-                let videoURL = asset.2.fileURL
-                let imageData = NSData(contentsOf: imageURL)
-                let videoData = NSData(contentsOf: videoURL)
-                
-                self.recordIDs.append(recordID)
-                self.savedImages.append(UIImage(data: imageData as! Data)!)
-                self.videoData.append(videoData!)
-            }
-            self.didFinishFetchingImages = true
-            
-            DispatchQueue.main.async {
-                self.portfolioCollection.reloadData()
-            }
-        }
+//        DAO.fetchUserImages { (assets) in
+//            for asset in assets! {
+//                let recordID = asset.0
+//                let imageURL = asset.1.fileURL
+//                let videoURL = asset.2.fileURL
+//                let imageData = NSData(contentsOf: imageURL)
+//                let videoData = NSData(contentsOf: videoURL)
+//                
+//                self.recordIDs.append(recordID)
+//                self.savedImages.append(UIImage(data: imageData as! Data)!)
+//                self.videoData.append(videoData!)
+//            }
+//            self.didFinishFetchingImages = true
+//            
+//            DispatchQueue.main.async {
+//                self.portfolioCollection.reloadData()
+//            }
+//        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -91,12 +91,16 @@ extension PortfolioViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         let defaults = UserDefaults.standard
-        let numberOfArtwork = defaults.object(forKey: "numberOfArtwork") as! Int
-        
-        if numberOfArtwork > 0 { noDrawings.isHidden = true }
-		else{ noDrawings.isHidden = false }
+        let numberOfArtwork = defaults.object(forKey: "numberOfArtwork") as? Int
 		
-		return numberOfArtwork
+		guard let artwork = numberOfArtwork, artwork > 0 else {
+			noDrawings.isHidden = false
+			return 0
+		}
+		
+		noDrawings.isHidden = true
+		
+		return artwork
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

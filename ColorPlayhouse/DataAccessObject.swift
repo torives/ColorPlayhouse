@@ -1,4 +1,4 @@
-//
+////
 //  DataAccessObject.swift
 //  ColorPlayhouse
 //
@@ -13,7 +13,7 @@ import UIKit
 struct DataAccessObject {
     private init() {}
     
-    static let sharedInstance = DataAccessObject()
+	static let sharedInstance = DataAccessObject()
     
     let publicDatabase = CKContainer(identifier: "iCloud.com.bpy.ColorPlayhouse").publicCloudDatabase
     

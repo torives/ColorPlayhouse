@@ -41,7 +41,6 @@
 		6E6DACE01DD23CE600C8ADD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DACDF1DD23CE600C8ADD6 /* Assets.xcassets */; };
 		6E9C5E551DDF95B500A33773 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C5E541DDF95B500A33773 /* PortfolioCell.swift */; };
 		6E9C5E961DE4487500A33773 /* ColorPlayhouseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C5E951DE4487500A33773 /* ColorPlayhouseUITests.swift */; };
-		6EE2827A1DDE256400600C95 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE282791DDE256400600C95 /* CloudKit.framework */; };
 		6EED23B21DF89EDD00207DF8 /* Signika-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6EED23AE1DF89EDD00207DF8 /* Signika-Bold.otf */; };
 		6EED23B31DF89EDD00207DF8 /* Signika-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6EED23AF1DF89EDD00207DF8 /* Signika-Light.otf */; };
 		6EED23B41DF89EDD00207DF8 /* Signika-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6EED23B01DF89EDD00207DF8 /* Signika-Regular.otf */; };
@@ -107,7 +106,6 @@
 		6E9C5E931DE4487500A33773 /* ColorPlayhouseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorPlayhouseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E9C5E951DE4487500A33773 /* ColorPlayhouseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPlayhouseUITests.swift; sourceTree = "<group>"; };
 		6E9C5E971DE4487500A33773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6EE282791DDE256400600C95 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		6EED23AE1DF89EDD00207DF8 /* Signika-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Bold.otf"; sourceTree = "<group>"; };
 		6EED23AF1DF89EDD00207DF8 /* Signika-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Light.otf"; sourceTree = "<group>"; };
 		6EED23B01DF89EDD00207DF8 /* Signika-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Regular.otf"; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F53316401DE7C0190052AE7B /* FBSDKTVOSKit.framework in Frameworks */,
-				6EE2827A1DDE256400600C95 /* CloudKit.framework in Frameworks */,
 				F533163E1DE7C0190052AE7B /* FBSDKCoreKit.framework in Frameworks */,
 				F533163F1DE7C0190052AE7B /* FBSDKShareKit.framework in Frameworks */,
 			);
@@ -337,7 +334,6 @@
 				F533163B1DE7C0190052AE7B /* FBSDKCoreKit.framework */,
 				F533163C1DE7C0190052AE7B /* FBSDKShareKit.framework */,
 				F533163D1DE7C0190052AE7B /* FBSDKTVOSKit.framework */,
-				6EE282791DDE256400600C95 /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -401,15 +397,15 @@
 				TargetAttributes = {
 					6E6DACD41DD23CE600C8ADD6 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = N363X9XN35;
+						DevelopmentTeam = D4QEWF5RB3;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.iCloud = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -662,8 +658,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = ColorPlayhouse/ColorPlayhouse.entitlements;
-				DEVELOPMENT_TEAM = N363X9XN35;
+				DEVELOPMENT_TEAM = D4QEWF5RB3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -684,8 +679,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = ColorPlayhouse/ColorPlayhouse.entitlements;
-				DEVELOPMENT_TEAM = N363X9XN35;
+				DEVELOPMENT_TEAM = D4QEWF5RB3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -17,12 +17,12 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var myPortfolioOutlet: UIButton!
     
     
-    let DAO = DataAccessObject.sharedInstance
+	//let DAO = DataAccessObject.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        authenticateUser()
+		//authenticateUser()
     }
 
 	@IBAction func newDrawingButtonPressed(_ sender: Any) {
@@ -33,23 +33,23 @@ class MainMenuViewController: UIViewController {
 		eventHandler?.myPortfolioButtonPressed()
 	}
 	
-	func authenticateUser() {
-        CKContainer.default().accountStatus { (accountStatus, error) in
-            if accountStatus == .noAccount {
-                self.presentCloudKitAlertController()
-            }
-            // user logged in
-            else {
-                let defaults = UserDefaults.standard
-                
-                // user does not exist
-                if defaults.object(forKey: "userID") == nil {
-                    self.DAO.createUser()
-                }
-            }
-        }
-
-    }
+//	func authenticateUser() {
+//        CKContainer.default().accountStatus { (accountStatus, error) in
+//            if accountStatus == .noAccount {
+//                self.presentCloudKitAlertController()
+//            }
+//            // user logged in
+//            else {
+//                let defaults = UserDefaults.standard
+//                
+//                // user does not exist
+//                if defaults.object(forKey: "userID") == nil {
+//                    self.DAO.createUser()
+//                }
+//            }
+//        }
+//
+//    }
 }
 
 //	TODO: Remove this forever
